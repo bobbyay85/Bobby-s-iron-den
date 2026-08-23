@@ -6,6 +6,7 @@
     <meta name="description" content="Bobby's Iron Den — elite suburban fitness, expert coaching, strength training and a community built for serious results in Ogbomoso, Nigeria.">
     <meta name="theme-color" content="#050505">
     <title>Bobby's Iron Den | Elite Suburban Fitness</title>
+    <link rel="icon" type="image/png" href="assets/bobby-logo.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
@@ -101,12 +102,8 @@
 <!-- NAVBAR -->
 <nav class="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-neutral-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
-        <a href="#" class="flex items-center gap-3">
-            <img src="assets/bobby-logo.png" alt="Bobby's Iron Den logo" class="logo-mark">
-            <div class="leading-none">
-                <div class="text-white text-xl font-black italic uppercase">Bobby's</div>
-                <div class="text-white text-xl font-black italic uppercase">Iron Den</div>
-            </div>
+        <a href="#" class="flex items-center" aria-label="Bobby's Iron Den home">
+            <img src="assets/bobby-logo.png" alt="Bobby's Iron Den logo" class="h-14 w-auto max-w-[190px] object-contain">
         </a>
 
         <div class="hidden md:flex items-center gap-7 font-bold text-xs uppercase tracking-widest">
@@ -167,13 +164,9 @@
         </div>
 
         <div class="hidden lg:block">
-            <div class="border border-neutral-700 bg-neutral-900/70 p-5 shadow-2xl">
-                <div class="aspect-[4/5] bg-gradient-to-br from-neutral-800 via-neutral-950 to-black flex items-center justify-center overflow-hidden">
-                    <div class="text-center px-8">
-                        <div class="text-red-600 text-8xl italic-black mb-3">B</div>
-                        <div class="text-white text-5xl italic-black">IRON DEN</div>
-                        <div class="text-neutral-500 text-xs font-bold uppercase tracking-[.4em] mt-4">Built Different</div>
-                    </div>
+            <div class="border border-neutral-700 bg-neutral-900 p-3 shadow-2xl">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="assets/gym-hero.jpg" alt="Bobby's Iron Den gym interior" class="w-full h-full object-cover">
                 </div>
                 <div class="flex justify-between pt-5 text-xs uppercase tracking-widest font-bold">
                     <span class="text-neutral-400">Strength</span>
@@ -190,8 +183,8 @@
     <div class="max-w-7xl mx-auto px-4">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="grid grid-cols-2 gap-4">
-                <div class="bg-black aspect-[3/4] flex items-center justify-center p-6">
-                    <img src="assets/bobby-logo.png" alt="Bobby's Iron Den brand" class="w-full h-full object-cover rounded-lg">
+                <div class="bg-black aspect-[3/4] overflow-hidden">
+                    <img src="assets/gym-training.jpg" alt="Strength training at Bobby's Iron Den" class="w-full h-full object-cover">
                 </div>
                 <div class="space-y-4">
                     <div class="bg-neutral-900 h-1/2 flex items-center justify-center p-8">
@@ -269,13 +262,9 @@
             </p>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-800 p-10">
-            <div class="aspect-video bg-gradient-to-br from-neutral-800 to-black flex items-center justify-center">
-                <div class="text-center">
-                    <img src="assets/bobby-logo.png" alt="Bobby's Iron Den" class="w-32 h-32 object-cover rounded-xl mx-auto mb-5">
-                    <div class="text-white text-3xl italic-black">THE DEN</div>
-                    <div class="text-red-500 text-xs font-bold uppercase tracking-[.35em] mt-2">Ogbomoso, Nigeria</div>
-                </div>
+        <div class="bg-neutral-900 border border-neutral-800 p-3">
+            <div class="aspect-video overflow-hidden">
+                <img src="assets/gym-exterior.jpg" alt="Bobby's Iron Den exterior" class="w-full h-full object-cover">
             </div>
         </div>
     </div>
