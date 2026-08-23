@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bobby's Iron Den | Elite Suburban Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --iron-red: #dc2626;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .italic-black {
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+        }
+        .den-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e5e5;
+        }
+        .den-card:hover {
+            border-color: var(--iron-red);
+            transform: translateY(-5px);
+        }
+        .tab-active {
+            border-bottom: 4px solid var(--iron-red);
+            color: var(--iron-red);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900"><!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
+        <div class="flex items-center gap-2">
+            <div class="bg-red-600 p-2 rounded-lg">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <span class="text-2xl italic-black">Bobby's Iron Den</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 font-bold text-xs uppercase tracking-widest">
+            <a href="#sessions" class="hover:text-red-600">Sessions</a>
+            <a href="#coaches" class="hover:text-red-600">Coaches</a>
+            <a href="#memberships" class="hover:text-red-600">Memberships</a>
+            <a href="#contact" class="bg-red-600 text-white px-6 py-3 hover:bg-black transition-all">Join the Den</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-neutral-50 -z-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center w-full">
+        <div>
+            <div class="inline-block bg-red-600 text-white px-4 py-1 text-xs font-black uppercase tracking-widest mb-6">Elite Suburban Fitness</div>
+            <h1 class="text-7xl md:text-9xl italic-black leading-[0.85] mb-8">Forging <br><span class="text-red-600">Stronger</span> <br>Humans.</h1>
+            <p class="text-xl text-neutral-600 max-w-md mb-10 font-medium">Experience the difference of elite equipment and personalized training in a community built for serious results.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#contact" class="bg-black text-white px-10 py-5 text-lg font-bold uppercase tracking-widest hover:bg-red-600 transition-all text-center">Free 3-Day Pass</a>
+                <a href="#contact" class="border-2 border-black px-10 py-5 text-lg font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all text-center">Book Consultation</a>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="aspect-[4/5] bg-neutral-200 border-[12px] border-white shadow-2xl overflow-hidden">
+                <img src="https://picsum.photos/seed/iron/800/1000" alt="Gym" class="w-full h-full object-cover grayscale">
+            </div>
+            <div class="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl border-l-8 border-red-600">
+                <div class="text-4xl italic-black">ELITE</div>
+                <div class="text-xs font-bold uppercase tracking-widest text-neutral-400">Equipment</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sessions -->
+<section id="sessions" class="py-24 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="mb-16">
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">The Den Lineup</div>
+            <h2 class="text-6xl italic-black">Training <span class="text-neutral-400">Sessions</span></h2>
+        </div>
+        <div class="flex gap-8 border-b border-neutral-200 mb-12 overflow-x-auto">
+            <button class="pb-4 text-lg italic-black tab-active">Mon</button>
+            <button class="pb-4 text-lg italic-black text-neutral-400 hover:text-black">Tue</button>
+            <button class="pb-4 text-lg italic-black text-neutral-400 hover:text-black">Wed</button>
+            <button class="pb-4 text-lg italic-black text-neutral-400 hover:text-black">Thu</button>
+            <button class="pb-4 text-lg italic-black text-neutral-400 hover:text-black">Fri</button>
+        </div>
+        <div class="space-y-4">
+            <div class="bg-white p-8 flex flex-col md:flex-row justify-between items-center border border-neutral-200 hover:border-black transition-all">
+                <div class="flex items-center gap-12">
+                    <div class="text-3xl italic-black">06:00 AM</div>
+                    <div>
+                        <h3 class="text-2xl italic-black">Power Hour</h3>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-400">Trainer: Alex • Intensity: Extreme</div>
+                    </div>
+                </div>
+                <button class="mt-4 md:mt-0 bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-red-600">Book Now</button>
+            </div>
+            <div class="bg-white p-8 flex flex-col md:flex-row justify-between items-center border border-neutral-200 hover:border-black transition-all">
+                <div class="flex items-center gap-12">
+                    <div class="text-3xl italic-black">09:00 AM</div>
+                    <div>
+                        <h3 class="text-2xl italic-black">Iron Strength</h3>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-400">Trainer: Mike • Intensity: High</div>
+                    </div>
+                </div>
+                <button class="mt-4 md:mt-0 bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-red-600">Book Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Coaches -->
+<section id="coaches" class="py-24">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20">
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">The Coaches</div>
+            <h2 class="text-6xl italic-black">Expert <span class="text-neutral-400">Guidance</span></h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="group">
+                <div class="aspect-[3/4] bg-neutral-100 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition-all">
+                    <img src="https://picsum.photos/seed/coach1/600/800" alt="Coach" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <h3 class="text-3xl italic-black">Alex Rivera</h3>
+                <div class="text-red-600 font-bold text-xs uppercase tracking-widest mb-4">Head Coach</div>
+                <p class="text-neutral-500 font-medium">Specializing in functional strength and high-intensity conditioning.</p>
+            </div>
+            <div class="group">
+                <div class="aspect-[3/4] bg-neutral-100 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition-all">
+                    <img src="https://picsum.photos/seed/coach2/600/800" alt="Coach" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <h3 class="text-3xl italic-black">Sarah Chen</h3>
+                <div class="text-red-600 font-bold text-xs uppercase tracking-widest mb-4">Nutrition Expert</div>
+                <p class="text-neutral-500 font-medium">Focused on sustainable performance and recovery through science.</p>
+            </div>
+            <div class="group">
+                <div class="aspect-[3/4] bg-neutral-100 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition-all">
+                    <img src="https://picsum.photos/seed/coach3/600/800" alt="Coach" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <h3 class="text-3xl italic-black">Mike Johnson</h3>
+                <div class="text-red-600 font-bold text-xs uppercase tracking-widest mb-4">Power Coach</div>
+                <p class="text-neutral-500 font-medium">Specializes in explosive power and heavy lifting for all levels.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Memberships -->
+<section id="memberships" class="py-24 bg-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] text-[20vw] italic-black whitespace-nowrap pointer-events-none">THE IRON DEN</div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-20">
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">Pricing</div>
+            <h2 class="text-6xl italic-black">Join the <span class="text-neutral-600">Den</span></h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-10 border-2 border-neutral-800 bg-black hover:border-red-600 transition-all">
+                <h3 class="text-2xl italic-black mb-4">Starter</h3>
+                <div class="text-5xl italic-black mb-8">$79 <span class="text-xs text-neutral-500">/ mo</span></div>
+                <ul class="space-y-4 mb-10 text-xs font-bold uppercase tracking-widest">
+                    <li class="flex items-center gap-2">8 Sessions / Month</li>
+                    <li class="flex items-center gap-2">Locker Access</li>
+                </ul>
+                <button onclick="payWithPaystack(79000)" class="w-full py-4 bg-white text-black italic-black hover:bg-red-600 hover:text-white transition-all">Select Plan</button>
+            </div>
+            <div class="p-10 border-2 border-red-600 bg-neutral-900 scale-105">
+                <h3 class="text-2xl italic-black mb-4">Unlimited</h3>
+                <div class="text-5xl italic-black mb-8">$149 <span class="text-xs text-neutral-500">/ mo</span></div>
+                <ul class="space-y-4 mb-10 text-xs font-bold uppercase tracking-widest">
+                    <li class="flex items-center gap-2">Unlimited Sessions</li>
+                    <li class="flex items-center gap-2">Priority Booking</li>
+                    <li class="flex items-center gap-2">Free T-Shirt</li>
+                </ul>
+                <button onclick="payWithPaystack(149000)" class="w-full py-4 bg-red-600 text-white italic-black hover:bg-white hover:text-black transition-all">Select Plan</button>
+            </div>
+            <div class="p-10 border-2 border-neutral-800 bg-black hover:border-red-600 transition-all">
+                <h3 class="text-2xl italic-black mb-4">Pro</h3>
+                <div class="text-5xl italic-black mb-8">$199 <span class="text-xs text-neutral-500">/ mo</span></div>
+                <ul class="space-y-4 mb-10 text-xs font-bold uppercase tracking-widest">
+                    <li class="flex items-center gap-2">Everything in Unlimited</li>
+                    <li class="flex items-center gap-2">1-on-1 Monthly Check-in</li>
+                </ul>
+                <button onclick="payWithPaystack(199000)" class="w-full py-4 bg-white text-black italic-black hover:bg-red-600 hover:text-white transition-all">Select Plan</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">Got Questions?</div>
+            <h2 class="text-6xl italic-black">The <span class="text-neutral-400">Intel</span></h2>
+        </div>
+        <div class="space-y-4">
+            <div class="accordion-item border-b border-neutral-200">
+                <button class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600 transition-all" onclick="toggleAccordion(this)">
+                    <span>What makes the Iron Den different?</span>
+                    <svg class="w-6 h-6 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                    <p class="pb-6 text-neutral-500 font-medium">We focus on elite equipment, personalized training, and a community that actually knows your name.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-24 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">Get In Touch</div>
+            <h2 class="text-7xl italic-black mb-8">Enter The <br><span class="text-neutral-700">Den.</span></h2>
+            <div class="space-y-6 text-xl italic-black">
+                <div>Ogbomoso, Nigeria</div>
+                <div>+234 7025591999</div>
+            </div>
+        </div>
+        <div class="bg-white p-10 border-l-8 border-red-600">
+            <form class="space-y-6 text-black">
+                <input type="text" placeholder="FULL NAME" class="w-full bg-neutral-100 border p-4">
+                <input type="email" placeholder="EMAIL" class="w-full bg-neutral-100 border p-4">
+                <textarea rows="4" placeholder="YOUR GOALS" class="w-full bg-neutral-100 border p-4"></textarea>
+                <button class="w-full py-5 bg-red-600 text-white italic-black">Send</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 bg-neutral-50 border-t text-center">
+    <div class="text-2xl italic-black mb-4">Bobby's Iron Den</div>
+    <div class="text-xs">© 2024 All Rights Reserved.</div>
+</footer>
+
+<a href="https://wa.me/2347025591999" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50px;">WhatsApp</a>
+
+<script>
+    function toggleAccordion(btn){
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+    }
+</script>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    function payWithPaystack(amount){
+        let handler = PaystackPop.setup({
+            key: 'pk_test_b843ef92241203d015e3c0f4bcd65bf4316b3b61',
+            email: 'customer@email.com',
+            amount: amount,
+            currency: "NGN",
+            callback: function(response){
+                alert('Payment successful! Ref: ' + response.reference);
+            },
+            onClose: function(){
+                alert('Transaction cancelled');
+            }
+        });
+        handler.openIframe();
+    }
+</script>
+
+</body>
+</html>
