@@ -17,7 +17,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Space+Grotesk:wght@300;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -33,7 +33,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #050505;
+            background: #fff;
             color: #111;
             overflow-x: hidden;
         }
@@ -53,80 +53,29 @@
             color: var(--iron-gold);
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* ================================
+           LOGO
+        ================================= */
 
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s ease;
+        .logo-mark {
+            height: 54px;
+            width: 54px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
         }
 
-        .mobile-menu.open {
-            max-height: 500px;
+        .logo-full {
+            width: 190px;
+            height: 68px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
         }
 
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            background-image:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.95) 0%,
-                    rgba(0,0,0,.82) 40%,
-                    rgba(0,0,0,.45) 75%,
-                    rgba(0,0,0,.7) 100%
-                ),
-                url("gym-hero.jpg");
-
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* =========================
-           PHOTO BACKGROUNDS
-        ========================= */
-
-        .photo-section {
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .photo-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,.78);
-        }
-
-        .photo-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-bg {
-            background-image: url("gym-training.jpg");
-        }
-
-        .hours-bg {
-            background-image: url("gym-exterior.jpg");
-        }
-
-        .membership-bg {
-            background-image: url("gym-membership.jpg");
-        }
-
-        /* =========================
+        /* ================================
            CARDS
-        ========================= */
+        ================================= */
 
         .den-card {
             transition: all .3s ease;
@@ -135,65 +84,167 @@
 
         .den-card:hover {
             border-color: var(--iron-red);
-            transform: translateY(-7px);
-            box-shadow: 0 20px 40px rgba(0,0,0,.12);
+            transform: translateY(-5px);
         }
 
-        /* =========================
-           SLIDER
-        ========================= */
+        /* ================================
+           HERO BACKGROUND
+        ================================= */
 
-        .feature-slider {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            padding-bottom: 10px;
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: #050505;
         }
 
-        .feature-slider::-webkit-scrollbar {
-            display: none;
+        /*
+        IMPORTANT:
+        The image now covers the ENTIRE hero.
+        This prevents the split-screen problem.
+        */
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
         }
 
-        .feature-slide {
-            min-width: 85%;
-            scroll-snap-align: start;
+        /*
+        Dark opaque layer over the image.
+        */
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.96) 0%,
+                    rgba(0,0,0,.86) 45%,
+                    rgba(0,0,0,.65) 75%,
+                    rgba(0,0,0,.72) 100%
+                );
         }
 
-        @media (min-width: 768px) {
-            .feature-slide {
-                min-width: 45%;
+        /*
+        Extra darkening on mobile so text remains readable.
+        */
+
+        @media (max-width: 768px) {
+
+            .hero-overlay {
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(0,0,0,.82) 0%,
+                        rgba(0,0,0,.72) 40%,
+                        rgba(0,0,0,.88) 100%
+                    );
+            }
+
+            .hero-background {
+                object-position: center;
             }
         }
 
-        @media (min-width: 1024px) {
-            .feature-slide {
-                min-width: 31%;
+        /* ================================
+           HERO CONTENT
+        ================================= */
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+        }
+
+        /* ================================
+           SLIDE-IN ANIMATIONS
+        ================================= */
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-70px);
+            animation: slideLeft 1s ease forwards;
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(70px);
+            animation: slideRight 1s ease forwards;
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: .2s;
+        }
+
+        .delay-2 {
+            animation-delay: .4s;
+        }
+
+        .delay-3 {
+            animation-delay: .6s;
+        }
+
+        .delay-4 {
+            animation-delay: .8s;
+        }
+
+        @keyframes slideLeft {
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
+
         }
 
-        /* =========================
-           SESSION TABS
-        ========================= */
+        @keyframes slideRight {
 
-        .session-tab {
-            transition: all .2s ease;
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
         }
 
-        .session-tab.active {
-            color: var(--iron-red);
+        @keyframes slideUp {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* ================================
+           TAB
+        ================================= */
+
+        .tab-active {
             border-bottom: 4px solid var(--iron-red);
+            color: var(--iron-red);
         }
 
-        /* =========================
+        /* ================================
            FAQ
-        ========================= */
+        ================================= */
 
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height .35s ease;
+            transition: max-height .3s ease-out;
         }
 
         .accordion-item.active .accordion-content {
@@ -204,39 +255,42 @@
             transform: rotate(180deg);
         }
 
-        /* =========================
-           REVEAL ANIMATION
-        ========================= */
+        /* ================================
+           HOURS
+        ================================= */
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition:
-                opacity .7s ease,
-                transform .7s ease;
+        .hours-row {
+            border-bottom: 1px solid #333;
         }
 
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
+        /* ================================
+           MOBILE MENU
+        ================================= */
+
+        .mobile-menu {
+            display: none;
         }
 
-        /* =========================
-           FLOATING WHATSAPP
-        ========================= */
+        .mobile-menu.open {
+            display: block;
+        }
+
+        /* ================================
+           WHATSAPP
+        ================================= */
 
         .whatsapp-button {
-            animation: pulseWhatsApp 2s infinite;
+            animation: whatsappPulse 2s infinite;
         }
 
-        @keyframes pulseWhatsApp {
+        @keyframes whatsappPulse {
 
             0% {
                 box-shadow: 0 0 0 0 rgba(34,197,94,.5);
             }
 
             70% {
-                box-shadow: 0 0 0 14px rgba(34,197,94,0);
+                box-shadow: 0 0 0 12px rgba(34,197,94,0);
             }
 
             100% {
@@ -245,141 +299,150 @@
 
         }
 
-        /* =========================
-           HERO IMAGE
-        ========================= */
+        /* ================================
+           MOBILE IMPROVEMENTS
+        ================================= */
 
-        .hero-image {
-            transition: transform .5s ease;
-        }
+        @media (max-width: 640px) {
 
-        .hero-image:hover {
-            transform: scale(1.03);
+            .hero {
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding-top: 100px;
+                padding-bottom: 80px;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+                line-height: .9;
+            }
+
         }
 
     </style>
 </head>
 
 
-<body class="bg-black text-white">
+<body class="bg-white text-neutral-900">
 
 
-<!-- =========================================================
+<!-- =====================================================
      NAVBAR
-========================================================= -->
+===================================================== -->
 
-<nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-neutral-800">
+<nav class="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-neutral-800">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
 
-        <div class="flex justify-between items-center h-20">
+        <a href="#" class="flex items-center" aria-label="Bobby's Iron Den home">
 
-            <!-- LOGO -->
+            <img
+                src="bobby-logo.png"
+                alt="Bobby's Iron Den logo"
+                class="h-14 w-auto max-w-[190px] object-contain">
 
-            <a href="#home" aria-label="Bobby's Iron Den">
+        </a>
 
-                <img
-                    src="bobby-logo.png"
-                    alt="Bobby's Iron Den logo"
-                    class="h-14 w-auto max-w-[190px] object-contain"
-                >
 
+        <div class="hidden md:flex items-center gap-7 font-bold text-xs uppercase tracking-widest">
+
+            <a href="#sessions"
+                class="text-white hover:text-red-500 transition">
+                Sessions
             </a>
 
+            <a href="#coaches"
+                class="text-white hover:text-red-500 transition">
+                Coaches
+            </a>
 
-            <!-- DESKTOP MENU -->
+            <a href="#memberships"
+                class="text-white hover:text-red-500 transition">
+                Memberships
+            </a>
 
-            <div class="hidden md:flex items-center gap-7 font-bold text-xs uppercase tracking-widest">
+            <a href="#about"
+                class="text-white hover:text-red-500 transition">
+                About
+            </a>
 
-                <a href="#sessions"
-                   class="hover:text-red-500 transition">
-                    Sessions
-                </a>
-
-                <a href="#coaches"
-                   class="hover:text-red-500 transition">
-                    Coaches
-                </a>
-
-                <a href="#memberships"
-                   class="hover:text-red-500 transition">
-                    Memberships
-                </a>
-
-                <a href="#about"
-                   class="hover:text-red-500 transition">
-                    About
-                </a>
-
-                <a href="#contact"
-                   class="bg-red-600 px-6 py-3 hover:bg-white hover:text-black transition">
-                    Join The Den
-                </a>
-
-            </div>
-
-
-            <!-- MOBILE BUTTON -->
-
-            <button
-                onclick="toggleMobileMenu()"
-                class="md:hidden p-2"
-                aria-label="Open menu">
-
-                <svg
-                    class="w-7 h-7"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16"/>
-
-                </svg>
-
-            </button>
+            <a href="#contact"
+                class="bg-red-600 text-white px-6 py-3 hover:bg-white hover:text-black transition-all">
+                Join the Den
+            </a>
 
         </div>
 
 
-        <!-- MOBILE MENU -->
+        <button
+            onclick="toggleMobileMenu()"
+            class="md:hidden text-white p-2"
+            aria-label="Open menu">
 
-        <div
-            id="mobileMenu"
-            class="mobile-menu md:hidden border-t border-neutral-800">
+            <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
 
-            <div class="flex flex-col gap-5 py-6 font-bold text-sm uppercase tracking-widest">
+                <path
+                    stroke="currentColor"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
 
-                <a href="#sessions"
-                   onclick="closeMobileMenu()">
-                    Sessions
-                </a>
+            </svg>
 
-                <a href="#coaches"
-                   onclick="closeMobileMenu()">
-                    Coaches
-                </a>
+        </button>
 
-                <a href="#memberships"
-                   onclick="closeMobileMenu()">
-                    Memberships
-                </a>
+    </div>
 
-                <a href="#about"
-                   onclick="closeMobileMenu()">
-                    About
-                </a>
 
-                <a href="#contact"
-                   onclick="closeMobileMenu()"
-                   class="bg-red-600 px-5 py-3 text-center">
-                    Join The Den
-                </a>
+    <!-- MOBILE MENU -->
 
-            </div>
+    <div
+        id="mobileMenu"
+        class="mobile-menu md:hidden bg-black border-t border-neutral-800 px-5 pb-6">
+
+        <div class="flex flex-col gap-5 pt-5 font-bold text-sm uppercase tracking-widest">
+
+            <a
+                href="#sessions"
+                onclick="closeMobileMenu()"
+                class="text-white">
+                Sessions
+            </a>
+
+            <a
+                href="#coaches"
+                onclick="closeMobileMenu()"
+                class="text-white">
+                Coaches
+            </a>
+
+            <a
+                href="#memberships"
+                onclick="closeMobileMenu()"
+                class="text-white">
+                Memberships
+            </a>
+
+            <a
+                href="#about"
+                onclick="closeMobileMenu()"
+                class="text-white">
+                About
+            </a>
+
+            <a
+                href="#contact"
+                onclick="closeMobileMenu()"
+                class="bg-red-600 text-white px-5 py-3 text-center">
+
+                Join the Den
+
+            </a>
 
         </div>
 
@@ -389,114 +452,91 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
-<section id="home" class="hero flex items-center pt-20">
+<section class="hero flex items-center pt-20 text-white">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <!-- FULL-SCREEN BACKGROUND IMAGE -->
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center py-24">
-
-            <div class="reveal">
-
-                <div class="inline-block bg-red-600 px-4 py-2 text-xs font-black uppercase tracking-widest mb-6">
-
-                    Elite Suburban Fitness
-
-                </div>
+    <img
+        src="gym-hero.jpg"
+        alt=""
+        class="hero-background"
+        aria-hidden="true">
 
 
-                <img
-                    src="bobby-logo.png"
-                    alt="Bobby's Iron Den"
-                    class="w-24 h-24 object-cover rounded-xl mb-6"
-                >
+    <!-- DARK OPAQUE OVERLAY -->
+
+    <div class="hero-overlay"></div>
 
 
-                <h1 class="text-6xl sm:text-7xl md:text-8xl italic-black leading-[.85] mb-8">
+    <!-- HERO CONTENT -->
 
-                    Forging
-                    <br>
+    <div
+        class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
 
-                    <span class="text-red-600">
-                        Stronger
-                    </span>
+        <div class="max-w-3xl">
 
-                    <br>
+            <div
+                class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 text-xs font-black uppercase tracking-widest mb-6 slide-left">
 
-                    Humans.
-
-                </h1>
-
-
-                <p class="text-lg sm:text-xl text-neutral-300 max-w-xl mb-10">
-
-                    Elite equipment, expert coaching and a serious training community built to help you become stronger every day.
-
-                </p>
-
-
-                <div class="flex flex-col sm:flex-row gap-4">
-
-                    <a
-                        href="#contact"
-                        class="bg-red-600 px-8 py-5 text-lg font-bold uppercase tracking-widest text-center hover:bg-white hover:text-black transition">
-
-                        Free 3-Day Pass
-
-                    </a>
-
-
-                    <a
-                        href="#contact"
-                        class="border-2 border-white px-8 py-5 text-lg font-bold uppercase tracking-widest text-center hover:bg-white hover:text-black transition">
-
-                        Book Consultation
-
-                    </a>
-
-                </div>
+                Elite Suburban Fitness
 
             </div>
 
 
-
-            <!-- HERO IMAGE -->
-
-            <div class="hidden lg:block reveal">
-
-                <div class="border border-neutral-700 bg-black/70 backdrop-blur-sm p-3 shadow-2xl">
-
-                    <div class="aspect-[4/5] overflow-hidden">
-
-                        <img
-                            src="gym-hero.jpg"
-                            alt="Bobby's Iron Den gym interior"
-                            class="hero-image w-full h-full object-cover"
-                        >
-
-                    </div>
+            <img
+                src="bobby-logo.png"
+                alt="Bobby's Iron Den"
+                class="w-24 h-24 object-cover rounded-xl mb-6 slide-left delay-1">
 
 
-                    <div class="flex justify-between pt-5 text-xs uppercase tracking-widest font-bold">
+            <h1
+                class="hero-title text-6xl sm:text-7xl md:text-8xl italic-black leading-[0.85] mb-8 slide-left delay-2">
 
-                        <span class="text-neutral-400">
-                            Strength
-                        </span>
+                Forging
+                <br>
 
-                        <span class="text-red-500">
-                            Discipline
-                        </span>
+                <span class="text-red-600">
+                    Stronger
+                </span>
 
-                        <span class="text-neutral-400">
-                            Results
-                        </span>
+                <br>
 
-                    </div>
+                Humans.
 
-                </div>
+            </h1>
+
+
+            <p
+                class="text-lg sm:text-xl text-neutral-200 max-w-2xl mb-10 font-medium slide-left delay-3">
+
+                Elite equipment, expert coaching and a serious training community built to help you become stronger every day.
+
+            </p>
+
+
+            <div
+                class="flex flex-col sm:flex-row gap-4 slide-up delay-4">
+
+                <a
+                    href="#contact"
+                    class="bg-red-600 text-white px-8 py-5 text-lg font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
+
+                    Free 3-Day Pass
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="border-2 border-white px-8 py-5 text-lg font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
+
+                    Book Consultation
+
+                </a>
 
             </div>
 
@@ -508,33 +548,73 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      ABOUT
-========================================================= -->
+===================================================== -->
 
-<section id="about" class="photo-section about-bg py-24">
+<section id="about" class="py-24 bg-neutral-50">
 
-    <div class="photo-content max-w-7xl mx-auto px-4">
+    <div class="max-w-7xl mx-auto px-4">
 
         <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-            <div class="reveal">
 
-                <img
-                    src="gym-training.jpg"
-                    alt="Strength training at Bobby's Iron Den"
-                    class="w-full aspect-[4/5] object-cover border-4 border-neutral-800"
-                >
+            <div class="grid grid-cols-2 gap-4 slide-left">
+
+                <div class="bg-black aspect-[3/4] overflow-hidden">
+
+                    <img
+                        src="gym-training.jpg"
+                        alt="Strength training at Bobby's Iron Den"
+                        class="w-full h-full object-cover">
+
+                </div>
+
+
+                <div class="space-y-4">
+
+                    <div class="bg-neutral-900 h-1/2 flex items-center justify-center p-8">
+
+                        <div class="text-center">
+
+                            <div class="text-red-600 text-5xl italic-black">
+                                01
+                            </div>
+
+                            <div class="text-white text-xs font-black uppercase tracking-widest mt-2">
+                                Elite Equipment
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bg-black h-1/2 flex items-center justify-center p-8">
+
+                        <div class="text-center">
+
+                            <div class="gold-text text-5xl italic-black">
+                                02
+                            </div>
+
+                            <div class="text-white text-xs font-black uppercase tracking-widest mt-2">
+                                Expert Coaching
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <div class="reveal">
+            <div class="slide-right">
 
-                <div class="text-red-500 font-black uppercase tracking-widest text-sm mb-4">
-
+                <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
                     About The Den
-
                 </div>
 
 
@@ -548,87 +628,51 @@
                 </h2>
 
 
-                <p class="text-lg text-neutral-300 leading-relaxed mb-6">
+                <p class="text-lg text-neutral-600 leading-relaxed mb-6">
 
                     Bobby's Iron Den is more than a place to lift weights. It's a training environment built around discipline, consistency and real progress.
 
                 </p>
 
 
-                <p class="text-lg text-neutral-300 leading-relaxed mb-10">
+                <p class="text-lg text-neutral-600 leading-relaxed mb-10">
 
                     Whether you're starting your fitness journey or pushing toward your next level, the Den is designed to give you the equipment, guidance and environment to keep moving forward.
 
                 </p>
 
 
-                <!-- SLIDING FEATURES -->
+                <div class="grid sm:grid-cols-2 gap-6">
 
-                <div class="feature-slider">
+                    <div class="den-card bg-white p-6">
 
-                    <div class="feature-slide bg-black/80 backdrop-blur-md border border-neutral-700 p-7">
-
-                        <div class="text-red-600 text-4xl italic-black mb-3">
+                        <div class="text-red-600 text-3xl font-black mb-2">
                             01
                         </div>
 
-                        <h3 class="text-xl italic-black mb-3">
-                            Elite Equipment
-                        </h3>
-
-                        <p class="text-sm text-neutral-400">
-                            Train with equipment selected for serious strength and performance.
-                        </p>
-
-                    </div>
-
-
-                    <div class="feature-slide bg-black/80 backdrop-blur-md border border-neutral-700 p-7">
-
-                        <div class="gold-text text-4xl italic-black mb-3">
-                            02
-                        </div>
-
-                        <h3 class="text-xl italic-black mb-3">
-                            Expert Coaching
-                        </h3>
-
-                        <p class="text-sm text-neutral-400">
-                            Get guidance that helps you train smarter, safer and harder.
-                        </p>
-
-                    </div>
-
-
-                    <div class="feature-slide bg-black/80 backdrop-blur-md border border-neutral-700 p-7">
-
-                        <div class="text-red-600 text-4xl italic-black mb-3">
-                            03
-                        </div>
-
-                        <h3 class="text-xl italic-black mb-3">
+                        <h3 class="italic-black text-xl mb-2">
                             Strong Community
                         </h3>
 
-                        <p class="text-sm text-neutral-400">
-                            Train alongside people who take their progress seriously.
+                        <p class="text-sm text-neutral-500">
+                            Train around people who take progress seriously.
                         </p>
 
                     </div>
 
 
-                    <div class="feature-slide bg-black/80 backdrop-blur-md border border-neutral-700 p-7">
+                    <div class="den-card bg-white p-6">
 
-                        <div class="gold-text text-4xl italic-black mb-3">
-                            04
+                        <div class="gold-text text-3xl font-black mb-2">
+                            02
                         </div>
 
-                        <h3 class="text-xl italic-black mb-3">
+                        <h3 class="italic-black text-xl mb-2">
                             Real Results
                         </h3>
 
-                        <p class="text-sm text-neutral-400">
-                            Build measurable progress through consistency and discipline.
+                        <p class="text-sm text-neutral-500">
+                            Structured training designed around measurable progress.
                         </p>
 
                     </div>
@@ -645,100 +689,96 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      OPENING HOURS
-========================================================= -->
+===================================================== -->
 
-<section id="hours" class="photo-section hours-bg py-24">
+<section id="hours" class="py-24 bg-black text-white">
 
-    <div class="photo-content max-w-7xl mx-auto px-4">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
 
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="slide-left">
 
-            <div class="reveal">
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
+                Opening Hours
+            </div>
 
-                <div class="text-red-500 font-black uppercase tracking-widest text-sm mb-4">
+            <h2 class="text-5xl md:text-6xl italic-black mb-10">
 
-                    Opening Hours
+                We're Here
+                <span class="text-neutral-600">
+                    When You Are.
+                </span>
+
+            </h2>
+
+
+            <div class="space-y-0 max-w-xl">
+
+                <div class="hours-row py-5 flex justify-between gap-5">
+
+                    <span class="font-bold uppercase tracking-widest">
+                        Monday – Friday
+                    </span>
+
+                    <span class="text-red-500 font-bold">
+                        6:00 AM – 10:00 PM
+                    </span>
 
                 </div>
 
 
-                <h2 class="text-5xl md:text-6xl italic-black mb-10">
+                <div class="hours-row py-5 flex justify-between gap-5">
 
-                    We're Here
-                    <span class="text-neutral-500">
-                        When You Are.
+                    <span class="font-bold uppercase tracking-widest">
+                        Saturday
                     </span>
 
-                </h2>
+                    <span class="text-red-500 font-bold">
+                        7:00 AM – 8:00 PM
+                    </span>
+
+                </div>
 
 
-                <div class="max-w-xl">
+                <div class="hours-row py-5 flex justify-between gap-5">
 
-                    <div class="border-b border-neutral-700 py-5 flex justify-between gap-5">
+                    <span class="font-bold uppercase tracking-widest">
+                        Sunday
+                    </span>
 
-                        <span class="font-bold uppercase tracking-widest">
-                            Monday – Friday
-                        </span>
+                    <span class="text-red-500 font-bold">
+                        8:00 AM – 4:00 PM
+                    </span>
 
-                        <span class="text-red-500 font-bold">
-                            6:00 AM – 10:00 PM
-                        </span>
-
-                    </div>
+                </div>
 
 
-                    <div class="border-b border-neutral-700 py-5 flex justify-between gap-5">
+                <div class="py-5 flex justify-between gap-5">
 
-                        <span class="font-bold uppercase tracking-widest">
-                            Saturday
-                        </span>
+                    <span class="font-bold uppercase tracking-widest">
+                        Public Holidays
+                    </span>
 
-                        <span class="text-red-500 font-bold">
-                            7:00 AM – 8:00 PM
-                        </span>
-
-                    </div>
-
-
-                    <div class="border-b border-neutral-700 py-5 flex justify-between gap-5">
-
-                        <span class="font-bold uppercase tracking-widest">
-                            Sunday
-                        </span>
-
-                        <span class="text-red-500 font-bold">
-                            8:00 AM – 4:00 PM
-                        </span>
-
-                    </div>
-
-
-                    <div class="py-5 flex justify-between gap-5">
-
-                        <span class="font-bold uppercase tracking-widest">
-                            Public Holidays
-                        </span>
-
-                        <span class="gold-text font-bold">
-                            8:00 AM – 2:00 PM
-                        </span>
-
-                    </div>
+                    <span class="gold-text font-bold">
+                        8:00 AM – 2:00 PM
+                    </span>
 
                 </div>
 
             </div>
 
+        </div>
 
-            <div class="reveal">
+
+        <div class="bg-neutral-900 border border-neutral-800 p-3 slide-right">
+
+            <div class="aspect-video overflow-hidden">
 
                 <img
                     src="gym-exterior.jpg"
                     alt="Bobby's Iron Den exterior"
-                    class="w-full aspect-video object-cover border-4 border-neutral-800"
-                >
+                    class="w-full h-full object-cover">
 
             </div>
 
@@ -750,103 +790,75 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      SESSIONS
-========================================================= -->
+===================================================== -->
 
-<section id="sessions" class="py-24 bg-neutral-100 text-black">
+<section id="sessions" class="py-24 bg-neutral-50">
 
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="mb-16 reveal">
+        <div class="mb-16">
 
             <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
-
                 The Den Lineup
-
             </div>
 
             <h2 class="text-6xl italic-black">
-
                 Training
                 <span class="text-neutral-400">
                     Sessions
                 </span>
-
             </h2>
 
         </div>
 
 
-        <!-- TABS -->
+        <div class="flex gap-8 border-b border-neutral-200 mb-12 overflow-x-auto">
 
-        <div class="flex gap-8 border-b border-neutral-300 mb-12 overflow-x-auto">
-
-            <button
-                onclick="showDay('mon', this)"
-                class="session-tab active pb-4 text-lg italic-black">
-
+            <button class="pb-4 text-lg italic-black tab-active">
                 Mon
-
             </button>
 
-
-            <button
-                onclick="showDay('tue', this)"
-                class="session-tab pb-4 text-lg italic-black text-neutral-400">
-
+            <button class="pb-4 text-lg italic-black text-neutral-400">
                 Tue
-
             </button>
 
-
-            <button
-                onclick="showDay('wed', this)"
-                class="session-tab pb-4 text-lg italic-black text-neutral-400">
-
+            <button class="pb-4 text-lg italic-black text-neutral-400">
                 Wed
-
             </button>
 
-
-            <button
-                onclick="showDay('thu', this)"
-                class="session-tab pb-4 text-lg italic-black text-neutral-400">
-
+            <button class="pb-4 text-lg italic-black text-neutral-400">
                 Thu
-
             </button>
 
-
-            <button
-                onclick="showDay('fri', this)"
-                class="session-tab pb-4 text-lg italic-black text-neutral-400">
-
+            <button class="pb-4 text-lg italic-black text-neutral-400">
                 Fri
-
             </button>
 
         </div>
 
 
-        <!-- MONDAY -->
+        <div class="space-y-4">
 
-        <div id="mon" class="day-content space-y-4">
+            <div class="bg-white p-8 flex flex-col md:flex-row justify-between items-center border border-neutral-200 hover:border-black transition-all">
 
-            <div class="bg-white p-8 flex flex-col md:flex-row justify-between items-center border border-neutral-200">
-
-                <div>
+                <div class="flex items-center gap-12">
 
                     <div class="text-3xl italic-black">
                         06:00 AM
                     </div>
 
-                    <h3 class="text-2xl italic-black mt-2">
-                        Power Hour
-                    </h3>
+                    <div>
 
-                    <div class="text-xs font-bold uppercase tracking-widest text-neutral-400 mt-2">
-                        Trainer: Alex • Intensity: Extreme
+                        <h3 class="text-2xl italic-black">
+                            Power Hour
+                        </h3>
+
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-400">
+                            Trainer: Alex • Intensity: Extreme
+                        </div>
+
                     </div>
 
                 </div>
@@ -854,7 +866,7 @@
 
                 <a
                     href="#contact"
-                    class="mt-4 md:mt-0 bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-red-600 transition">
+                    class="mt-4 md:mt-0 bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-red-600">
 
                     Book Now
 
@@ -863,20 +875,24 @@
             </div>
 
 
-            <div class="bg-white p-8 flex flex-col md:flex-row justify-between items-center border border-neutral-200">
+            <div class="bg-white p-8 flex flex-col md:flex-row justify-between items-center border border-neutral-200 hover:border-black transition-all">
 
-                <div>
+                <div class="flex items-center gap-12">
 
                     <div class="text-3xl italic-black">
                         09:00 AM
                     </div>
 
-                    <h3 class="text-2xl italic-black mt-2">
-                        Iron Strength
-                    </h3>
+                    <div>
 
-                    <div class="text-xs font-bold uppercase tracking-widest text-neutral-400 mt-2">
-                        Trainer: Mike • Intensity: High
+                        <h3 class="text-2xl italic-black">
+                            Iron Strength
+                        </h3>
+
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-400">
+                            Trainer: Mike • Intensity: High
+                        </div>
+
                     </div>
 
                 </div>
@@ -884,81 +900,11 @@
 
                 <a
                     href="#contact"
-                    class="mt-4 md:mt-0 bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-red-600 transition">
+                    class="mt-4 md:mt-0 bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-red-600">
 
                     Book Now
 
                 </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- OTHER DAYS -->
-
-        <div id="tue" class="day-content hidden">
-
-            <div class="bg-white p-10 text-center">
-
-                <h3 class="text-3xl italic-black">
-                    Tuesday Training
-                </h3>
-
-                <p class="text-neutral-500 mt-3">
-                    Session schedule coming soon.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div id="wed" class="day-content hidden">
-
-            <div class="bg-white p-10 text-center">
-
-                <h3 class="text-3xl italic-black">
-                    Wednesday Training
-                </h3>
-
-                <p class="text-neutral-500 mt-3">
-                    Session schedule coming soon.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div id="thu" class="day-content hidden">
-
-            <div class="bg-white p-10 text-center">
-
-                <h3 class="text-3xl italic-black">
-                    Thursday Training
-                </h3>
-
-                <p class="text-neutral-500 mt-3">
-                    Session schedule coming soon.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div id="fri" class="day-content hidden">
-
-            <div class="bg-white p-10 text-center">
-
-                <h3 class="text-3xl italic-black">
-                    Friday Training
-                </h3>
-
-                <p class="text-neutral-500 mt-3">
-                    Session schedule coming soon.
-                </p>
 
             </div>
 
@@ -970,27 +916,25 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      COACHES
-========================================================= -->
+===================================================== -->
 
-<section id="coaches" class="py-24 bg-white text-black">
+<section id="coaches" class="py-24">
 
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="text-center mb-20 reveal">
+        <div class="text-center mb-20">
 
             <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
                 The Coaches
             </div>
 
             <h2 class="text-6xl italic-black">
-
                 Expert
                 <span class="text-neutral-400">
                     Guidance
                 </span>
-
             </h2>
 
         </div>
@@ -999,17 +943,21 @@
         <div class="grid md:grid-cols-3 gap-8">
 
 
-            <!-- COACH 1 -->
+            <div class="group slide-up">
 
-            <div class="group reveal">
+                <div class="aspect-[3/4] bg-neutral-950 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition-all flex items-center justify-center">
 
-                <div class="aspect-[3/4] bg-neutral-950 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition">
+                    <div class="text-center">
 
-                    <img
-                        src="coach-1.jpg"
-                        alt="Head coach"
-                        class="w-full h-full object-cover"
-                    >
+                        <div class="text-red-600 text-7xl italic-black">
+                            A
+                        </div>
+
+                        <div class="text-white text-xl italic-black">
+                            COACH
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -1028,17 +976,22 @@
             </div>
 
 
-            <!-- COACH 2 -->
 
-            <div class="group reveal">
+            <div class="group slide-up delay-1">
 
-                <div class="aspect-[3/4] bg-neutral-950 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition">
+                <div class="aspect-[3/4] bg-neutral-950 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition-all flex items-center justify-center">
 
-                    <img
-                        src="coach-2.jpg"
-                        alt="Nutrition coach"
-                        class="w-full h-full object-cover"
-                    >
+                    <div class="text-center">
+
+                        <div class="gold-text text-7xl italic-black">
+                            S
+                        </div>
+
+                        <div class="text-white text-xl italic-black">
+                            COACH
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -1057,17 +1010,22 @@
             </div>
 
 
-            <!-- COACH 3 -->
 
-            <div class="group reveal">
+            <div class="group slide-up delay-2">
 
-                <div class="aspect-[3/4] bg-neutral-950 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition">
+                <div class="aspect-[3/4] bg-neutral-950 mb-6 overflow-hidden border-b-8 border-transparent group-hover:border-red-600 transition-all flex items-center justify-center">
 
-                    <img
-                        src="coach-3.jpg"
-                        alt="Power coach"
-                        class="w-full h-full object-cover"
-                    >
+                    <div class="text-center">
+
+                        <div class="text-red-600 text-7xl italic-black">
+                            M
+                        </div>
+
+                        <div class="text-white text-xl italic-black">
+                            COACH
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -1093,24 +1051,32 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      MEMBERSHIPS
-========================================================= -->
+===================================================== -->
 
-<section id="memberships" class="photo-section membership-bg py-24">
+<section id="memberships" class="py-24 bg-black text-white relative overflow-hidden">
 
-    <div class="photo-content max-w-7xl mx-auto px-4">
+    <div
+        class="absolute inset-0 flex items-center justify-center opacity-[0.03] text-[20vw] italic-black whitespace-nowrap pointer-events-none">
 
-        <div class="text-center mb-20 reveal">
+        THE IRON DEN
 
-            <div class="text-red-500 font-black uppercase tracking-widest text-sm mb-4">
+    </div>
+
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+        <div class="text-center mb-20">
+
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
                 Pricing
             </div>
 
             <h2 class="text-6xl italic-black">
 
-                Join The
-                <span class="text-neutral-500">
+                Join the
+                <span class="text-neutral-600">
                     Den
                 </span>
 
@@ -1122,9 +1088,7 @@
         <div class="grid md:grid-cols-3 gap-8">
 
 
-            <!-- STARTER -->
-
-            <div class="p-10 border-2 border-neutral-700 bg-black/80 backdrop-blur-md reveal">
+            <div class="p-10 border-2 border-neutral-800 bg-black hover:border-red-600 transition-all">
 
                 <h3 class="text-2xl italic-black mb-4">
                     Starter
@@ -1151,7 +1115,7 @@
 
                 <button
                     onclick="payWithPaystack(79000)"
-                    class="w-full py-4 bg-white text-black italic-black hover:bg-red-600 hover:text-white transition">
+                    class="w-full py-4 bg-white text-black italic-black hover:bg-red-600 hover:text-white transition-all">
 
                     Select Plan
 
@@ -1160,23 +1124,21 @@
             </div>
 
 
-            <!-- UNLIMITED -->
 
-            <div class="p-10 border-2 border-red-600 bg-neutral-900/90 backdrop-blur-md md:scale-105 reveal">
-
-                <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
-                    Most Popular
-                </div>
+            <div class="p-10 border-2 border-red-600 bg-neutral-900 md:scale-105">
 
                 <h3 class="text-2xl italic-black mb-4">
                     Unlimited
                 </h3>
 
                 <div class="text-5xl italic-black mb-8">
+
                     $149
+
                     <span class="text-xs text-neutral-500">
                         / mo
                     </span>
+
                 </div>
 
                 <ul class="space-y-4 mb-10 text-xs font-bold uppercase tracking-widest">
@@ -1197,7 +1159,7 @@
 
                 <button
                     onclick="payWithPaystack(149000)"
-                    class="w-full py-4 bg-red-600 text-white italic-black hover:bg-white hover:text-black transition">
+                    class="w-full py-4 bg-red-600 text-white italic-black hover:bg-white hover:text-black transition-all">
 
                     Select Plan
 
@@ -1206,19 +1168,21 @@
             </div>
 
 
-            <!-- PRO -->
 
-            <div class="p-10 border-2 border-neutral-700 bg-black/80 backdrop-blur-md reveal">
+            <div class="p-10 border-2 border-neutral-800 bg-black hover:border-red-600 transition-all">
 
                 <h3 class="text-2xl italic-black mb-4">
                     Pro
                 </h3>
 
                 <div class="text-5xl italic-black mb-8">
+
                     $199
+
                     <span class="text-xs text-neutral-500">
                         / mo
                     </span>
+
                 </div>
 
                 <ul class="space-y-4 mb-10 text-xs font-bold uppercase tracking-widest">
@@ -1235,7 +1199,7 @@
 
                 <button
                     onclick="payWithPaystack(199000)"
-                    class="w-full py-4 bg-white text-black italic-black hover:bg-red-600 hover:text-white transition">
+                    class="w-full py-4 bg-white text-black italic-black hover:bg-red-600 hover:text-white transition-all">
 
                     Select Plan
 
@@ -1251,15 +1215,15 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FAQ
-========================================================= -->
+===================================================== -->
 
-<section class="py-24 bg-white text-black">
+<section class="py-24">
 
     <div class="max-w-3xl mx-auto px-4">
 
-        <div class="text-center mb-16 reveal">
+        <div class="text-center mb-16">
 
             <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
                 Got Questions?
@@ -1280,10 +1244,10 @@
         <div class="space-y-4">
 
 
-            <div class="accordion-item border-b border-neutral-200 reveal">
+            <div class="accordion-item border-b border-neutral-200">
 
                 <button
-                    class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600"
+                    class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600 transition-all"
                     onclick="toggleAccordion(this)">
 
                     <span>
@@ -1321,10 +1285,10 @@
 
 
 
-            <div class="accordion-item border-b border-neutral-200 reveal">
+            <div class="accordion-item border-b border-neutral-200">
 
                 <button
-                    class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600"
+                    class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600 transition-all"
                     onclick="toggleAccordion(this)">
 
                     <span>
@@ -1362,10 +1326,10 @@
 
 
 
-            <div class="accordion-item border-b border-neutral-200 reveal">
+            <div class="accordion-item border-b border-neutral-200">
 
                 <button
-                    class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600"
+                    class="w-full py-6 flex justify-between items-center italic-black text-xl hover:text-red-600 transition-all"
                     onclick="toggleAccordion(this)">
 
                     <span>
@@ -1409,119 +1373,100 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      CONTACT
-========================================================= -->
+===================================================== -->
 
-<section id="contact" class="py-24 bg-neutral-900">
+<section id="contact" class="py-24 bg-neutral-900 text-white">
 
-    <div class="max-w-7xl mx-auto px-4">
-
-        <div class="grid lg:grid-cols-2 gap-20 items-center">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center">
 
 
-            <div class="reveal">
+        <div class="slide-left">
 
-                <div class="text-red-500 font-black uppercase tracking-widest text-sm mb-4">
+            <div class="text-red-600 font-black uppercase tracking-widest text-sm mb-4">
+                Get In Touch
+            </div>
 
-                    Get In Touch
+            <h2 class="text-6xl md:text-7xl italic-black mb-8">
 
+                Enter The
+                <br>
+
+                <span class="text-neutral-700">
+                    Den.
+                </span>
+
+            </h2>
+
+
+            <div class="space-y-6 text-lg">
+
+                <div class="italic-black">
+                    Ogbomoso, Nigeria
                 </div>
 
+                <a
+                    href="tel:+2347025591999"
+                    class="block italic-black hover:text-red-500">
 
-                <h2 class="text-6xl md:text-7xl italic-black mb-8">
+                    +234 702 559 1999
 
-                    Enter The
-                    <br>
+                </a>
 
-                    <span class="text-neutral-700">
-                        Den.
-                    </span>
+                <a
+                    href="https://wa.me/2347025591999"
+                    class="block italic-black text-green-400 hover:text-green-300">
 
-                </h2>
+                    WhatsApp: Chat With Us
 
-
-                <div class="space-y-6 text-lg">
-
-                    <div class="italic-black">
-                        Ogbomoso, Nigeria
-                    </div>
-
-
-                    <a
-                        href="tel:+2347025591999"
-                        class="block italic-black hover:text-red-500">
-
-                        +234 702 559 1999
-
-                    </a>
-
-
-                    <a
-                        href="https://wa.me/2347025591999"
-                        class="block text-green-400 font-bold hover:text-green-300">
-
-                        WhatsApp: Chat With Us
-
-                    </a>
-
-                </div>
+                </a>
 
             </div>
 
+        </div>
 
 
-            <!-- CONTACT FORM -->
+        <div class="bg-white p-10 border-l-8 border-red-600 slide-right">
 
-            <div class="bg-white p-10 border-l-8 border-red-600 reveal">
+            <form
+                class="space-y-6 text-black"
+                onsubmit="submitContact(event)">
 
-                <form
-                    class="space-y-6 text-black"
-                    onsubmit="submitContact(event)">
+                <input
+                    type="text"
+                    placeholder="FULL NAME"
+                    required
+                    class="w-full bg-neutral-100 border p-4">
 
-                    <input
-                        type="text"
-                        placeholder="FULL NAME"
-                        required
-                        class="w-full bg-neutral-100 border p-4 outline-none focus:border-red-600"
-                    >
+                <input
+                    type="email"
+                    placeholder="EMAIL"
+                    required
+                    class="w-full bg-neutral-100 border p-4">
 
+                <textarea
+                    rows="4"
+                    placeholder="YOUR GOALS"
+                    required
+                    class="w-full bg-neutral-100 border p-4"></textarea>
 
-                    <input
-                        type="email"
-                        placeholder="EMAIL"
-                        required
-                        class="w-full bg-neutral-100 border p-4 outline-none focus:border-red-600"
-                    >
+                <button
+                    class="w-full py-5 bg-red-600 text-white italic-black hover:bg-black transition-all">
 
+                    Send
 
-                    <textarea
-                        rows="4"
-                        placeholder="YOUR GOALS"
-                        required
-                        class="w-full bg-neutral-100 border p-4 outline-none focus:border-red-600"
-                    ></textarea>
+                </button>
 
+                <p
+                    id="formMessage"
+                    class="hidden text-sm font-bold text-green-600">
 
-                    <button
-                        class="w-full py-5 bg-red-600 text-white italic-black hover:bg-black transition">
+                    Thanks! Your message has been received.
 
-                        Send
+                </p>
 
-                    </button>
-
-
-                    <p
-                        id="formMessage"
-                        class="hidden text-sm font-bold text-green-600">
-
-                        Thanks! Your message has been received.
-
-                    </p>
-
-                </form>
-
-            </div>
+            </form>
 
         </div>
 
@@ -1531,26 +1476,24 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer class="py-14 bg-black text-white border-t border-neutral-800">
 
     <div class="max-w-7xl mx-auto px-4">
 
+
         <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-neutral-800">
 
-
-            <!-- BRAND -->
 
             <div>
 
                 <img
                     src="bobby-logo.png"
                     alt="Bobby's Iron Den"
-                    class="h-16 w-auto mb-5"
-                >
+                    class="logo-full mb-5">
 
                 <p class="text-sm text-neutral-500 leading-relaxed">
 
@@ -1560,8 +1503,6 @@
 
             </div>
 
-
-            <!-- LINKS -->
 
             <div>
 
@@ -1596,8 +1537,6 @@
             </div>
 
 
-            <!-- CONTACT -->
-
             <div>
 
                 <h3 class="text-red-600 font-black uppercase tracking-widest mb-5">
@@ -1630,8 +1569,6 @@
 
             </div>
 
-
-            <!-- SOCIAL -->
 
             <div>
 
@@ -1699,13 +1636,13 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FLOATING WHATSAPP
-========================================================= -->
+===================================================== -->
 
 <a
     href="https://wa.me/2347025591999"
-    class="whatsapp-button fixed bottom-5 right-5 z-50 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 transition">
+    class="whatsapp-button fixed bottom-5 right-5 z-50 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 transition-all">
 
     WhatsApp
 
@@ -1713,21 +1650,35 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      JAVASCRIPT
-========================================================= -->
+===================================================== -->
 
 <script>
 
-    /* =========================
+    /* ============================
+       FAQ
+    ============================ */
+
+    function toggleAccordion(btn) {
+
+        const item = btn.parentElement;
+
+        item.classList.toggle('active');
+
+    }
+
+
+    /* ============================
        MOBILE MENU
-    ========================= */
+    ============================ */
 
     function toggleMobileMenu() {
 
-        const menu = document.getElementById("mobileMenu");
-
-        menu.classList.toggle("open");
+        document
+            .getElementById('mobileMenu')
+            .classList
+            .toggle('open');
 
     }
 
@@ -1735,116 +1686,39 @@
     function closeMobileMenu() {
 
         document
-            .getElementById("mobileMenu")
-            .classList.remove("open");
+            .getElementById('mobileMenu')
+            .classList
+            .remove('open');
 
     }
 
 
-
-    /* =========================
-       FAQ ACCORDION
-    ========================= */
-
-    function toggleAccordion(button) {
-
-        const item = button.parentElement;
-
-        const allItems =
-            document.querySelectorAll(".accordion-item");
-
-        allItems.forEach(function(otherItem) {
-
-            if (otherItem !== item) {
-
-                otherItem.classList.remove("active");
-
-            }
-
-        });
-
-        item.classList.toggle("active");
-
-    }
-
-
-
-    /* =========================
-       SESSION TABS
-    ========================= */
-
-    function showDay(day, button) {
-
-        const contents =
-            document.querySelectorAll(".day-content");
-
-        contents.forEach(function(content) {
-
-            content.classList.add("hidden");
-
-        });
-
-
-        const selected =
-            document.getElementById(day);
-
-        if (selected) {
-
-            selected.classList.remove("hidden");
-
-        }
-
-
-        const tabs =
-            document.querySelectorAll(".session-tab");
-
-        tabs.forEach(function(tab) {
-
-            tab.classList.remove("active");
-
-            tab.classList.add("text-neutral-400");
-
-        });
-
-
-        button.classList.add("active");
-
-        button.classList.remove("text-neutral-400");
-
-    }
-
-
-
-    /* =========================
+    /* ============================
        CONTACT FORM
-    ========================= */
+    ============================ */
 
     function submitContact(event) {
 
         event.preventDefault();
 
-        const message =
-            document.getElementById("formMessage");
-
-        message.classList.remove("hidden");
-
-        event.target.reset();
+        document
+            .getElementById('formMessage')
+            .classList
+            .remove('hidden');
 
     }
 
 
-
-    /* =========================
+    /* ============================
        PAYSTACK
-       PHASE 2
-    ========================= */
+    ============================ */
 
     function payWithPaystack(amount) {
 
-        if (typeof PaystackPop === "undefined") {
+        if (typeof PaystackPop === 'undefined') {
 
             alert(
-                "Payment system is not connected yet. This will be completed in Phase 2."
+                'Payment system is not connected yet. We will finish this in Phase 2.'
             );
 
             return;
@@ -1852,83 +1726,42 @@
         }
 
 
-        let handler =
-            PaystackPop.setup({
+        let handler = PaystackPop.setup({
 
-                key: "YOUR_PAYSTACK_PUBLIC_KEY",
+            key: 'pk_test_b843ef92241203d015e3c0f4bcd65bf4316b3b3b61',
 
-                email: "customer@email.com",
+            email: 'customer@email.com',
 
-                amount: amount,
+            amount: amount,
 
-                currency: "NGN",
+            currency: 'NGN',
 
-                callback: function(response) {
+            callback: function(response) {
 
-                    alert(
-                        "Payment successful! Ref: " +
-                        response.reference
-                    );
+                alert(
+                    'Payment successful! Ref: ' +
+                    response.reference
+                );
 
-                },
+            },
 
-                onClose: function() {
+            onClose: function() {
 
-                    alert("Transaction cancelled.");
+                alert(
+                    'Transaction cancelled'
+                );
 
-                }
+            }
 
-            });
+        });
 
 
         handler.openIframe();
 
     }
 
-
-
-    /* =========================
-       SCROLL REVEAL
-    ========================= */
-
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    const revealObserver =
-        new IntersectionObserver(
-
-            function(entries) {
-
-                entries.forEach(function(entry) {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("show");
-
-                        revealObserver.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-
-            {
-                threshold: 0.12
-            }
-
-        );
-
-
-    revealElements.forEach(function(element) {
-
-        revealObserver.observe(element);
-
-    });
-
-
 </script>
+
 
 </body>
 </html>
