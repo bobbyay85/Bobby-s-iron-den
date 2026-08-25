@@ -62,23 +62,24 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:Inter,sans-
 <section id="hours" class="py-24 bg-black"><div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-14 items-center"><div class="reveal"><div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">Opening Hours</div><h2 class="text-5xl md:text-6xl black-italic mb-10">We're Here <span class="text-neutral-600">When You Are.</span></h2><div class="max-w-xl"><div class="hours-row py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Monday – Friday</span><span class="text-red-500 font-bold">6:00 AM – 10:00 PM</span></div><div class="hours-row py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Saturday</span><span class="text-red-500 font-bold">7:00 AM – 8:00 PM</span></div><div class="hours-row py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Sunday</span><span class="text-red-500 font-bold">8:00 AM – 4:00 PM</span></div><div class="py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Public Holidays</span><span class="gold font-bold">8:00 AM – 2:00 PM</span></div></div></div><div class="reveal"><img src="gym-exterior.jpg" alt="Bobby's Iron Den exterior" class="w-full aspect-video object-cover border border-neutral-800"></div></div></section>
 
 <!-- WORKOUT PLANS -->
-<section id="sessions" class="py-24 bg-neutral-50 text-neutral-900">
+<section id="sessions" class="relative py-24 text-white overflow-hidden" style="background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.94)),url('gym-training.jpg');background-size:cover;background-position:center;">
+<div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(circle at 15% 20%,rgba(220,38,38,.20),transparent 28%),radial-gradient(circle at 85% 80%,rgba(212,167,44,.10),transparent 25%);"></div>
 <div class="max-w-7xl mx-auto px-4">
   <div class="mb-14">
     <div class="text-red-600 text-sm font-black uppercase tracking-widest mb-4">BOBBY TRAINING SYSTEM</div>
-    <h2 class="text-5xl md:text-6xl black-italic">Monday–Friday <span class="text-neutral-400">Training Split</span></h2>
-    <p class="text-neutral-500 max-w-2xl mt-5 text-lg">A structured five-day split built around strength, hypertrophy and focused muscle-group training. Saturday and Sunday are recovery days.</p>
+    <h2 class="text-5xl md:text-6xl black-italic">Monday–Friday <span class="text-neutral-500">Training Split</span></h2>
+    <p class="text-neutral-300 max-w-2xl mt-5 text-lg">A structured five-day split built around strength, hypertrophy and focused muscle-group training. Saturday and Sunday are recovery days.</p>
   </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-12">
-    <button type="button" class="workout-tab text-left p-5 bg-black text-white border-2 border-red-600" data-day="Mon" aria-selected="true"><div class="text-red-500 text-xs font-black uppercase tracking-widest">Monday</div><div class="black-italic text-lg mt-2">Back + Triceps</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-white border-2 border-neutral-200 hover:border-black" data-day="Tue" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Tuesday</div><div class="black-italic text-lg mt-2">Chest + Shoulders</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-white border-2 border-neutral-200 hover:border-black" data-day="Wed" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Wednesday</div><div class="black-italic text-lg mt-2">Legs + Calves</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-white border-2 border-neutral-200 hover:border-black" data-day="Thu" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Thursday</div><div class="black-italic text-lg mt-2">Back + Biceps</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-white border-2 border-neutral-200 hover:border-black" data-day="Fri" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Friday</div><div class="black-italic text-lg mt-2">Shoulders + Arms</div></button>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-12 relative z-10">
+    <button type="button" class="workout-tab text-left p-5 bg-black/90 text-white border-2 border-red-600 shadow-lg backdrop-blur-sm" data-day="Mon" aria-selected="true"><div class="text-red-500 text-xs font-black uppercase tracking-widest">Monday</div><div class="black-italic text-lg mt-2">Back + Triceps</div></button>
+    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Tue" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Tuesday</div><div class="black-italic text-lg mt-2">Chest + Shoulders</div></button>
+    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Wed" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Wednesday</div><div class="black-italic text-lg mt-2">Legs + Calves</div></button>
+    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Thu" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Thursday</div><div class="black-italic text-lg mt-2">Back + Biceps</div></button>
+    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Fri" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Friday</div><div class="black-italic text-lg mt-2">Shoulders + Arms</div></button>
   </div>
 
-  <div id="workoutPanel" class="bg-white border border-neutral-200 shadow-sm" aria-live="polite">
+  <div id="workoutPanel" class="bg-black/80 border border-neutral-700 shadow-2xl backdrop-blur-sm relative z-10" aria-live="polite">
     <div class="grid md:grid-cols-2">
       <div class="p-8 md:p-12 bg-black text-white">
         <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">Monday</div>
@@ -86,14 +87,14 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:Inter,sans-
         <p class="text-neutral-400 uppercase tracking-widest text-sm font-bold">Main Goal</p>
         <p class="text-xl font-bold mt-2">Heavy pulling</p>
       </div>
-      <div class="p-8 md:p-12 flex flex-col justify-center">
-        <div class="text-red-600 text-xs font-black uppercase tracking-widest mb-4">BOBBY'S FOCUS</div>
-        <p class="text-neutral-600 text-lg leading-relaxed">Start the week with a heavy pulling-focused session targeting the back and triceps.</p>
+      <div class="p-8 md:p-12 flex flex-col justify-center bg-neutral-950/70">
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">BOBBY'S FOCUS</div>
+        <p class="text-neutral-300 text-lg leading-relaxed">Start the week with a heavy pulling-focused session targeting the back and triceps.</p>
       </div>
     </div>
   </div>
 
-  <div class="mt-10 grid md:grid-cols-2 gap-5">
+  <div class="mt-10 grid md:grid-cols-2 gap-5 relative z-10">
     <div class="p-7 bg-black text-white border border-neutral-800"><div class="text-red-500 text-xs font-black uppercase tracking-widest">Saturday</div><h3 class="black-italic text-2xl mt-2">Rest</h3><p class="text-neutral-500 mt-2">Recovery</p></div>
     <div class="p-7 bg-black text-white border border-neutral-800"><div class="gold text-xs font-black uppercase tracking-widest">Sunday</div><h3 class="black-italic text-2xl mt-2">Rest</h3><p class="text-neutral-500 mt-2">Recovery</p></div>
   </div>
