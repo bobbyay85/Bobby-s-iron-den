@@ -128,11 +128,11 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)closeMobileMenu()});
 
 const workoutPlans={
-  Mon:{day:'Monday',focus:'Back + Triceps',goal:'Heavy pulling',exercises:['Weighted Pull-ups — 4 × 6–8','Barbell Rows — 4 × 6–8','Lat Pulldown — 3 × 8–12','Straight-Arm Pulldown — 3 × 10–15','Close-Grip Bench Press — 3 × 6–10','Overhead Cable Triceps Extension — 3 × 10–15','Rope Pushdown — 2–3 × 12–15']},
-  Tue:{day:'Tuesday',focus:'Chest + Shoulders',goal:'Pressing + delts',exercises:['Barbell Bench Press — 4 × 5–8','Incline Dumbbell Press — 3 × 8–10','Machine/Chest Press — 3 × 10–12','Overhead Press — 3 × 6–10','Dumbbell Lateral Raises — 4 × 12–20','Face Pulls — 3 × 12–20']},
-  Wed:{day:'Wednesday',focus:'Legs + Calves',goal:'Lower-body strength',exercises:['Back Squat — 4 × 5–8','Romanian Deadlift — 3 × 6–10','Leg Press — 3 × 10–15','Leg Curl — 3 × 10–15','Leg Extension — 3 × 12–15','Standing Calf Raise — 4 × 10–15','Seated Calf Raise — 3 × 12–20']},
-  Thu:{day:'Thursday',focus:'Back + Biceps',goal:'Back width/thickness + arms',exercises:['Neutral-Grip Pulldown — 4 × 8–12','Single-Arm Dumbbell Row — 3 × 8–12','Seated Cable Row — 3 × 8–12','Chest-Supported Row — 3 × 10–12','EZ-Bar Curl — 3 × 8–12','Incline Dumbbell Curl — 3 × 10–15','Hammer Curl — 2–3 × 10–15']},
-  Fri:{day:'Friday',focus:'Shoulders + Arms',goal:'Hypertrophy/finishing work',exercises:['Seated Dumbbell Shoulder Press — 3 × 6–10','Cable/Dumbbell Lateral Raise — 4 × 12–20','Rear-Delt Fly — 3 × 12–20','EZ-Bar Curl — 3 × 8–12','Preacher Curl — 3 × 10–15','Skull Crushers — 3 × 8–12','Rope Pushdowns — 3 × 10–15','Dips — 2 × 8–12']}
+  Mon:{day:'Monday',focus:'Back + Triceps',goal:'Heavy pulling',description:'Start the week with a heavy pulling-focused session targeting the back and triceps.'},
+  Tue:{day:'Tuesday',focus:'Chest + Shoulders',goal:'Pressing + delts',description:'A pressing-focused day built around chest work and shoulder development.'},
+  Wed:{day:'Wednesday',focus:'Legs + Calves',goal:'Lower-body strength',description:'Dedicated lower-body training focused on strength through the legs and calves.'},
+  Thu:{day:'Thursday',focus:'Back + Biceps',goal:'Back width/thickness + arms',description:'Build back width and thickness while giving the biceps focused arm work.'},
+  Fri:{day:'Friday',focus:'Shoulders + Arms',goal:'Hypertrophy/finishing work',description:'Finish the training week with shoulder and arm hypertrophy-focused work.'}
 };
 
 const workoutTabs=document.querySelectorAll('.workout-tab');
@@ -153,16 +153,33 @@ workoutTabs.forEach(tab=>tab.addEventListener('click',()=>{
 
   const plan=workoutPlans[tab.dataset.day];
   document.getElementById('workoutPanel').innerHTML=`
-    <div class="grid lg:grid-cols-[.85fr_1.15fr]">
-      <div class="p-8 md:p-10 bg-black text-white">
+    <div class="grid md:grid-cols-2">
+      <div class="p-8 md:p-12 bg-black text-white">
         <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">${plan.day}</div>
         <h3 class="text-4xl md:text-5xl black-italic mb-5">${plan.focus}</h3>
         <p class="text-neutral-400 uppercase tracking-widest text-sm font-bold">Main Goal</p>
         <p class="text-xl font-bold mt-2">${plan.goal}</p>
-        <div class="mt-8 border-t border-neutral-800 pt-6"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Session</div><div class="text-red-500 text-3xl font-black mt-2">${plan.exercises.length} Exercises</div></div>
       </div>
-      <div class="p-6 md:p-10 bg-neutral-950">
-        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-5">BOBBY'S WORKOUT</div>
-        <div class="space-y-3">${plan.exercises.map((exercise,i)=>`<div class="flex items-center gap-4 border border-neutral-800 bg-black/70 px-4 py-4"><span class="text-red-500 font-black text-sm w-7">${String(i+1).padStart(2,'0')}</span><span class="text-white font-bold text-sm md:text-base">${exercise}</span></div>`).join('')}</div>
+      <div class="p-8 md:p-12 flex flex-col justify-center">
+        <div class="text-red-600 text-xs font-black uppercase tracking-widest mb-4">BOBBY'S FOCUS</div>
+        <p class="text-neutral-600 text-lg leading-relaxed">${plan.description}</p>
       </div>
     </div>`;
+}));
+
+function submitContact(e){
+  e.preventDefault();
+  const form=e.target;
+  const name=form.elements.name.value.trim();
+  const email=form.elements.email.value.trim();
+  const goals=form.elements.goals.value.trim();
+  const message=`Hello Bobby's Iron Den, my name is ${name}. Email: ${email}. My fitness goals are: ${goals}`;
+  window.open('https://wa.me/2347025591999?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
+  document.getElementById('formMessage').classList.remove('hidden');
+}
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
