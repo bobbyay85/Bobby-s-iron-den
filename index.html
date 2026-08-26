@@ -16,137 +16,223 @@
 
 <style>
 :root{
-    --red:#dc2626;
-    --gold:#d4a72c
+  --red:#dc2626;
+  --gold:#d4a72c;
 }
 
 html{
-    scroll-behavior:smooth;
-    scroll-padding-top:80px
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
 }
 
 body{
-    font-family:Inter,sans-serif;
-    background:#050505;
-    color:#fff
+  font-family:Inter,sans-serif;
+  background:#050505;
+  color:#fff;
 }
 
 .display{
-    font-family:'Space Grotesk',sans-serif
+  font-family:'Space Grotesk',sans-serif;
 }
 
 .black-italic{
-    font-weight:900;
-    font-style:italic;
-    text-transform:uppercase;
-    letter-spacing:-.055em
+  font-weight:900;
+  font-style:italic;
+  text-transform:uppercase;
+  letter-spacing:-.055em;
 }
 
 .gold{
-    color:var(--gold)
+  color:var(--gold);
 }
 
 .hero{
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.96),
-            rgba(0,0,0,.72) 48%,
-            rgba(0,0,0,.35)
-        ),
-        url('gym-hero.jpg');
-    background-size:cover;
-    background-position:center
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.96),
+      rgba(0,0,0,.72) 48%,
+      rgba(0,0,0,.35)
+    ),
+    url('gym-hero.jpg');
+  background-size:cover;
+  background-position:center;
 }
 
 .photo-section{
-    background-size:cover;
-    background-position:center;
-    background-attachment:scroll
+  background-size:cover;
+  background-position:center;
+  background-attachment:scroll;
 }
 
 .glass{
-    background:rgba(0,0,0,.62);
-    backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px)
+  background:rgba(0,0,0,.62);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
 }
 
 .card{
-    transition:.35s ease;
-    border:1px solid #292929
+  transition:.35s ease;
+  border:1px solid #292929;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    border-color:var(--red);
-    box-shadow:0 20px 45px rgba(0,0,0,.25)
+  transform:translateY(-6px);
+  border-color:var(--red);
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
 }
 
 .reveal{
-    opacity:0;
-    transform:translateY(25px);
-    transition:opacity .7s ease,transform .7s ease
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
 }
 
 .reveal.show{
-    opacity:1;
-    transform:none
+  opacity:1;
+  transform:none;
 }
 
 .slide-track{
-    display:flex;
-    width:max-content;
-    animation:slide 28s linear infinite
+  display:flex;
+  width:max-content;
+  animation:slide 28s linear infinite;
 }
 
 .slide-track:hover{
-    animation-play-state:paused
+  animation-play-state:paused;
 }
 
 @keyframes slide{
-    to{
-        transform:translateX(-50%)
-    }
+  to{
+    transform:translateX(-50%);
+  }
 }
 
 .accordion-content{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .35s ease
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
 }
 
 .accordion-item.active .accordion-content{
-    max-height:240px
+  max-height:240px;
 }
 
 .accordion-item.active .chevron{
-    transform:rotate(180deg)
+  transform:rotate(180deg);
 }
 
 .mobile-menu{
-    display:none
+  display:none;
 }
 
 .mobile-menu.open{
-    display:block
+  display:block;
 }
 
 .hours-row{
-    border-bottom:1px solid #333
+  border-bottom:1px solid #333;
 }
 
-.workout-exercise{
-    transition:.25s ease
+/* WORKOUT SECTION */
+
+.workout-tab{
+  transition:.25s ease;
+  min-height:110px;
 }
 
-.workout-exercise:hover{
-    background:rgba(220,38,38,.08)
+.workout-tab:hover{
+  transform:translateY(-3px);
+}
+
+.workout-tab.active{
+  background:#000 !important;
+  border-color:var(--red) !important;
+}
+
+.workout-panel{
+  box-shadow:0 25px 70px rgba(0,0,0,.55);
+}
+
+.exercise-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 0;
+  border-bottom:1px solid #292929;
+}
+
+.exercise-row:last-child{
+  border-bottom:0;
+}
+
+.exercise-name{
+  font-weight:700;
+  color:#f5f5f5;
+}
+
+.exercise-sets{
+  color:#ef4444;
+  font-weight:900;
+  white-space:nowrap;
+  font-size:.9rem;
+}
+
+.workout-exercises{
+  max-height:520px;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:#dc2626 #171717;
+}
+
+.workout-exercises::-webkit-scrollbar{
+  width:6px;
+}
+
+.workout-exercises::-webkit-scrollbar-track{
+  background:#171717;
+}
+
+.workout-exercises::-webkit-scrollbar-thumb{
+  background:#dc2626;
 }
 
 @media(min-width:768px){
-    .photo-section{
-        background-attachment:fixed
-    }
+  .photo-section{
+    background-attachment:fixed;
+  }
+}
+
+@media(max-width:767px){
+
+  .workout-tab{
+    min-height:auto;
+  }
+
+  .workout-exercises{
+    max-height:none;
+    overflow:visible;
+  }
+
+  .exercise-row{
+    padding:15px 0;
+    gap:12px;
+  }
+
+  .exercise-name{
+    font-size:.92rem;
+    line-height:1.35;
+  }
+
+  .exercise-sets{
+    font-size:.78rem;
+  }
+
+  .hero h1{
+    font-size:4rem;
+  }
 }
 </style>
 </head>
@@ -167,23 +253,13 @@ class="h-14 w-auto max-w-[190px] object-contain">
 
 <div class="hidden md:flex items-center gap-7 text-xs font-black uppercase tracking-widest">
 
-<a href="#sessions" class="hover:text-red-500">
-Sessions
-</a>
+<a href="#sessions" class="hover:text-red-500">Sessions</a>
+<a href="#coaches" class="hover:text-red-500">Coaches</a>
+<a href="#memberships" class="hover:text-red-500">Memberships</a>
+<a href="#about" class="hover:text-red-500">About</a>
 
-<a href="#coaches" class="hover:text-red-500">
-Coaches
-</a>
-
-<a href="#memberships" class="hover:text-red-500">
-Memberships
-</a>
-
-<a href="#about" class="hover:text-red-500">
-About
-</a>
-
-<a href="#contact"
+<a
+href="#contact"
 class="bg-red-600 px-6 py-3 hover:bg-white hover:text-black transition">
 Join The Den
 </a>
@@ -195,15 +271,8 @@ onclick="toggleMobileMenu()"
 class="md:hidden p-2"
 aria-label="Open menu">
 
-<svg class="w-7 h-7"
-fill="none"
-stroke="currentColor"
-viewBox="0 0 24 24">
-
-<path
-stroke-width="2"
-d="M4 6h16M4 12h16M4 18h16"/>
-
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
 </svg>
 
 </button>
@@ -216,39 +285,28 @@ class="mobile-menu md:hidden bg-black border-t border-neutral-800 px-5 pb-6">
 
 <div class="flex flex-col gap-5 pt-5 text-sm font-black uppercase tracking-widest">
 
-<a href="#sessions" onclick="closeMobileMenu()">
-Sessions
-</a>
-
-<a href="#coaches" onclick="closeMobileMenu()">
-Coaches
-</a>
-
-<a href="#memberships" onclick="closeMobileMenu()">
-Memberships
-</a>
-
-<a href="#about" onclick="closeMobileMenu()">
-About
-</a>
+<a href="#sessions" onclick="closeMobileMenu()">Sessions</a>
+<a href="#coaches" onclick="closeMobileMenu()">Coaches</a>
+<a href="#memberships" onclick="closeMobileMenu()">Memberships</a>
+<a href="#about" onclick="closeMobileMenu()">About</a>
 
 <a
 href="#contact"
 onclick="closeMobileMenu()"
 class="bg-red-600 px-5 py-3 text-center">
-
 Join The Den
-
 </a>
 
 </div>
 </div>
+
 </nav>
 
 
 <main id="top">
 
 <!-- HERO -->
+
 <section class="hero min-h-screen flex items-center pt-20 relative overflow-hidden">
 
 <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
@@ -260,17 +318,15 @@ Elite Suburban Fitness
 </div>
 
 <h1 class="text-6xl sm:text-7xl md:text-8xl black-italic leading-[.84] mb-8">
-
-Forging<br>
-<span class="text-red-600">Stronger</span><br>
+Forging
+<br>
+<span class="text-red-600">Stronger</span>
+<br>
 Humans.
-
 </h1>
 
 <p class="text-lg sm:text-xl text-neutral-300 max-w-xl mb-10">
-
 Elite equipment, expert coaching and a serious training community built to help you become stronger every day.
-
 </p>
 
 <div class="flex flex-col sm:flex-row gap-4">
@@ -278,17 +334,13 @@ Elite equipment, expert coaching and a serious training community built to help 
 <a
 href="#contact"
 class="bg-red-600 px-8 py-5 text-center font-black uppercase tracking-widest hover:bg-white hover:text-black transition">
-
 Free 3-Day Pass
-
 </a>
 
 <a
 href="#contact"
 class="border-2 border-white px-8 py-5 text-center font-black uppercase tracking-widest hover:bg-white hover:text-black transition">
-
 Book Consultation
-
 </a>
 
 </div>
@@ -314,14 +366,15 @@ class="w-full aspect-[4/5] object-cover">
 </div>
 
 </div>
-
 </div>
 
 </div>
+
 </section>
 
 
 <!-- MOVING FEATURE STRIP -->
+
 <section class="bg-red-600 overflow-hidden py-4">
 
 <div class="slide-track text-black font-black uppercase tracking-widest text-sm">
@@ -344,6 +397,7 @@ class="w-full aspect-[4/5] object-cover">
 
 
 <!-- ABOUT -->
+
 <section
 id="about"
 class="relative photo-section py-24"
@@ -370,33 +424,24 @@ About The Den
 </div>
 
 <h2 class="text-5xl md:text-6xl black-italic mb-8">
-
-Built Different.<br>
-<span class="text-neutral-400">
-For A Reason.
-</span>
-
+Built Different.
+<br>
+<span class="text-neutral-400">For A Reason.</span>
 </h2>
 
 <p class="text-neutral-300 text-lg leading-relaxed mb-6">
-
 Bobby's Iron Den is more than a place to lift weights. It's a training environment built around discipline, consistency and real progress.
-
 </p>
 
 <p class="text-neutral-400 text-lg leading-relaxed mb-10">
-
 Whether you're starting your fitness journey or pushing toward your next level, the Den gives you the equipment, guidance and environment to keep moving forward.
-
 </p>
 
 <div class="grid sm:grid-cols-2 gap-5">
 
 <div class="card glass p-6">
 
-<b class="text-red-500 text-4xl">
-01
-</b>
+<b class="text-red-500 text-4xl">01</b>
 
 <h3 class="black-italic text-xl mt-2">
 Strong Community
@@ -411,9 +456,7 @@ Train around people who take progress seriously.
 
 <div class="card glass p-6">
 
-<b class="gold text-4xl">
-02
-</b>
+<b class="gold text-4xl">02</b>
 
 <h3 class="black-italic text-xl mt-2">
 Real Results
@@ -430,11 +473,14 @@ Structured training designed around measurable progress.
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 
 <!-- HOURS -->
+
 <section id="hours" class="py-24 bg-black">
 
 <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-14 items-center">
@@ -446,53 +492,30 @@ Opening Hours
 </div>
 
 <h2 class="text-5xl md:text-6xl black-italic mb-10">
-
 We're Here
-<span class="text-neutral-600">
-When You Are.
-</span>
-
+<span class="text-neutral-600">When You Are.</span>
 </h2>
 
 <div class="max-w-xl">
 
 <div class="hours-row py-5 flex justify-between gap-5">
-<span class="font-bold uppercase tracking-widest">
-Monday – Friday
-</span>
-<span class="text-red-500 font-bold">
-6:00 AM – 10:00 PM
-</span>
+<span class="font-bold uppercase tracking-widest">Monday – Friday</span>
+<span class="text-red-500 font-bold">6:00 AM – 10:00 PM</span>
 </div>
 
 <div class="hours-row py-5 flex justify-between gap-5">
-<span class="font-bold uppercase tracking-widest">
-Saturday
-</span>
-<span class="text-red-500 font-bold">
-7:00 AM – 8:00 PM
-</span>
+<span class="font-bold uppercase tracking-widest">Saturday</span>
+<span class="text-red-500 font-bold">7:00 AM – 8:00 PM</span>
 </div>
 
 <div class="hours-row py-5 flex justify-between gap-5">
-<span class="font-bold uppercase tracking-widest">
-Sunday
-</span>
-<span class="text-red-500 font-bold">
-8:00 AM – 4:00 PM
-</span>
+<span class="font-bold uppercase tracking-widest">Sunday</span>
+<span class="text-red-500 font-bold">8:00 AM – 4:00 PM</span>
 </div>
 
 <div class="py-5 flex justify-between gap-5">
-
-<span class="font-bold uppercase tracking-widest">
-Public Holidays
-</span>
-
-<span class="gold font-bold">
-8:00 AM – 2:00 PM
-</span>
-
+<span class="font-bold uppercase tracking-widest">Public Holidays</span>
+<span class="gold font-bold">8:00 AM – 2:00 PM</span>
 </div>
 
 </div>
@@ -514,11 +537,12 @@ class="w-full aspect-video object-cover border border-neutral-800">
 </section>
 
 
-<!-- WORKOUT PLANS -->
+<!-- COMPLETE WORKOUT PLANS -->
+
 <section
 id="sessions"
 class="relative py-24 text-white overflow-hidden"
-style="background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.94)),url('gym-training.jpg');background-size:cover;background-position:center;">
+style="background-image:linear-gradient(rgba(0,0,0,.84),rgba(0,0,0,.95)),url('gym-training.jpg');background-size:cover;background-position:center;">
 
 <div
 class="absolute inset-0 pointer-events-none"
@@ -535,29 +559,24 @@ BOBBY TRAINING SYSTEM
 </div>
 
 <h2 class="text-5xl md:text-6xl black-italic">
-
 Monday–Friday
-<span class="text-neutral-500">
-Training Split
-</span>
-
+<span class="text-neutral-500">Training Split</span>
 </h2>
 
 <p class="text-neutral-300 max-w-2xl mt-5 text-lg">
-
-A structured five-day split built around strength, hypertrophy and focused muscle-group training. Saturday and Sunday are recovery days.
-
+A structured five-day training split built around strength, hypertrophy and focused muscle-group development.
 </p>
 
 </div>
 
 
-<!-- WORKOUT TABS -->
-<div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-10">
+<!-- DAY TABS -->
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-12">
 
 <button
 type="button"
-class="workout-tab text-left p-5 bg-black text-white border-2 border-red-600 shadow-lg backdrop-blur-sm"
+class="workout-tab active text-left p-5 bg-black text-white border-2 border-red-600 shadow-lg"
 data-day="Mon"
 aria-selected="true">
 
@@ -574,7 +593,7 @@ Back + Triceps
 
 <button
 type="button"
-class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm"
+class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600"
 data-day="Tue"
 aria-selected="false">
 
@@ -591,7 +610,7 @@ Chest + Shoulders
 
 <button
 type="button"
-class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm"
+class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600"
 data-day="Wed"
 aria-selected="false">
 
@@ -608,7 +627,7 @@ Legs + Calves
 
 <button
 type="button"
-class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm"
+class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600"
 data-day="Thu"
 aria-selected="false">
 
@@ -625,7 +644,7 @@ Back + Biceps
 
 <button
 type="button"
-class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm"
+class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600"
 data-day="Fri"
 aria-selected="false">
 
@@ -643,18 +662,21 @@ Shoulders + Arms
 
 
 <!-- WORKOUT PANEL -->
+
 <div
 id="workoutPanel"
-class="bg-black/90 border border-neutral-700 shadow-2xl backdrop-blur-sm"
-aria-live="polite">
+class="workout-panel bg-black/90 border border-neutral-700 backdrop-blur-sm">
+
+<!-- Content inserted by JavaScript -->
 
 </div>
 
 
 <!-- REST DAYS -->
+
 <div class="mt-10 grid md:grid-cols-2 gap-5">
 
-<div class="p-7 bg-black text-white border border-neutral-800">
+<div class="p-7 bg-black border border-neutral-800">
 
 <div class="text-red-500 text-xs font-black uppercase tracking-widest">
 Saturday
@@ -671,7 +693,7 @@ Recovery
 </div>
 
 
-<div class="p-7 bg-black text-white border border-neutral-800">
+<div class="p-7 bg-black border border-neutral-800">
 
 <div class="gold text-xs font-black uppercase tracking-widest">
 Sunday
@@ -695,6 +717,7 @@ Recovery
 
 
 <!-- COACHES -->
+
 <section id="coaches" class="py-24 bg-black">
 
 <div class="max-w-7xl mx-auto px-4">
@@ -707,16 +730,13 @@ The Coaches
 
 <h2 class="text-6xl black-italic">
 Expert
-<span class="text-neutral-600">
-Guidance
-</span>
+<span class="text-neutral-600">Guidance</span>
 </h2>
 
 </div>
 
 
 <div class="grid md:grid-cols-3 gap-8">
-
 
 <div class="reveal card overflow-hidden">
 
@@ -749,7 +769,7 @@ Functional strength and high-intensity conditioning.
 <img
 src="gym-coaches.jpg"
 alt="Fitness coaching at Bobby's Iron Den"
-class="w-full aspect-[3/4] object-cover object-center">
+class="w-full aspect-[3/4] object-cover">
 
 <div class="p-6">
 
@@ -803,6 +823,7 @@ Explosive power and heavy lifting for all levels.
 
 
 <!-- MEMBERSHIPS -->
+
 <section
 id="memberships"
 class="relative py-24 overflow-hidden"
@@ -818,16 +839,13 @@ Pricing
 
 <h2 class="text-6xl black-italic">
 Join The
-<span class="text-neutral-600">
-Den
-</span>
+<span class="text-neutral-600">Den</span>
 </h2>
 
 </div>
 
 
 <div class="grid md:grid-cols-3 gap-8">
-
 
 <div class="card glass p-9">
 
@@ -837,29 +855,18 @@ Starter
 
 <div class="text-5xl black-italic my-7">
 ₦79,000
-<span class="text-xs text-neutral-500">
-/ mo
-</span>
+<span class="text-xs text-neutral-500">/ mo</span>
 </div>
 
 <ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest">
-
-<li>
-8 Sessions / Month
-</li>
-
-<li>
-Locker Access
-</li>
-
+<li>8 Sessions / Month</li>
+<li>Locker Access</li>
 </ul>
 
 <a
 href="#contact"
 class="block w-full py-4 bg-white text-black text-center black-italic hover:bg-red-600 hover:text-white transition">
-
 Select Plan
-
 </a>
 
 </div>
@@ -877,33 +884,19 @@ Unlimited
 
 <div class="text-5xl black-italic my-7">
 ₦149,000
-<span class="text-xs text-neutral-500">
-/ mo
-</span>
+<span class="text-xs text-neutral-500">/ mo</span>
 </div>
 
 <ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest">
-
-<li>
-Unlimited Sessions
-</li>
-
-<li>
-Priority Booking
-</li>
-
-<li>
-Free T-Shirt
-</li>
-
+<li>Unlimited Sessions</li>
+<li>Priority Booking</li>
+<li>Free T-Shirt</li>
 </ul>
 
 <a
 href="#contact"
 class="block w-full py-4 bg-red-600 text-white text-center black-italic hover:bg-white hover:text-black transition">
-
 Select Plan
-
 </a>
 
 </div>
@@ -917,29 +910,18 @@ Pro
 
 <div class="text-5xl black-italic my-7">
 ₦199,000
-<span class="text-xs text-neutral-500">
-/ mo
-</span>
+<span class="text-xs text-neutral-500">/ mo</span>
 </div>
 
 <ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest">
-
-<li>
-Everything in Unlimited
-</li>
-
-<li>
-1-on-1 Monthly Check-in
-</li>
-
+<li>Everything in Unlimited</li>
+<li>1-on-1 Monthly Check-in</li>
 </ul>
 
 <a
 href="#contact"
 class="block w-full py-4 bg-white text-black text-center black-italic hover:bg-red-600 hover:text-white transition">
-
 Select Plan
-
 </a>
 
 </div>
@@ -952,6 +934,7 @@ Select Plan
 
 
 <!-- TRAINING VISUAL -->
+
 <section
 class="relative photo-section py-28"
 style="background-image:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8)),url('gym-training.jpg')">
@@ -965,12 +948,9 @@ Train With Purpose
 </div>
 
 <h2 class="text-5xl md:text-7xl black-italic">
-
-No Shortcuts.<br>
-<span class="text-red-500">
-Just Work.
-</span>
-
+No Shortcuts.
+<br>
+<span class="text-red-500">Just Work.</span>
 </h2>
 
 </div>
@@ -981,6 +961,7 @@ Just Work.
 
 
 <!-- FAQ -->
+
 <section class="py-24 bg-neutral-50 text-neutral-900">
 
 <div class="max-w-3xl mx-auto px-4">
@@ -993,9 +974,7 @@ Got Questions?
 
 <h2 class="text-6xl black-italic">
 The
-<span class="text-neutral-400">
-Intel
-</span>
+<span class="text-neutral-400">Intel</span>
 </h2>
 
 </div>
@@ -1003,29 +982,22 @@ Intel
 
 <div class="space-y-3">
 
-
 <div class="accordion-item border-b border-neutral-200">
 
 <button
 class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600"
 onclick="toggleAccordion(this)">
 
-<span>
-What makes the Iron Den different?
-</span>
+<span>What makes the Iron Den different?</span>
 
-<span class="chevron transition">
-⌄
-</span>
+<span class="chevron transition">⌄</span>
 
 </button>
 
 <div class="accordion-content">
 
 <p class="pb-6 text-neutral-500">
-
 We focus on quality equipment, personalized training and a community that takes progress seriously.
-
 </p>
 
 </div>
@@ -1039,22 +1011,16 @@ We focus on quality equipment, personalized training and a community that takes 
 class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600"
 onclick="toggleAccordion(this)">
 
-<span>
-Do you accept beginners?
-</span>
+<span>Do you accept beginners?</span>
 
-<span class="chevron transition">
-⌄
-</span>
+<span class="chevron transition">⌄</span>
 
 </button>
 
 <div class="accordion-content">
 
 <p class="pb-6 text-neutral-500">
-
 Yes. Training can be adapted for beginners, intermediate lifters and experienced athletes.
-
 </p>
 
 </div>
@@ -1068,22 +1034,16 @@ Yes. Training can be adapted for beginners, intermediate lifters and experienced
 class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600"
 onclick="toggleAccordion(this)">
 
-<span>
-Do you offer personal training?
-</span>
+<span>Do you offer personal training?</span>
 
-<span class="chevron transition">
-⌄
-</span>
+<span class="chevron transition">⌄</span>
 
 </button>
 
 <div class="accordion-content">
 
 <p class="pb-6 text-neutral-500">
-
 Yes. Personal training options can be arranged around your goals and schedule.
-
 </p>
 
 </div>
@@ -1098,6 +1058,7 @@ Yes. Personal training options can be arranged around your goals and schedule.
 
 
 <!-- CONTACT -->
+
 <section
 id="contact"
 class="relative py-24 photo-section"
@@ -1112,12 +1073,9 @@ Get In Touch
 </div>
 
 <h2 class="text-6xl md:text-7xl black-italic mb-8">
-
-Enter The<br>
-<span class="text-neutral-600">
-Den.
-</span>
-
+Enter The
+<br>
+<span class="text-neutral-600">Den.</span>
 </h2>
 
 <div class="space-y-5 text-lg">
@@ -1129,17 +1087,13 @@ Ogbomoso, Nigeria
 <a
 href="tel:+2347025591999"
 class="block black-italic hover:text-red-500">
-
 +234 702 559 1999
-
 </a>
 
 <a
 href="https://wa.me/2347025591999"
 class="block text-green-400 black-italic hover:text-green-300">
-
 WhatsApp: Chat With Us
-
 </a>
 
 </div>
@@ -1176,17 +1130,13 @@ class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:bo
 
 <button
 class="w-full py-5 bg-red-600 text-white black-italic hover:bg-black transition">
-
 Send On WhatsApp
-
 </button>
 
 <p
 id="formMessage"
 class="hidden text-sm font-bold text-green-600">
-
 Your message is ready in WhatsApp.
-
 </p>
 
 </form>
@@ -1201,12 +1151,12 @@ Your message is ready in WhatsApp.
 
 
 <!-- FOOTER -->
+
 <footer class="py-14 bg-black border-t border-neutral-800">
 
 <div class="max-w-7xl mx-auto px-4">
 
 <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-neutral-800">
-
 
 <div>
 
@@ -1216,9 +1166,7 @@ alt="Bobby's Iron Den"
 class="h-16 w-auto max-w-[190px] object-contain mb-5">
 
 <p class="text-sm text-neutral-500 leading-relaxed">
-
 Forging stronger humans through training, discipline, expert coaching and community.
-
 </p>
 
 </div>
@@ -1232,25 +1180,11 @@ Quick Links
 
 <div class="space-y-3 text-sm text-neutral-400">
 
-<a href="#sessions" class="block hover:text-white">
-Sessions
-</a>
-
-<a href="#coaches" class="block hover:text-white">
-Coaches
-</a>
-
-<a href="#memberships" class="block hover:text-white">
-Memberships
-</a>
-
-<a href="#about" class="block hover:text-white">
-About
-</a>
-
-<a href="#contact" class="block hover:text-white">
-Contact
-</a>
+<a href="#sessions" class="block hover:text-white">Sessions</a>
+<a href="#coaches" class="block hover:text-white">Coaches</a>
+<a href="#memberships" class="block hover:text-white">Memberships</a>
+<a href="#about" class="block hover:text-white">About</a>
+<a href="#contact" class="block hover:text-white">Contact</a>
 
 </div>
 
@@ -1265,24 +1199,18 @@ Contact
 
 <div class="space-y-3 text-sm text-neutral-400">
 
-<div>
-Ogbomoso, Nigeria
-</div>
+<div>Ogbomoso, Nigeria</div>
 
 <a
 href="tel:+2347025591999"
 class="block hover:text-white">
-
 +234 702 559 1999
-
 </a>
 
 <a
 href="https://wa.me/2347025591999"
 class="block hover:text-white">
-
 WhatsApp
-
 </a>
 
 </div>
@@ -1315,9 +1243,7 @@ Facebook — Coming Soon
 <a
 href="https://wa.me/2347025591999"
 class="inline-block mt-6 bg-red-600 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black">
-
 Join The Community
-
 </a>
 
 </div>
@@ -1343,12 +1269,11 @@ Built For Strength. Built For Progress.
 
 
 <!-- FLOATING WHATSAPP -->
+
 <a
 href="https://wa.me/2347025591999"
 class="fixed bottom-5 right-5 z-50 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 transition">
-
 WhatsApp
-
 </a>
 
 
@@ -1359,23 +1284,23 @@ WhatsApp
 ========================= */
 
 function toggleMobileMenu(){
-    document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
 }
 
 function closeMobileMenu(){
-    document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
 }
 
-document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-        closeMobileMenu();
-    }
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeMobileMenu();
+  }
 });
 
-window.addEventListener('resize',function(){
-    if(window.innerWidth>=768){
-        closeMobileMenu();
-    }
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>=768){
+    closeMobileMenu();
+  }
 });
 
 
@@ -1384,18 +1309,7 @@ window.addEventListener('resize',function(){
 ========================= */
 
 function toggleAccordion(btn){
-
-    const item=btn.parentElement;
-
-    document.querySelectorAll('.accordion-item').forEach(function(other){
-
-        if(other!==item){
-            other.classList.remove('active');
-        }
-
-    });
-
-    item.classList.toggle('active');
+  btn.parentElement.classList.toggle('active');
 }
 
 
@@ -1405,80 +1319,85 @@ function toggleAccordion(btn){
 
 const workoutPlans={
 
-    Mon:{
-        day:'Monday',
-        focus:'Back + Triceps',
-        goal:'Heavy pulling',
-        exercises:[
-            ['Weighted Pull-ups','4 × 6–8'],
-            ['Barbell Rows','4 × 6–8'],
-            ['Lat Pulldown','3 × 8–12'],
-            ['Straight-Arm Pulldown','3 × 10–15'],
-            ['Close-Grip Bench Press','3 × 6–10'],
-            ['Overhead Cable Triceps Extension','3 × 10–15'],
-            ['Rope Pushdown','2–3 × 12–15']
-        ]
-    },
+Mon:{
+  day:'Monday',
+  focus:'Back + Triceps',
+  goal:'Heavy pulling',
+  emoji:'🔥',
+  exercises:[
+    ['Weighted Pull-ups','4 × 6–8'],
+    ['Barbell Rows','4 × 6–8'],
+    ['Lat Pulldown','3 × 8–12'],
+    ['Straight-Arm Pulldown','3 × 10–15'],
+    ['Close-Grip Bench Press','3 × 6–10'],
+    ['Overhead Cable Triceps Extension','3 × 10–15'],
+    ['Rope Pushdown','2–3 × 12–15']
+  ]
+},
 
-    Tue:{
-        day:'Tuesday',
-        focus:'Chest + Shoulders',
-        goal:'Pressing + delts',
-        exercises:[
-            ['Barbell Bench Press','4 × 5–8'],
-            ['Incline Dumbbell Press','3 × 8–10'],
-            ['Machine/Chest Press','3 × 10–12'],
-            ['Overhead Press','3 × 6–10'],
-            ['Dumbbell Lateral Raises','4 × 12–20'],
-            ['Face Pulls','3 × 12–20']
-        ]
-    },
+Tue:{
+  day:'Tuesday',
+  focus:'Chest + Shoulders',
+  goal:'Pressing + delts',
+  emoji:'💪',
+  exercises:[
+    ['Barbell Bench Press','4 × 5–8'],
+    ['Incline Dumbbell Press','3 × 8–10'],
+    ['Machine/Chest Press','3 × 10–12'],
+    ['Overhead Press','3 × 6–10'],
+    ['Dumbbell Lateral Raises','4 × 12–20'],
+    ['Face Pulls','3 × 12–20']
+  ]
+},
 
-    Wed:{
-        day:'Wednesday',
-        focus:'Legs + Calves',
-        goal:'Lower-body strength',
-        exercises:[
-            ['Back Squat','4 × 5–8'],
-            ['Romanian Deadlift','3 × 6–10'],
-            ['Leg Press','3 × 10–15'],
-            ['Leg Curl','3 × 10–15'],
-            ['Leg Extension','3 × 12–15'],
-            ['Standing Calf Raise','4 × 10–15'],
-            ['Seated Calf Raise','3 × 12–20']
-        ]
-    },
+Wed:{
+  day:'Wednesday',
+  focus:'Legs + Calves',
+  goal:'Lower-body strength',
+  emoji:'🦵',
+  exercises:[
+    ['Back Squat','4 × 5–8'],
+    ['Romanian Deadlift','3 × 6–10'],
+    ['Leg Press','3 × 10–15'],
+    ['Leg Curl','3 × 10–15'],
+    ['Leg Extension','3 × 12–15'],
+    ['Standing Calf Raise','4 × 10–15'],
+    ['Seated Calf Raise','3 × 12–20']
+  ]
+},
 
-    Thu:{
-        day:'Thursday',
-        focus:'Back + Biceps',
-        goal:'Back width/thickness + arms',
-        exercises:[
-            ['Neutral-Grip Pulldown','4 × 8–12'],
-            ['Single-Arm Dumbbell Row','3 × 8–12'],
-            ['Seated Cable Row','3 × 8–12'],
-            ['Chest-Supported Row','3 × 10–12'],
-            ['EZ-Bar Curl','3 × 8–12'],
-            ['Incline Dumbbell Curl','3 × 10–15'],
-            ['Hammer Curl','2–3 × 10–15']
-        ]
-    },
+Thu:{
+  day:'Thursday',
+  focus:'Back + Biceps',
+  goal:'Back width/thickness + arms',
+  emoji:'🔥',
+  exercises:[
+    ['Neutral-Grip Pulldown','4 × 8–12'],
+    ['Single-Arm Dumbbell Row','3 × 8–12'],
+    ['Seated Cable Row','3 × 8–12'],
+    ['Chest-Supported Row','3 × 10–12'],
+    ['EZ-Bar Curl','3 × 8–12'],
+    ['Incline Dumbbell Curl','3 × 10–15'],
+    ['Hammer Curl','2–3 × 10–15']
+  ]
+},
 
-    Fri:{
-        day:'Friday',
-        focus:'Shoulders + Arms',
-        goal:'Hypertrophy/finishing work',
-        exercises:[
-            ['Seated Dumbbell Shoulder Press','3 × 6–10'],
-            ['Cable/Dumbbell Lateral Raise','4 × 12–20'],
-            ['Rear-Delt Fly','3 × 12–20'],
-            ['EZ-Bar Curl','3 × 8–12'],
-            ['Preacher Curl','3 × 10–15'],
-            ['Skull Crushers','3 × 8–12'],
-            ['Rope Pushdowns','3 × 10–15'],
-            ['Dips','2 × 8–12']
-        ]
-    }
+Fri:{
+  day:'Friday',
+  focus:'Shoulders + Arms',
+  goal:'Hypertrophy/finishing work',
+  emoji:'💥',
+  exercises:[
+    ['Seated Dumbbell Shoulder Press','3 × 6–10'],
+    ['Cable/Dumbbell Lateral Raise','4 × 12–20'],
+    ['Rear-Delt Fly','3 × 12–20'],
+    ['EZ-Bar Curl','3 × 8–12'],
+    ['Preacher Curl','3 × 10–15'],
+    ['Skull Crushers','3 × 8–12'],
+    ['Rope Pushdowns','3 × 10–15'],
+    ['Dips','2 × 8–12']
+  ]
+}
 
 };
 
@@ -1487,223 +1406,202 @@ const workoutPlans={
    WORKOUT PANEL
 ========================= */
 
-const workoutPanel=document.getElementById('workoutPanel');
-
 const workoutTabs=document.querySelectorAll('.workout-tab');
+const workoutPanel=document.getElementById('workoutPanel');
 
 
 function renderWorkout(dayKey){
 
-    const plan=workoutPlans[dayKey];
+  const plan=workoutPlans[dayKey];
 
-    const exerciseRows=plan.exercises.map(function(exercise,index){
+  workoutPanel.innerHTML=`
 
-        return `
-        <div class="workout-exercise flex items-center justify-between gap-5 px-5 py-4 border-b border-neutral-800">
+    <div class="grid lg:grid-cols-[.8fr_1.2fr]">
 
-            <div class="flex items-center gap-4 min-w-0">
+      <div class="p-8 md:p-12 bg-black">
 
-                <div class="w-8 h-8 shrink-0 rounded-full bg-red-600/10 border border-red-600/40 flex items-center justify-center text-red-500 text-xs font-black">
-                    ${String(index+1).padStart(2,'0')}
-                </div>
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+          ${plan.day} ${plan.emoji}
+        </div>
 
-                <span class="font-bold text-sm sm:text-base text-neutral-100">
-                    ${exercise[0]}
+        <h3 class="text-4xl md:text-5xl black-italic mb-6">
+          ${plan.focus}
+        </h3>
+
+        <div class="text-neutral-500 uppercase tracking-widest text-xs font-black">
+          Main Goal
+        </div>
+
+        <div class="text-xl font-bold mt-2 text-white">
+          ${plan.goal}
+        </div>
+
+        <div class="mt-10 border-l-4 border-red-600 pl-5">
+
+          <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-2">
+            BOBBY'S FOCUS
+          </div>
+
+          <p class="text-neutral-400 leading-relaxed">
+            Train with controlled technique, progressive overload and consistent effort. Quality repetitions come before ego.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="p-8 md:p-12 bg-neutral-950/90">
+
+        <div class="flex items-center justify-between mb-5">
+
+          <div>
+            <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+              Today's Workout
+            </div>
+
+            <h4 class="text-2xl font-black uppercase mt-2">
+              Exercise Plan
+            </h4>
+          </div>
+
+          <div class="hidden sm:block text-xs text-neutral-600 uppercase tracking-widest font-bold">
+            Sets × Reps
+          </div>
+
+        </div>
+
+
+        <div class="workout-exercises">
+
+          ${plan.exercises.map((exercise,index)=>`
+
+            <div class="exercise-row">
+
+              <div class="flex items-center gap-4">
+
+                <span class="text-red-600 font-black text-sm w-6">
+                  ${String(index+1).padStart(2,'0')}
                 </span>
 
-            </div>
+                <span class="exercise-name">
+                  ${exercise[0]}
+                </span>
 
-            <span class="shrink-0 text-red-500 font-black text-sm sm:text-base">
+              </div>
+
+              <span class="exercise-sets">
                 ${exercise[1]}
-            </span>
-
-        </div>
-        `;
-
-    }).join('');
-
-
-    workoutPanel.innerHTML=`
-
-    <div class="grid lg:grid-cols-[.85fr_1.15fr]">
-
-        <div class="p-8 md:p-12 bg-black">
-
-            <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
-                ${plan.day}
-            </div>
-
-            <h3 class="text-4xl md:text-5xl black-italic mb-6">
-                ${plan.focus}
-            </h3>
-
-            <div class="border-l-4 border-red-600 pl-5">
-
-                <p class="text-neutral-500 uppercase tracking-widest text-xs font-black">
-                    Main Goal
-                </p>
-
-                <p class="text-xl font-bold mt-2">
-                    ${plan.goal}
-                </p>
+              </span>
 
             </div>
 
-            <div class="mt-10">
-
-                <p class="text-neutral-500 text-xs font-black uppercase tracking-widest">
-                    Session
-                </p>
-
-                <p class="text-neutral-300 mt-2">
-                    ${plan.exercises.length} exercises
-                </p>
-
-            </div>
+          `).join('')}
 
         </div>
 
-
-        <div class="bg-neutral-950/95">
-
-            <div class="px-5 sm:px-8 py-5 border-b border-neutral-800 flex justify-between items-center">
-
-                <div class="text-xs font-black uppercase tracking-widest text-neutral-400">
-                    Exercise
-                </div>
-
-                <div class="text-xs font-black uppercase tracking-widest text-neutral-400">
-                    Sets × Reps
-                </div>
-
-            </div>
-
-            ${exerciseRows}
-
-        </div>
+      </div>
 
     </div>
-
-    `;
-
+  `;
 }
 
 
-/* INITIAL WORKOUT */
+workoutTabs.forEach(tab=>{
 
-renderWorkout('Mon');
+  tab.addEventListener('click',()=>{
 
+    workoutTabs.forEach(t=>{
 
-/* WORKOUT TAB EVENTS */
+      t.classList.remove('active');
 
-workoutTabs.forEach(function(tab){
+      t.classList.remove(
+        'bg-black',
+        'text-white',
+        'border-red-600'
+      );
 
-    tab.addEventListener('click',function(){
+      t.classList.add(
+        'bg-black/70',
+        'border-neutral-700'
+      );
 
-        workoutTabs.forEach(function(t){
+      t.setAttribute('aria-selected','false');
 
-            t.classList.remove(
-                'bg-black',
-                'text-white',
-                'border-red-600'
-            );
+      const label=t.querySelector('div');
 
-            t.classList.add(
-                'bg-black/70',
-                'border-neutral-700'
-            );
-
-            t.setAttribute(
-                'aria-selected',
-                'false'
-            );
-
-            const label=t.querySelector('div');
-
-            if(label){
-
-                label.classList.remove(
-                    'text-red-500'
-                );
-
-                label.classList.add(
-                    'text-neutral-500'
-                );
-
-            }
-
-        });
-
-
-        tab.classList.add(
-            'bg-black',
-            'text-white',
-            'border-red-600'
-        );
-
-        tab.classList.remove(
-            'bg-black/70',
-            'border-neutral-700'
-        );
-
-        tab.setAttribute(
-            'aria-selected',
-            'true'
-        );
-
-
-        const label=tab.querySelector('div');
-
-        if(label){
-
-            label.classList.remove(
-                'text-neutral-500'
-            );
-
-            label.classList.add(
-                'text-red-500'
-            );
-
-        }
-
-
-        renderWorkout(tab.dataset.day);
+      if(label){
+        label.classList.remove('text-red-500');
+        label.classList.add('text-neutral-500');
+      }
 
     });
+
+
+    tab.classList.add('active');
+
+    tab.classList.remove(
+      'bg-black/70',
+      'border-neutral-700'
+    );
+
+    tab.classList.add(
+      'bg-black',
+      'text-white',
+      'border-red-600'
+    );
+
+    tab.setAttribute('aria-selected','true');
+
+    const label=tab.querySelector('div');
+
+    if(label){
+      label.classList.remove('text-neutral-500');
+      label.classList.add('text-red-500');
+    }
+
+
+    renderWorkout(tab.dataset.day);
+
+  });
 
 });
 
 
+/* LOAD MONDAY BY DEFAULT */
+
+renderWorkout('Mon');
+
+
 /* =========================
-   CONTACT → WHATSAPP
+   WHATSAPP CONTACT FORM
 ========================= */
 
 function submitContact(e){
 
-    e.preventDefault();
+  e.preventDefault();
 
-    const form=e.target;
+  const form=e.target;
 
-    const name=form.elements.name.value.trim();
-    const email=form.elements.email.value.trim();
-    const goals=form.elements.goals.value.trim();
+  const name=form.elements.name.value.trim();
+  const email=form.elements.email.value.trim();
+  const goals=form.elements.goals.value.trim();
 
-    const message=
-        `Hello Bobby's Iron Den, my name is ${name}. ` +
-        `Email: ${email}. ` +
-        `My fitness goals are: ${goals}`;
+  const message=
+    `Hello Bobby's Iron Den, my name is ${name}. `+
+    `Email: ${email}. `+
+    `My fitness goals are: ${goals}`;
 
-    window.open(
-        'https://wa.me/2347025591999?text='+
-        encodeURIComponent(message),
-        '_blank',
-        'noopener,noreferrer'
-    );
+  window.open(
+    'https://wa.me/2347025591999?text='+encodeURIComponent(message),
+    '_blank',
+    'noopener,noreferrer'
+  );
 
-    document
-        .getElementById('formMessage')
-        .classList
-        .remove('hidden');
+  document
+    .getElementById('formMessage')
+    .classList
+    .remove('hidden');
 }
 
 
@@ -1713,34 +1611,27 @@ function submitContact(e){
 
 const observer=new IntersectionObserver(
 
-    function(entries){
+  entries=>{
 
-        entries.forEach(function(entry){
+    entries.forEach(e=>{
 
-            if(entry.isIntersecting){
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+      }
 
-                entry.target.classList.add('show');
+    });
 
-            }
+  },
 
-        });
-
-    },
-
-    {
-        threshold:.12
-    }
+  {
+    threshold:.12
+  }
 
 );
 
-
 document
-    .querySelectorAll('.reveal')
-    .forEach(function(el){
-
-        observer.observe(el);
-
-    });
+  .querySelectorAll('.reveal')
+  .forEach(el=>observer.observe(el));
 
 </script>
 
