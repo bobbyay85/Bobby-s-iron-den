@@ -3,183 +3,1925 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="description" content="Bobby's Iron Den — strength training, expert coaching and a serious fitness community in Ogbomoso, Nigeria.">
 <meta name="theme-color" content="#050505">
+
 <title>Bobby's Iron Den | Elite Fitness</title>
+
 <link rel="icon" type="image/png" href="bobby-logo.png">
+
 <script src="https://cdn.tailwindcss.com"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--red:#dc2626;--gold:#d4a72c}
-html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:Inter,sans-serif;background:#050505;color:#fff}.display{font-family:'Space Grotesk',sans-serif}.black-italic{font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.055em}.gold{color:var(--gold)}
-.hero{background-image:linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.72) 48%,rgba(0,0,0,.35)),url('gym-hero.jpg');background-size:cover;background-position:center}.photo-section{background-size:cover;background-position:center;background-attachment:scroll}.glass{background:rgba(0,0,0,.62);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
-.card{transition:.35s ease;border:1px solid #292929}.card:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 20px 45px rgba(0,0,0,.25)}
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}.slide-track{display:flex;width:max-content;animation:slide 28s linear infinite}.slide-track:hover{animation-play-state:paused}@keyframes slide{to{transform:translateX(-50%)}}
-.accordion-content{max-height:0;overflow:hidden;transition:max-height .35s ease}.accordion-item.active .accordion-content{max-height:240px}.accordion-item.active .chevron{transform:rotate(180deg)}
-.mobile-menu{display:none}.mobile-menu.open{display:block}.hours-row{border-bottom:1px solid #333}
-@media(min-width:768px){.photo-section{background-attachment:fixed}}
-</style>
-</head>
-<body>
-<!-- NAVBAR -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-neutral-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-<a href="#top" aria-label="Bobby's Iron Den home"><img src="bobby-logo.png" alt="Bobby's Iron Den logo" class="h-14 w-auto max-w-[190px] object-contain"></a>
-<div class="hidden md:flex items-center gap-7 text-xs font-black uppercase tracking-widest">
-<a href="#sessions" class="hover:text-red-500">Sessions</a><a href="#coaches" class="hover:text-red-500">Coaches</a><a href="#memberships" class="hover:text-red-500">Memberships</a><a href="#about" class="hover:text-red-500">About</a><a href="#contact" class="bg-red-600 px-6 py-3 hover:bg-white hover:text-black transition">Join The Den</a>
-</div>
-<button onclick="toggleMobileMenu()" class="md:hidden p-2" aria-label="Open menu"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-</div>
-<div id="mobileMenu" class="mobile-menu md:hidden bg-black border-t border-neutral-800 px-5 pb-6"><div class="flex flex-col gap-5 pt-5 text-sm font-black uppercase tracking-widest"><a href="#sessions" onclick="closeMobileMenu()">Sessions</a><a href="#coaches" onclick="closeMobileMenu()">Coaches</a><a href="#memberships" onclick="closeMobileMenu()">Memberships</a><a href="#about" onclick="closeMobileMenu()">About</a><a href="#contact" onclick="closeMobileMenu()" class="bg-red-600 px-5 py-3 text-center">Join The Den</a></div></div>
-</nav>
-
-<main id="top">
-<!-- HERO -->
-<section class="hero min-h-screen flex items-center pt-20 relative overflow-hidden">
-<div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
-<div class="reveal">
-<div class="inline-block bg-red-600 px-4 py-2 mb-6 text-xs font-black uppercase tracking-widest">Elite Suburban Fitness</div>
-<h1 class="text-6xl sm:text-7xl md:text-8xl black-italic leading-[.84] mb-8">Forging<br><span class="text-red-600">Stronger</span><br>Humans.</h1>
-<p class="text-lg sm:text-xl text-neutral-300 max-w-xl mb-10">Elite equipment, expert coaching and a serious training community built to help you become stronger every day.</p>
-<div class="flex flex-col sm:flex-row gap-4"><a href="#contact" class="bg-red-600 px-8 py-5 text-center font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Free 3-Day Pass</a><a href="#contact" class="border-2 border-white px-8 py-5 text-center font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Book Consultation</a></div>
-</div>
-<div class="hidden lg:block reveal"><div class="glass border border-neutral-700 p-3 shadow-2xl"><img src="gym-hero.jpg" alt="Bobby's Iron Den gym" class="w-full aspect-[4/5] object-cover"><div class="flex justify-between pt-5 text-xs uppercase tracking-widest font-black"><span>Strength</span><span class="text-red-500">Discipline</span><span>Results</span></div></div></div>
-</div></section>
-
-<!-- MOVING FEATURE STRIP -->
-<section class="bg-red-600 overflow-hidden py-4"><div class="slide-track text-black font-black uppercase tracking-widest text-sm"><span class="px-8">Elite Equipment ✦</span><span class="px-8">Expert Coaching ✦</span><span class="px-8">Real Progress ✦</span><span class="px-8">Strong Community ✦</span><span class="px-8">Discipline ✦</span><span class="px-8">Elite Equipment ✦</span><span class="px-8">Expert Coaching ✦</span><span class="px-8">Real Progress ✦</span><span class="px-8">Strong Community ✦</span><span class="px-8">Discipline ✦</span></div></section>
-
-<!-- ABOUT -->
-<section id="about" class="relative photo-section py-24" style="background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),url('gym-about.jpg')">
-<div class="max-w-7xl mx-auto px-4"><div class="grid lg:grid-cols-2 gap-14 items-center">
-<div class="reveal"><img src="gym-about.jpg" alt="Bobby's Iron Den training environment" class="w-full aspect-[4/3] object-cover border border-neutral-700"></div>
-<div class="reveal"><div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">About The Den</div><h2 class="text-5xl md:text-6xl black-italic mb-8">Built Different.<br><span class="text-neutral-400">For A Reason.</span></h2><p class="text-neutral-300 text-lg leading-relaxed mb-6">Bobby's Iron Den is more than a place to lift weights. It's a training environment built around discipline, consistency and real progress.</p><p class="text-neutral-400 text-lg leading-relaxed mb-10">Whether you're starting your fitness journey or pushing toward your next level, the Den gives you the equipment, guidance and environment to keep moving forward.</p><div class="grid sm:grid-cols-2 gap-5"><div class="card glass p-6"><b class="text-red-500 text-4xl">01</b><h3 class="black-italic text-xl mt-2">Strong Community</h3><p class="text-sm text-neutral-400 mt-2">Train around people who take progress seriously.</p></div><div class="card glass p-6"><b class="gold text-4xl">02</b><h3 class="black-italic text-xl mt-2">Real Results</h3><p class="text-sm text-neutral-400 mt-2">Structured training designed around measurable progress.</p></div></div></div>
-</div></div></section>
-
-<!-- HOURS -->
-<section id="hours" class="py-24 bg-black"><div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-14 items-center"><div class="reveal"><div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">Opening Hours</div><h2 class="text-5xl md:text-6xl black-italic mb-10">We're Here <span class="text-neutral-600">When You Are.</span></h2><div class="max-w-xl"><div class="hours-row py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Monday – Friday</span><span class="text-red-500 font-bold">6:00 AM – 10:00 PM</span></div><div class="hours-row py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Saturday</span><span class="text-red-500 font-bold">7:00 AM – 8:00 PM</span></div><div class="hours-row py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Sunday</span><span class="text-red-500 font-bold">8:00 AM – 4:00 PM</span></div><div class="py-5 flex justify-between gap-5"><span class="font-bold uppercase tracking-widest">Public Holidays</span><span class="gold font-bold">8:00 AM – 2:00 PM</span></div></div></div><div class="reveal"><img src="gym-exterior.jpg" alt="Bobby's Iron Den exterior" class="w-full aspect-video object-cover border border-neutral-800"></div></div></section>
-
-<!-- WORKOUT PLANS -->
-<section id="sessions" class="relative py-24 text-white overflow-hidden" style="background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.94)),url('gym-training.jpg');background-size:cover;background-position:center;">
-<div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(circle at 15% 20%,rgba(220,38,38,.20),transparent 28%),radial-gradient(circle at 85% 80%,rgba(212,167,44,.10),transparent 25%);"></div>
-<div class="max-w-7xl mx-auto px-4">
-  <div class="mb-14">
-    <div class="text-red-600 text-sm font-black uppercase tracking-widest mb-4">BOBBY TRAINING SYSTEM</div>
-    <h2 class="text-5xl md:text-6xl black-italic">Monday–Friday <span class="text-neutral-500">Training Split</span></h2>
-    <p class="text-neutral-300 max-w-2xl mt-5 text-lg">A structured five-day split built around strength, hypertrophy and focused muscle-group training. Saturday and Sunday are recovery days.</p>
-  </div>
-
-  <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-12 relative z-10">
-    <button type="button" class="workout-tab text-left p-5 bg-black/90 text-white border-2 border-red-600 shadow-lg backdrop-blur-sm" data-day="Mon" aria-selected="true"><div class="text-red-500 text-xs font-black uppercase tracking-widest">Monday</div><div class="black-italic text-lg mt-2">Back + Triceps</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Tue" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Tuesday</div><div class="black-italic text-lg mt-2">Chest + Shoulders</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Wed" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Wednesday</div><div class="black-italic text-lg mt-2">Legs + Calves</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Thu" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Thursday</div><div class="black-italic text-lg mt-2">Back + Biceps</div></button>
-    <button type="button" class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition-all backdrop-blur-sm" data-day="Fri" aria-selected="false"><div class="text-neutral-500 text-xs font-black uppercase tracking-widest">Friday</div><div class="black-italic text-lg mt-2">Shoulders + Arms</div></button>
-  </div>
-
-  <div id="workoutPanel" class="bg-black/80 border border-neutral-700 shadow-2xl backdrop-blur-sm relative z-10" aria-live="polite">
-    <div class="grid md:grid-cols-2">
-      <div class="p-8 md:p-12 bg-black text-white">
-        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">Monday</div>
-        <h3 class="text-4xl md:text-5xl black-italic mb-5">Back + Triceps</h3>
-        <p class="text-neutral-400 uppercase tracking-widest text-sm font-bold">Main Goal</p>
-        <p class="text-xl font-bold mt-2">Heavy pulling</p>
-      </div>
-      <div class="p-8 md:p-12 flex flex-col justify-center bg-neutral-950/70">
-        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">BOBBY'S FOCUS</div>
-        <p class="text-neutral-300 text-lg leading-relaxed">Start the week with a heavy pulling-focused session targeting the back and triceps.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-10 grid md:grid-cols-2 gap-5 relative z-10">
-    <div class="p-7 bg-black text-white border border-neutral-800"><div class="text-red-500 text-xs font-black uppercase tracking-widest">Saturday</div><h3 class="black-italic text-2xl mt-2">Rest</h3><p class="text-neutral-500 mt-2">Recovery</p></div>
-    <div class="p-7 bg-black text-white border border-neutral-800"><div class="gold text-xs font-black uppercase tracking-widest">Sunday</div><h3 class="black-italic text-2xl mt-2">Rest</h3><p class="text-neutral-500 mt-2">Recovery</p></div>
-  </div>
-</div>
-</section>
-
-<!-- COACHES -->
-<section id="coaches" class="py-24 bg-black"><div class="max-w-7xl mx-auto px-4"><div class="text-center mb-16"><div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">The Coaches</div><h2 class="text-6xl black-italic">Expert <span class="text-neutral-600">Guidance</span></h2></div><div class="grid md:grid-cols-3 gap-8"><div class="reveal card overflow-hidden"><img src="gym-coaches.jpg" alt="Coach at Bobby's Iron Den" class="w-full aspect-[3/4] object-cover"><div class="p-6"><h3 class="text-3xl black-italic">Alex Rivera</h3><div class="text-red-500 font-bold text-xs uppercase tracking-widest my-3">Head Coach</div><p class="text-neutral-400">Functional strength and high-intensity conditioning.</p></div></div><div class="reveal card overflow-hidden"><img src="gym-coaches.jpg" alt="Fitness coaching at Bobby's Iron Den" class="w-full aspect-[3/4] object-cover object-center"><div class="p-6"><h3 class="text-3xl black-italic">Sarah Chen</h3><div class="text-red-500 font-bold text-xs uppercase tracking-widest my-3">Nutrition Expert</div><p class="text-neutral-400">Sustainable performance and recovery-focused guidance.</p></div></div><div class="reveal card overflow-hidden"><img src="gym-coaches.jpg" alt="Strength coach at Bobby's Iron Den" class="w-full aspect-[3/4] object-cover"><div class="p-6"><h3 class="text-3xl black-italic">Mike Johnson</h3><div class="text-red-500 font-bold text-xs uppercase tracking-widest my-3">Power Coach</div><p class="text-neutral-400">Explosive power and heavy lifting for all levels.</p></div></div></div></div></section>
-
-<!-- MEMBERSHIPS -->
-<section id="memberships" class="relative py-24 overflow-hidden" style="background-image:linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),url('gym-membership.jpg');background-size:cover;background-position:center"><div class="max-w-7xl mx-auto px-4 relative z-10"><div class="text-center mb-16"><div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">Pricing</div><h2 class="text-6xl black-italic">Join The <span class="text-neutral-600">Den</span></h2></div><div class="grid md:grid-cols-3 gap-8"><div class="card glass p-9"><h3 class="text-2xl black-italic">Starter</h3><div class="text-5xl black-italic my-7">₦79,000 <span class="text-xs text-neutral-500">/ mo</span></div><ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest"><li>8 Sessions / Month</li><li>Locker Access</li></ul><a href="#contact" class="block w-full py-4 bg-white text-black text-center black-italic hover:bg-red-600 hover:text-white transition">Select Plan</a></div><div class="card bg-neutral-900/90 border-2 border-red-600 p-9 md:scale-105"><div class="text-red-500 text-xs font-black uppercase tracking-widest mb-3">Most Popular</div><h3 class="text-2xl black-italic">Unlimited</h3><div class="text-5xl black-italic my-7">₦149,000 <span class="text-xs text-neutral-500">/ mo</span></div><ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest"><li>Unlimited Sessions</li><li>Priority Booking</li><li>Free T-Shirt</li></ul><a href="#contact" class="block w-full py-4 bg-red-600 text-white text-center black-italic hover:bg-white hover:text-black transition">Select Plan</a></div><div class="card glass p-9"><h3 class="text-2xl black-italic">Pro</h3><div class="text-5xl black-italic my-7">₦199,000 <span class="text-xs text-neutral-500">/ mo</span></div><ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest"><li>Everything in Unlimited</li><li>1-on-1 Monthly Check-in</li></ul><a href="#contact" class="block w-full py-4 bg-white text-black text-center black-italic hover:bg-red-600 hover:text-white transition">Select Plan</a></div></div></div></section>
-
-<!-- TRAINING VISUAL -->
-<section class="relative photo-section py-28" style="background-image:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8)),url('gym-training.jpg')"><div class="max-w-5xl mx-auto px-4 text-center"><div class="glass border border-white/20 p-10 md:p-16 reveal"><div class="text-red-500 font-black uppercase tracking-widest mb-4">Train With Purpose</div><h2 class="text-5xl md:text-7xl black-italic">No Shortcuts.<br><span class="text-red-500">Just Work.</span></h2></div></div></section>
-
-<!-- FAQ -->
-<section class="py-24 bg-neutral-50 text-neutral-900"><div class="max-w-3xl mx-auto px-4"><div class="text-center mb-14"><div class="text-red-600 text-sm font-black uppercase tracking-widest mb-4">Got Questions?</div><h2 class="text-6xl black-italic">The <span class="text-neutral-400">Intel</span></h2></div><div class="space-y-3"><div class="accordion-item border-b border-neutral-200"><button class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600" onclick="toggleAccordion(this)"><span>What makes the Iron Den different?</span><span class="chevron transition">⌄</span></button><div class="accordion-content"><p class="pb-6 text-neutral-500">We focus on quality equipment, personalized training and a community that takes progress seriously.</p></div></div><div class="accordion-item border-b border-neutral-200"><button class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600" onclick="toggleAccordion(this)"><span>Do you accept beginners?</span><span class="chevron transition">⌄</span></button><div class="accordion-content"><p class="pb-6 text-neutral-500">Yes. Training can be adapted for beginners, intermediate lifters and experienced athletes.</p></div></div><div class="accordion-item border-b border-neutral-200"><button class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600" onclick="toggleAccordion(this)"><span>Do you offer personal training?</span><span class="chevron transition">⌄</span></button><div class="accordion-content"><p class="pb-6 text-neutral-500">Yes. Personal training options can be arranged around your goals and schedule.</p></div></div></div></div></section>
-
-<!-- CONTACT -->
-<section id="contact" class="relative py-24 photo-section" style="background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.92)),url('gym-contact.jpg')"><div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center"><div class="reveal"><div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">Get In Touch</div><h2 class="text-6xl md:text-7xl black-italic mb-8">Enter The<br><span class="text-neutral-600">Den.</span></h2><div class="space-y-5 text-lg"><div class="black-italic">Ogbomoso, Nigeria</div><a href="tel:+2347025591999" class="block black-italic hover:text-red-500">+234 702 559 1999</a><a href="https://wa.me/2347025591999" class="block text-green-400 black-italic hover:text-green-300">WhatsApp: Chat With Us</a></div></div><div class="bg-white p-8 md:p-10 border-l-8 border-red-600 text-black reveal"><form onsubmit="submitContact(event)" class="space-y-5"><input name="name" type="text" placeholder="FULL NAME" required class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:border-red-600"><input name="email" type="email" placeholder="EMAIL" required class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:border-red-600"><textarea name="goals" rows="4" placeholder="YOUR GOALS" required class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:border-red-600"></textarea><button class="w-full py-5 bg-red-600 text-white black-italic hover:bg-black transition">Send On WhatsApp</button><p id="formMessage" class="hidden text-sm font-bold text-green-600">Your message is ready in WhatsApp.</p></form></div></div></section>
-</main>
-
-<!-- FOOTER -->
-<footer class="py-14 bg-black border-t border-neutral-800"><div class="max-w-7xl mx-auto px-4"><div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-neutral-800"><div><img src="bobby-logo.png" alt="Bobby's Iron Den" class="h-16 w-auto max-w-[190px] object-contain mb-5"><p class="text-sm text-neutral-500 leading-relaxed">Forging stronger humans through training, discipline, expert coaching and community.</p></div><div><h3 class="text-red-500 font-black uppercase tracking-widest mb-5">Quick Links</h3><div class="space-y-3 text-sm text-neutral-400"><a href="#sessions" class="block hover:text-white">Sessions</a><a href="#coaches" class="block hover:text-white">Coaches</a><a href="#memberships" class="block hover:text-white">Memberships</a><a href="#about" class="block hover:text-white">About</a><a href="#contact" class="block hover:text-white">Contact</a></div></div><div><h3 class="text-red-500 font-black uppercase tracking-widest mb-5">Contact</h3><div class="space-y-3 text-sm text-neutral-400"><div>Ogbomoso, Nigeria</div><a href="tel:+2347025591999" class="block hover:text-white">+234 702 559 1999</a><a href="https://wa.me/2347025591999" class="block hover:text-white">WhatsApp</a></div></div><div><h3 class="text-red-500 font-black uppercase tracking-widest mb-5">Follow The Den</h3><div class="flex flex-wrap gap-3"><span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">Instagram — Coming Soon</span><span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">TikTok — Coming Soon</span><span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">Facebook — Coming Soon</span></div><a href="https://wa.me/2347025591999" class="inline-block mt-6 bg-red-600 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black">Join The Community</a></div></div><div class="flex flex-col sm:flex-row justify-between gap-4 pt-8 text-xs text-neutral-600"><div>© 2026 Bobby's Iron Den. All Rights Reserved.</div><div>Built For Strength. Built For Progress.</div></div></div></footer>
-<a href="https://wa.me/2347025591999" class="fixed bottom-5 right-5 z-50 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 transition">WhatsApp</a>
-<script>
-function toggleAccordion(btn){btn.parentElement.classList.toggle('active')}
-function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
-function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open')}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
-window.addEventListener('resize',()=>{if(window.innerWidth>=768)closeMobileMenu()});
-
-const workoutPlans={
-  Mon:{day:'Monday',focus:'Back + Triceps',goal:'Heavy pulling',description:'Start the week with a heavy pulling-focused session targeting the back and triceps.'},
-  Tue:{day:'Tuesday',focus:'Chest + Shoulders',goal:'Pressing + delts',description:'A pressing-focused day built around chest work and shoulder development.'},
-  Wed:{day:'Wednesday',focus:'Legs + Calves',goal:'Lower-body strength',description:'Dedicated lower-body training focused on strength through the legs and calves.'},
-  Thu:{day:'Thursday',focus:'Back + Biceps',goal:'Back width/thickness + arms',description:'Build back width and thickness while giving the biceps focused arm work.'},
-  Fri:{day:'Friday',focus:'Shoulders + Arms',goal:'Hypertrophy/finishing work',description:'Finish the training week with shoulder and arm hypertrophy-focused work.'}
-};
-
-const workoutTabs=document.querySelectorAll('.workout-tab');
-workoutTabs.forEach(tab=>tab.addEventListener('click',()=>{
-  workoutTabs.forEach(t=>{
-    t.classList.remove('bg-black','text-white','border-red-600');
-    t.classList.add('bg-white','border-neutral-200');
-    t.setAttribute('aria-selected','false');
-    const label=t.querySelector('div');
-    if(label) label.classList.remove('text-red-500');
-    if(label) label.classList.add('text-neutral-500');
-  });
-  tab.classList.add('bg-black','text-white','border-red-600');
-  tab.classList.remove('bg-white','border-neutral-200');
-  tab.setAttribute('aria-selected','true');
-  const label=tab.querySelector('div');
-  if(label){label.classList.remove('text-neutral-500');label.classList.add('text-red-500');}
-
-  const plan=workoutPlans[tab.dataset.day];
-  document.getElementById('workoutPanel').innerHTML=`
-    <div class="grid md:grid-cols-2">
-      <div class="p-8 md:p-12 bg-black text-white">
-        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">${plan.day}</div>
-        <h3 class="text-4xl md:text-5xl black-italic mb-5">${plan.focus}</h3>
-        <p class="text-neutral-400 uppercase tracking-widest text-sm font-bold">Main Goal</p>
-        <p class="text-xl font-bold mt-2">${plan.goal}</p>
-      </div>
-      <div class="p-8 md:p-12 flex flex-col justify-center">
-        <div class="text-red-600 text-xs font-black uppercase tracking-widest mb-4">BOBBY'S FOCUS</div>
-        <p class="text-neutral-600 text-lg leading-relaxed">${plan.description}</p>
-      </div>
-    </div>`;
-}));
-
-function submitContact(e){
-  e.preventDefault();
-  const form=e.target;
-  const name=form.elements.name.value.trim();
-  const email=form.elements.email.value.trim();
-  const goals=form.elements.goals.value.trim();
-  const message=`Hello Bobby's Iron Den, my name is ${name}. Email: ${email}. My fitness goals are: ${goals}`;
-  window.open('https://wa.me/2347025591999?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
-  document.getElementById('formMessage').classList.remove('hidden');
+:root{
+    --red:#dc2626;
+    --gold:#d4a72c;
 }
 
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:80px;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#050505;
+    color:#fff;
+}
+
+.display{
+    font-family:'Space Grotesk',sans-serif;
+}
+
+.black-italic{
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    letter-spacing:-.055em;
+}
+
+.gold{
+    color:var(--gold);
+}
+
+.hero{
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.96),
+            rgba(0,0,0,.72) 48%,
+            rgba(0,0,0,.35)
+        ),
+        url('gym-hero.jpg');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.photo-section{
+    background-size:cover;
+    background-position:center;
+    background-attachment:scroll;
+}
+
+.glass{
+    background:rgba(0,0,0,.62);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+
+.card{
+    transition:.35s ease;
+    border:1px solid #292929;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:var(--red);
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+.slide-track{
+    display:flex;
+    width:max-content;
+    animation:slide 28s linear infinite;
+}
+
+.slide-track:hover{
+    animation-play-state:paused;
+}
+
+@keyframes slide{
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+.accordion-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+}
+
+.accordion-item.active .accordion-content{
+    max-height:240px;
+}
+
+.accordion-item.active .chevron{
+    transform:rotate(180deg);
+}
+
+.mobile-menu{
+    display:none;
+}
+
+.mobile-menu.open{
+    display:block;
+}
+
+.hours-row{
+    border-bottom:1px solid #333;
+}
+
+.workout-tab{
+    transition:.25s ease;
+}
+
+.workout-tab:hover{
+    transform:translateY(-2px);
+}
+
+.exercise-row{
+    border-bottom:1px solid #262626;
+}
+
+.exercise-row:last-child{
+    border-bottom:none;
+}
+
+@media(min-width:768px){
+    .photo-section{
+        background-attachment:fixed;
+    }
+}
+
+@media(max-width:640px){
+    .slide-track{
+        animation-duration:22s;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-neutral-800">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+        <a href="#top" aria-label="Bobby's Iron Den home">
+            <img
+                src="bobby-logo.png"
+                alt="Bobby's Iron Den logo"
+                class="h-14 w-auto max-w-[190px] object-contain"
+            >
+        </a>
+
+        <div class="hidden md:flex items-center gap-7 text-xs font-black uppercase tracking-widest">
+
+            <a href="#sessions" class="hover:text-red-500 transition">
+                Sessions
+            </a>
+
+            <a href="#coaches" class="hover:text-red-500 transition">
+                Coaches
+            </a>
+
+            <a href="#memberships" class="hover:text-red-500 transition">
+                Memberships
+            </a>
+
+            <a href="#about" class="hover:text-red-500 transition">
+                About
+            </a>
+
+            <a
+                href="#contact"
+                class="bg-red-600 px-6 py-3 hover:bg-white hover:text-black transition"
+            >
+                Join The Den
+            </a>
+
+        </div>
+
+        <button
+            onclick="toggleMobileMenu()"
+            class="md:hidden p-2"
+            aria-label="Open menu"
+        >
+            <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                />
+            </svg>
+        </button>
+
+    </div>
+
+    <div
+        id="mobileMenu"
+        class="mobile-menu md:hidden bg-black border-t border-neutral-800 px-5 pb-6"
+    >
+
+        <div class="flex flex-col gap-5 pt-5 text-sm font-black uppercase tracking-widest">
+
+            <a href="#sessions" onclick="closeMobileMenu()">
+                Sessions
+            </a>
+
+            <a href="#coaches" onclick="closeMobileMenu()">
+                Coaches
+            </a>
+
+            <a href="#memberships" onclick="closeMobileMenu()">
+                Memberships
+            </a>
+
+            <a href="#about" onclick="closeMobileMenu()">
+                About
+            </a>
+
+            <a
+                href="#contact"
+                onclick="closeMobileMenu()"
+                class="bg-red-600 px-5 py-3 text-center"
+            >
+                Join The Den
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main id="top">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero min-h-screen flex items-center pt-20 relative overflow-hidden">
+
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
+
+        <div class="reveal">
+
+            <div class="inline-block bg-red-600 px-4 py-2 mb-6 text-xs font-black uppercase tracking-widest">
+                Elite Suburban Fitness
+            </div>
+
+            <h1 class="text-6xl sm:text-7xl md:text-8xl black-italic leading-[.84] mb-8">
+                Forging
+                <br>
+                <span class="text-red-600">Stronger</span>
+                <br>
+                Humans.
+            </h1>
+
+            <p class="text-lg sm:text-xl text-neutral-300 max-w-xl mb-10">
+                Elite equipment, expert coaching and a serious training community built to help you become stronger every day.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+
+                <a
+                    href="#contact"
+                    class="bg-red-600 px-8 py-5 text-center font-black uppercase tracking-widest hover:bg-white hover:text-black transition"
+                >
+                    Free 3-Day Pass
+                </a>
+
+                <a
+                    href="#contact"
+                    class="border-2 border-white px-8 py-5 text-center font-black uppercase tracking-widest hover:bg-white hover:text-black transition"
+                >
+                    Book Consultation
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hidden lg:block reveal">
+
+            <div class="glass border border-neutral-700 p-3 shadow-2xl">
+
+                <img
+                    src="gym-hero.jpg"
+                    alt="Bobby's Iron Den gym"
+                    class="w-full aspect-[4/5] object-cover"
+                >
+
+                <div class="flex justify-between pt-5 text-xs uppercase tracking-widest font-black">
+
+                    <span>Strength</span>
+
+                    <span class="text-red-500">
+                        Discipline
+                    </span>
+
+                    <span>Results</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MOVING FEATURE STRIP
+========================= -->
+
+<section class="bg-red-600 overflow-hidden py-4">
+
+    <div class="slide-track text-black font-black uppercase tracking-widest text-sm">
+
+        <span class="px-8">Elite Equipment ✦</span>
+        <span class="px-8">Expert Coaching ✦</span>
+        <span class="px-8">Real Progress ✦</span>
+        <span class="px-8">Strong Community ✦</span>
+        <span class="px-8">Discipline ✦</span>
+
+        <span class="px-8">Elite Equipment ✦</span>
+        <span class="px-8">Expert Coaching ✦</span>
+        <span class="px-8">Real Progress ✦</span>
+        <span class="px-8">Strong Community ✦</span>
+        <span class="px-8">Discipline ✦</span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+    id="about"
+    class="relative photo-section py-24"
+    style="
+        background-image:
+        linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
+        url('gym-about.jpg');
+    "
+>
+
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+            <div class="reveal">
+
+                <img
+                    src="gym-about.jpg"
+                    alt="Bobby's Iron Den training environment"
+                    class="w-full aspect-[4/3] object-cover border border-neutral-700"
+                >
+
+            </div>
+
+
+            <div class="reveal">
+
+                <div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">
+                    About The Den
+                </div>
+
+                <h2 class="text-5xl md:text-6xl black-italic mb-8">
+                    Built Different.
+                    <br>
+                    <span class="text-neutral-400">
+                        For A Reason.
+                    </span>
+                </h2>
+
+                <p class="text-neutral-300 text-lg leading-relaxed mb-6">
+                    Bobby's Iron Den is more than a place to lift weights. It's a training environment built around discipline, consistency and real progress.
+                </p>
+
+                <p class="text-neutral-400 text-lg leading-relaxed mb-10">
+                    Whether you're starting your fitness journey or pushing toward your next level, the Den gives you the equipment, guidance and environment to keep moving forward.
+                </p>
+
+
+                <div class="grid sm:grid-cols-2 gap-5">
+
+                    <div class="card glass p-6">
+
+                        <b class="text-red-500 text-4xl">
+                            01
+                        </b>
+
+                        <h3 class="black-italic text-xl mt-2">
+                            Strong Community
+                        </h3>
+
+                        <p class="text-sm text-neutral-400 mt-2">
+                            Train around people who take progress seriously.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card glass p-6">
+
+                        <b class="gold text-4xl">
+                            02
+                        </b>
+
+                        <h3 class="black-italic text-xl mt-2">
+                            Real Results
+                        </h3>
+
+                        <p class="text-sm text-neutral-400 mt-2">
+                            Structured training designed around measurable progress.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OPENING HOURS
+========================= -->
+
+<section id="hours" class="py-24 bg-black">
+
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-14 items-center">
+
+        <div class="reveal">
+
+            <div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">
+                Opening Hours
+            </div>
+
+            <h2 class="text-5xl md:text-6xl black-italic mb-10">
+                We're Here
+                <span class="text-neutral-600">
+                    When You Are.
+                </span>
+            </h2>
+
+
+            <div class="max-w-xl">
+
+                <div class="hours-row py-5 flex justify-between gap-5">
+
+                    <span class="font-bold uppercase tracking-widest">
+                        Monday – Friday
+                    </span>
+
+                    <span class="text-red-500 font-bold">
+                        6:00 AM – 10:00 PM
+                    </span>
+
+                </div>
+
+
+                <div class="hours-row py-5 flex justify-between gap-5">
+
+                    <span class="font-bold uppercase tracking-widest">
+                        Saturday
+                    </span>
+
+                    <span class="text-red-500 font-bold">
+                        7:00 AM – 8:00 PM
+                    </span>
+
+                </div>
+
+
+                <div class="hours-row py-5 flex justify-between gap-5">
+
+                    <span class="font-bold uppercase tracking-widest">
+                        Sunday
+                    </span>
+
+                    <span class="text-red-500 font-bold">
+                        8:00 AM – 4:00 PM
+                    </span>
+
+                </div>
+
+
+                <div class="py-5 flex justify-between gap-5">
+
+                    <span class="font-bold uppercase tracking-widest">
+                        Public Holidays
+                    </span>
+
+                    <span class="gold font-bold">
+                        8:00 AM – 2:00 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="reveal">
+
+            <img
+                src="gym-exterior.jpg"
+                alt="Bobby's Iron Den exterior"
+                class="w-full aspect-video object-cover border border-neutral-800"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WORKOUT PLANS
+========================= -->
+
+<section
+    id="sessions"
+    class="relative py-24 text-white overflow-hidden"
+    style="
+        background-image:
+        linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.94)),
+        url('gym-training.jpg');
+        background-size:cover;
+        background-position:center;
+    "
+>
+
+    <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+            background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(220,38,38,.20),
+                transparent 28%
+            ),
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(212,167,44,.10),
+                transparent 25%
+            );
+        "
+    ></div>
+
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+        <div class="mb-14">
+
+            <div class="text-red-600 text-sm font-black uppercase tracking-widest mb-4">
+                BOBBY TRAINING SYSTEM
+            </div>
+
+            <h2 class="text-5xl md:text-6xl black-italic">
+                Monday–Friday
+                <span class="text-neutral-500">
+                    Training Split
+                </span>
+            </h2>
+
+            <p class="text-neutral-300 max-w-2xl mt-5 text-lg">
+                A structured five-day split built around strength, hypertrophy and focused muscle-group training. Saturday and Sunday are recovery days.
+            </p>
+
+        </div>
+
+
+        <!-- WORKOUT DAY BUTTONS -->
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-10">
+
+            <button
+                type="button"
+                class="workout-tab text-left p-5 bg-black text-white border-2 border-red-600 shadow-lg"
+                data-day="Mon"
+                aria-selected="true"
+            >
+
+                <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+                    Monday
+                </div>
+
+                <div class="black-italic text-lg mt-2">
+                    Back + Triceps
+                </div>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition"
+                data-day="Tue"
+                aria-selected="false"
+            >
+
+                <div class="text-neutral-500 text-xs font-black uppercase tracking-widest">
+                    Tuesday
+                </div>
+
+                <div class="black-italic text-lg mt-2">
+                    Chest + Shoulders
+                </div>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition"
+                data-day="Wed"
+                aria-selected="false"
+            >
+
+                <div class="text-neutral-500 text-xs font-black uppercase tracking-widest">
+                    Wednesday
+                </div>
+
+                <div class="black-italic text-lg mt-2">
+                    Legs + Calves
+                </div>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition"
+                data-day="Thu"
+                aria-selected="false"
+            >
+
+                <div class="text-neutral-500 text-xs font-black uppercase tracking-widest">
+                    Thursday
+                </div>
+
+                <div class="black-italic text-lg mt-2">
+                    Back + Biceps
+                </div>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="workout-tab text-left p-5 bg-black/70 text-white border-2 border-neutral-700 hover:border-red-600 transition"
+                data-day="Fri"
+                aria-selected="false"
+            >
+
+                <div class="text-neutral-500 text-xs font-black uppercase tracking-widest">
+                    Friday
+                </div>
+
+                <div class="black-italic text-lg mt-2">
+                    Shoulders + Arms
+                </div>
+
+            </button>
+
+        </div>
+
+
+        <!-- WORKOUT PANEL -->
+
+        <div
+            id="workoutPanel"
+            class="bg-black/85 border border-neutral-700 shadow-2xl backdrop-blur-sm"
+            aria-live="polite"
+        >
+
+            <div class="grid lg:grid-cols-2">
+
+                <div class="p-8 md:p-12 bg-black">
+
+                    <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+                        Monday
+                    </div>
+
+                    <h3 class="text-4xl md:text-5xl black-italic mb-5">
+                        Back + Triceps
+                    </h3>
+
+                    <p class="text-neutral-400 uppercase tracking-widest text-sm font-bold">
+                        Main Goal
+                    </p>
+
+                    <p class="text-xl font-bold mt-2">
+                        Heavy pulling
+                    </p>
+
+                </div>
+
+
+                <div class="p-8 md:p-12 bg-neutral-950/80">
+
+                    <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-5">
+                        BOBBY'S FOCUS
+                    </div>
+
+                    <p class="text-neutral-300 text-lg leading-relaxed mb-8">
+                        Start the week with a heavy pulling-focused session targeting the back and triceps.
+                    </p>
+
+                    <div id="exerciseList">
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Weighted Pull-ups</span>
+                            <strong>4 × 6–8</strong>
+                        </div>
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Barbell Rows</span>
+                            <strong>4 × 6–8</strong>
+                        </div>
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Lat Pulldown</span>
+                            <strong>3 × 8–12</strong>
+                        </div>
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Straight-Arm Pulldown</span>
+                            <strong>3 × 10–15</strong>
+                        </div>
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Close-Grip Bench Press</span>
+                            <strong>3 × 6–10</strong>
+                        </div>
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Overhead Cable Triceps Extension</span>
+                            <strong>3 × 10–15</strong>
+                        </div>
+
+                        <div class="exercise-row py-4 flex justify-between gap-5">
+                            <span>Rope Pushdown</span>
+                            <strong>2–3 × 12–15</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- REST DAYS -->
+
+        <div class="mt-10 grid md:grid-cols-2 gap-5">
+
+            <div class="p-7 bg-black border border-neutral-800">
+
+                <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+                    Saturday
+                </div>
+
+                <h3 class="black-italic text-2xl mt-2">
+                    Rest
+                </h3>
+
+                <p class="text-neutral-500 mt-2">
+                    Recovery
+                </p>
+
+            </div>
+
+
+            <div class="p-7 bg-black border border-neutral-800">
+
+                <div class="gold text-xs font-black uppercase tracking-widest">
+                    Sunday
+                </div>
+
+                <h3 class="black-italic text-2xl mt-2">
+                    Rest
+                </h3>
+
+                <p class="text-neutral-500 mt-2">
+                    Recovery
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COACHES
+========================= -->
+
+<section id="coaches" class="py-24 bg-black">
+
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="text-center mb-16">
+
+            <div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">
+                The Coaches
+            </div>
+
+            <h2 class="text-6xl black-italic">
+                Expert
+                <span class="text-neutral-600">
+                    Guidance
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+
+            <div class="reveal card overflow-hidden">
+
+                <img
+                    src="gym-coaches.jpg"
+                    alt="Coach at Bobby's Iron Den"
+                    class="w-full aspect-[3/4] object-cover"
+                >
+
+                <div class="p-6">
+
+                    <h3 class="text-3xl black-italic">
+                        Alex Rivera
+                    </h3>
+
+                    <div class="text-red-500 font-bold text-xs uppercase tracking-widest my-3">
+                        Head Coach
+                    </div>
+
+                    <p class="text-neutral-400">
+                        Functional strength and high-intensity conditioning.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="reveal card overflow-hidden">
+
+                <img
+                    src="gym-coaches.jpg"
+                    alt="Fitness coaching at Bobby's Iron Den"
+                    class="w-full aspect-[3/4] object-cover object-center"
+                >
+
+                <div class="p-6">
+
+                    <h3 class="text-3xl black-italic">
+                        Sarah Chen
+                    </h3>
+
+                    <div class="text-red-500 font-bold text-xs uppercase tracking-widest my-3">
+                        Nutrition Expert
+                    </div>
+
+                    <p class="text-neutral-400">
+                        Sustainable performance and recovery-focused guidance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="reveal card overflow-hidden">
+
+                <img
+                    src="gym-coaches.jpg"
+                    alt="Strength coach at Bobby's Iron Den"
+                    class="w-full aspect-[3/4] object-cover"
+                >
+
+                <div class="p-6">
+
+                    <h3 class="text-3xl black-italic">
+                        Mike Johnson
+                    </h3>
+
+                    <div class="text-red-500 font-bold text-xs uppercase tracking-widest my-3">
+                        Power Coach
+                    </div>
+
+                    <p class="text-neutral-400">
+                        Explosive power and heavy lifting for all levels.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMBERSHIPS
+========================= -->
+
+<section
+    id="memberships"
+    class="relative py-24 overflow-hidden"
+    style="
+        background-image:
+        linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),
+        url('gym-membership.jpg');
+        background-size:cover;
+        background-position:center;
+    "
+>
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+        <div class="text-center mb-16">
+
+            <div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">
+                Pricing
+            </div>
+
+            <h2 class="text-6xl black-italic">
+                Join The
+                <span class="text-neutral-600">
+                    Den
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+
+            <div class="card glass p-9">
+
+                <h3 class="text-2xl black-italic">
+                    Starter
+                </h3>
+
+                <div class="text-5xl black-italic my-7">
+                    ₦79,000
+                    <span class="text-xs text-neutral-500">
+                        / mo
+                    </span>
+                </div>
+
+                <ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest">
+
+                    <li>
+                        8 Sessions / Month
+                    </li>
+
+                    <li>
+                        Locker Access
+                    </li>
+
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="block w-full py-4 bg-white text-black text-center black-italic hover:bg-red-600 hover:text-white transition"
+                >
+                    Select Plan
+                </a>
+
+            </div>
+
+
+            <div class="card bg-neutral-900/90 border-2 border-red-600 p-9 md:scale-105">
+
+                <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-3">
+                    Most Popular
+                </div>
+
+                <h3 class="text-2xl black-italic">
+                    Unlimited
+                </h3>
+
+                <div class="text-5xl black-italic my-7">
+                    ₦149,000
+                    <span class="text-xs text-neutral-500">
+                        / mo
+                    </span>
+                </div>
+
+                <ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest">
+
+                    <li>
+                        Unlimited Sessions
+                    </li>
+
+                    <li>
+                        Priority Booking
+                    </li>
+
+                    <li>
+                        Free T-Shirt
+                    </li>
+
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="block w-full py-4 bg-red-600 text-white text-center black-italic hover:bg-white hover:text-black transition"
+                >
+                    Select Plan
+                </a>
+
+            </div>
+
+
+            <div class="card glass p-9">
+
+                <h3 class="text-2xl black-italic">
+                    Pro
+                </h3>
+
+                <div class="text-5xl black-italic my-7">
+                    ₦199,000
+                    <span class="text-xs text-neutral-500">
+                        / mo
+                    </span>
+                </div>
+
+                <ul class="space-y-4 mb-9 text-xs font-bold uppercase tracking-widest">
+
+                    <li>
+                        Everything in Unlimited
+                    </li>
+
+                    <li>
+                        1-on-1 Monthly Check-in
+                    </li>
+
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="block w-full py-4 bg-white text-black text-center black-italic hover:bg-red-600 hover:text-white transition"
+                >
+                    Select Plan
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TRAINING VISUAL
+========================= -->
+
+<section
+    class="relative photo-section py-28"
+    style="
+        background-image:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8)),
+        url('gym-training.jpg');
+    "
+>
+
+    <div class="max-w-5xl mx-auto px-4 text-center">
+
+        <div class="glass border border-white/20 p-10 md:p-16 reveal">
+
+            <div class="text-red-500 font-black uppercase tracking-widest mb-4">
+                Train With Purpose
+            </div>
+
+            <h2 class="text-5xl md:text-7xl black-italic">
+                No Shortcuts.
+                <br>
+                <span class="text-red-500">
+                    Just Work.
+                </span>
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section class="py-24 bg-neutral-50 text-neutral-900">
+
+    <div class="max-w-3xl mx-auto px-4">
+
+        <div class="text-center mb-14">
+
+            <div class="text-red-600 text-sm font-black uppercase tracking-widest mb-4">
+                Got Questions?
+            </div>
+
+            <h2 class="text-6xl black-italic">
+                The
+                <span class="text-neutral-400">
+                    Intel
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="space-y-3">
+
+
+            <div class="accordion-item border-b border-neutral-200">
+
+                <button
+                    class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600"
+                    onclick="toggleAccordion(this)"
+                >
+
+                    <span>
+                        What makes the Iron Den different?
+                    </span>
+
+                    <span class="chevron transition">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p class="pb-6 text-neutral-500">
+                        We focus on quality equipment, personalized training and a community that takes progress seriously.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item border-b border-neutral-200">
+
+                <button
+                    class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600"
+                    onclick="toggleAccordion(this)"
+                >
+
+                    <span>
+                        Do you accept beginners?
+                    </span>
+
+                    <span class="chevron transition">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p class="pb-6 text-neutral-500">
+                        Yes. Training can be adapted for beginners, intermediate lifters and experienced athletes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item border-b border-neutral-200">
+
+                <button
+                    class="w-full py-6 flex justify-between text-left items-center black-italic text-xl hover:text-red-600"
+                    onclick="toggleAccordion(this)"
+                >
+
+                    <span>
+                        Do you offer personal training?
+                    </span>
+
+                    <span class="chevron transition">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p class="pb-6 text-neutral-500">
+                        Yes. Personal training options can be arranged around your goals and schedule.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    id="contact"
+    class="relative py-24 photo-section"
+    style="
+        background-image:
+        linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.92)),
+        url('gym-contact.jpg');
+    "
+>
+
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+
+
+        <div class="reveal">
+
+            <div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">
+                Get In Touch
+            </div>
+
+            <h2 class="text-6xl md:text-7xl black-italic mb-8">
+                Enter The
+                <br>
+                <span class="text-neutral-600">
+                    Den.
+                </span>
+            </h2>
+
+
+            <div class="space-y-5 text-lg">
+
+                <div class="black-italic">
+                    Ogbomoso, Nigeria
+                </div>
+
+                <a
+                    href="tel:+2347025591999"
+                    class="block black-italic hover:text-red-500"
+                >
+                    +234 702 559 1999
+                </a>
+
+                <a
+                    href="https://wa.me/2347025591999"
+                    class="block text-green-400 black-italic hover:text-green-300"
+                >
+                    WhatsApp: Chat With Us
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="bg-white p-8 md:p-10 border-l-8 border-red-600 text-black reveal">
+
+            <form
+                onsubmit="submitContact(event)"
+                class="space-y-5"
+            >
+
+                <input
+                    name="name"
+                    type="text"
+                    placeholder="FULL NAME"
+                    required
+                    class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:border-red-600"
+                >
+
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="EMAIL"
+                    required
+                    class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:border-red-600"
+                >
+
+                <textarea
+                    name="goals"
+                    rows="4"
+                    placeholder="YOUR GOALS"
+                    required
+                    class="w-full bg-neutral-100 border border-neutral-200 p-4 outline-none focus:border-red-600"
+                ></textarea>
+
+                <button
+                    class="w-full py-5 bg-red-600 text-white black-italic hover:bg-black transition"
+                >
+                    Send On WhatsApp
+                </button>
+
+                <p
+                    id="formMessage"
+                    class="hidden text-sm font-bold text-green-600"
+                >
+                    Your message is ready in WhatsApp.
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="py-14 bg-black border-t border-neutral-800">
+
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-neutral-800">
+
+
+            <div>
+
+                <img
+                    src="bobby-logo.png"
+                    alt="Bobby's Iron Den"
+                    class="h-16 w-auto max-w-[190px] object-contain mb-5"
+                >
+
+                <p class="text-sm text-neutral-500 leading-relaxed">
+                    Forging stronger humans through training, discipline, expert coaching and community.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="text-red-500 font-black uppercase tracking-widest mb-5">
+                    Quick Links
+                </h3>
+
+                <div class="space-y-3 text-sm text-neutral-400">
+
+                    <a href="#sessions" class="block hover:text-white">
+                        Sessions
+                    </a>
+
+                    <a href="#coaches" class="block hover:text-white">
+                        Coaches
+                    </a>
+
+                    <a href="#memberships" class="block hover:text-white">
+                        Memberships
+                    </a>
+
+                    <a href="#about" class="block hover:text-white">
+                        About
+                    </a>
+
+                    <a href="#contact" class="block hover:text-white">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="text-red-500 font-black uppercase tracking-widest mb-5">
+                    Contact
+                </h3>
+
+                <div class="space-y-3 text-sm text-neutral-400">
+
+                    <div>
+                        Ogbomoso, Nigeria
+                    </div>
+
+                    <a
+                        href="tel:+2347025591999"
+                        class="block hover:text-white"
+                    >
+                        +234 702 559 1999
+                    </a>
+
+                    <a
+                        href="https://wa.me/2347025591999"
+                        class="block hover:text-white"
+                    >
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="text-red-500 font-black uppercase tracking-widest mb-5">
+                    Follow The Den
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">
+                        Instagram — Coming Soon
+                    </span>
+
+                    <span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">
+                        TikTok — Coming Soon
+                    </span>
+
+                    <span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">
+                        Facebook — Coming Soon
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/2347025591999"
+                    class="inline-block mt-6 bg-red-600 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black"
+                >
+                    Join The Community
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="flex flex-col sm:flex-row justify-between gap-4 pt-8 text-xs text-neutral-600">
+
+            <div>
+                © 2026 Bobby's Iron Den. All Rights Reserved.
+            </div>
+
+            <div>
+                Built For Strength. Built For Progress.
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+    href="https://wa.me/2347025591999"
+    class="fixed bottom-5 right-5 z-50 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 transition"
+>
+    WhatsApp
+</a>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function toggleAccordion(btn){
+
+    btn.parentElement.classList.toggle('active');
+
+}
+
+
+function toggleMobileMenu(){
+
+    document
+        .getElementById('mobileMenu')
+        .classList
+        .toggle('open');
+
+}
+
+
+function closeMobileMenu(){
+
+    document
+        .getElementById('mobileMenu')
+        .classList
+        .remove('open');
+
+}
+
+
+document.addEventListener('keydown', function(e){
+
+    if(e.key === 'Escape'){
+        closeMobileMenu();
+    }
+
+});
+
+
+window.addEventListener('resize', function(){
+
+    if(window.innerWidth >= 768){
+        closeMobileMenu();
+    }
+
+});
+
+
+/* =========================
+   WORKOUT PLANS
+========================= */
+
+const workoutPlans = {
+
+    Mon:{
+        day:'Monday',
+        focus:'Back + Triceps',
+        goal:'Heavy pulling',
+        description:'Start the week with a heavy pulling-focused session targeting the back and triceps.',
+        exercises:[
+            ['Weighted Pull-ups','4 × 6–8'],
+            ['Barbell Rows','4 × 6–8'],
+            ['Lat Pulldown','3 × 8–12'],
+            ['Straight-Arm Pulldown','3 × 10–15'],
+            ['Close-Grip Bench Press','3 × 6–10'],
+            ['Overhead Cable Triceps Extension','3 × 10–15'],
+            ['Rope Pushdown','2–3 × 12–15']
+        ]
+    },
+
+
+    Tue:{
+        day:'Tuesday',
+        focus:'Chest + Shoulders',
+        goal:'Pressing + delts',
+        description:'A pressing-focused day built around chest work and shoulder development.',
+        exercises:[
+            ['Barbell Bench Press','4 × 5–8'],
+            ['Incline Dumbbell Press','3 × 8–10'],
+            ['Machine / Chest Press','3 × 10–12'],
+            ['Overhead Press','3 × 6–10'],
+            ['Dumbbell Lateral Raises','4 × 12–20'],
+            ['Face Pulls','3 × 12–20']
+        ]
+    },
+
+
+    Wed:{
+        day:'Wednesday',
+        focus:'Legs + Calves',
+        goal:'Lower-body strength',
+        description:'Dedicated lower-body training focused on strength through the legs and calves.',
+        exercises:[
+            ['Back Squat','4 × 5–8'],
+            ['Romanian Deadlift','3 × 6–10'],
+            ['Leg Press','3 × 10–15'],
+            ['Leg Curl','3 × 10–15'],
+            ['Leg Extension','3 × 12–15'],
+            ['Standing Calf Raise','4 × 10–15'],
+            ['Seated Calf Raise','3 × 12–20']
+        ]
+    },
+
+
+    Thu:{
+        day:'Thursday',
+        focus:'Back + Biceps',
+        goal:'Back width / thickness + arms',
+        description:'Build back width and thickness while giving the biceps focused arm work.',
+        exercises:[
+            ['Neutral-Grip Pulldown','4 × 8–12'],
+            ['Single-Arm Dumbbell Row','3 × 8–12'],
+            ['Seated Cable Row','3 × 8–12'],
+            ['Chest-Supported Row','3 × 10–12'],
+            ['EZ-Bar Curl','3 × 8–12'],
+            ['Incline Dumbbell Curl','3 × 10–15'],
+            ['Hammer Curl','2–3 × 10–15']
+        ]
+    },
+
+
+    Fri:{
+        day:'Friday',
+        focus:'Shoulders + Arms',
+        goal:'Hypertrophy / finishing work',
+        description:'Finish the training week with shoulder and arm hypertrophy-focused work.',
+        exercises:[
+            ['Seated Dumbbell Shoulder Press','3 × 6–10'],
+            ['Cable / Dumbbell Lateral Raise','4 × 12–20'],
+            ['Rear-Delt Fly','3 × 12–20'],
+            ['EZ-Bar Curl','3 × 8–12'],
+            ['Preacher Curl','3 × 10–15'],
+            ['Skull Crushers','3 × 8–12'],
+            ['Rope Pushdowns','3 × 10–15'],
+            ['Dips','2 × 8–12']
+        ]
+    }
+
+};
+
+
+const workoutTabs =
+    document.querySelectorAll('.workout-tab');
+
+
+workoutTabs.forEach(function(tab){
+
+    tab.addEventListener('click', function(){
+
+        workoutTabs.forEach(function(t){
+
+            t.classList.remove(
+                'bg-black',
+                'text-white',
+                'border-red-600'
+            );
+
+            t.classList.add(
+                'bg-black/70',
+                'border-neutral-700'
+            );
+
+            t.setAttribute(
+                'aria-selected',
+                'false'
+            );
+
+            const label =
+                t.querySelector('div');
+
+            if(label){
+
+                label.classList.remove(
+                    'text-red-500'
+                );
+
+                label.classList.add(
+                    'text-neutral-500'
+                );
+
+            }
+
+        });
+
+
+        tab.classList.add(
+            'bg-black',
+            'text-white',
+            'border-red-600'
+        );
+
+        tab.classList.remove(
+            'bg-black/70',
+            'border-neutral-700'
+        );
+
+
+        tab.setAttribute(
+            'aria-selected',
+            'true'
+        );
+
+
+        const label =
+            tab.querySelector('div');
+
+        if(label){
+
+            label.classList.remove(
+                'text-neutral-500'
+            );
+
+            label.classList.add(
+                'text-red-500'
+            );
+
+        }
+
+
+        const plan =
+            workoutPlans[tab.dataset.day];
+
+
+        const exerciseHTML =
+            plan.exercises.map(function(exercise){
+
+                return `
+                    <div class="exercise-row py-4 flex justify-between gap-5">
+                        <span class="text-neutral-300">
+                            ${exercise[0]}
+                        </span>
+
+                        <strong class="text-white whitespace-nowrap">
+                            ${exercise[1]}
+                        </strong>
+                    </div>
+                `;
+
+            }).join('');
+
+
+        document
+            .getElementById('workoutPanel')
+            .innerHTML = `
+
+                <div class="grid lg:grid-cols-2">
+
+                    <div class="p-8 md:p-12 bg-black">
+
+                        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+                            ${plan.day}
+                        </div>
+
+                        <h3 class="text-4xl md:text-5xl black-italic mb-5">
+                            ${plan.focus}
+                        </h3>
+
+                        <p class="text-neutral-400 uppercase tracking-widest text-sm font-bold">
+                            Main Goal
+                        </p>
+
+                        <p class="text-xl font-bold mt-2">
+                            ${plan.goal}
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-8 md:p-12 bg-neutral-950/80">
+
+                        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-5">
+                            BOBBY'S FOCUS
+                        </div>
+
+                        <p class="text-neutral-300 text-lg leading-relaxed mb-8">
+                            ${plan.description}
+                        </p>
+
+                        <div>
+                            ${exerciseHTML}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+    });
+
+});
+
+
+/* =========================
+   CONTACT → WHATSAPP
+========================= */
+
+function submitContact(e){
+
+    e.preventDefault();
+
+
+    const form = e.target;
+
+
+    const name =
+        form.elements.name.value.trim();
+
+
+    const email =
+        form.elements.email.value.trim();
+
+
+    const goals =
+        form.elements.goals.value.trim();
+
+
+    const message =
+        `Hello Bobby's Iron Den,
+
+My name is ${name}.
+
+Email: ${email}
+
+My fitness goals are:
+${goals}`;
+
+
+    window.open(
+        'https://wa.me/2347025591999?text=' +
+        encodeURIComponent(message),
+        '_blank'
+    );
+
+
+    document
+        .getElementById('formMessage')
+        .classList
+        .remove('hidden');
+
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add('show');
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll('.reveal')
+    .forEach(function(el){
+
+        observer.observe(el);
+
+    });
+
 </script>
+
 </body>
 </html>
