@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bobby's Iron Den Training — structured Monday to Friday strength and hypertrophy training plans.">
+<meta name="theme-color" content="#050505">
+<title>Training | Bobby's Iron Den</title>
+
+<link rel="icon" type="image/png" href="bobby-logo.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --red:#dc2626;
+  --gold:#d4a72c;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  background:#050505;
+  color:#fff;
+}
+
+.display{
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.black-italic{
+  font-weight:900;
+  font-style:italic;
+  text-transform:uppercase;
+  letter-spacing:-.055em;
+}
+
+.gold{
+  color:var(--gold);
+}
+
+.hero{
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.96),
+      rgba(0,0,0,.72) 50%,
+      rgba(0,0,0,.45)
+    ),
+    url('gym-training.jpg');
+  background-size:cover;
+  background-position:center;
+}
+
+.glass{
+  background:rgba(0,0,0,.68);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.workout-card{
+  background:rgba(5,5,5,.92);
+  border:1px solid #292929;
+  transition:.3s ease;
+}
+
+.workout-card:hover{
+  border-color:#dc2626;
+  transform:translateY(-3px);
+}
+
+.exercise-row{
+  border-bottom:1px solid #252525;
+  transition:.25s ease;
+}
+
+.exercise-row:last-child{
+  border-bottom:none;
+}
+
+.exercise-row:hover{
+  background:rgba(220,38,38,.07);
+}
+
+.day-number{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.mobile-menu{
+  display:none;
+}
+
+.mobile-menu.open{
+  display:block;
+}
+
+@media(min-width:768px){
+  .hero{
+    background-attachment:fixed;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-neutral-800">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+    <a href="index.html" aria-label="Bobby's Iron Den home">
+      <img
+        src="bobby-logo.png"
+        alt="Bobby's Iron Den logo"
+        class="h-14 w-auto max-w-[190px] object-contain"
+      >
+    </a>
+
+    <div class="hidden md:flex items-center gap-7 text-xs font-black uppercase tracking-widest">
+      <a href="index.html#sessions" class="hover:text-red-500 transition">Home</a>
+      <a href="training.html" class="text-red-500">Training</a>
+      <a href="index.html#coaches" class="hover:text-red-500 transition">Coaches</a>
+      <a href="index.html#memberships" class="hover:text-red-500 transition">Memberships</a>
+      <a href="index.html#about" class="hover:text-red-500 transition">About</a>
+      <a
+        href="index.html#contact"
+        class="bg-red-600 px-6 py-3 hover:bg-white hover:text-black transition"
+      >
+        Join The Den
+      </a>
+    </div>
+
+    <button
+      onclick="toggleMobileMenu()"
+      class="md:hidden p-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+      id="menuButton"
+    >
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div
+    id="mobileMenu"
+    class="mobile-menu md:hidden bg-black border-t border-neutral-800 px-5 pb-6"
+  >
+    <div class="flex flex-col gap-5 pt-5 text-sm font-black uppercase tracking-widest">
+
+      <a href="index.html" onclick="closeMobileMenu()">Home</a>
+
+      <a href="training.html" onclick="closeMobileMenu()" class="text-red-500">
+        Training
+      </a>
+
+      <a href="index.html#coaches" onclick="closeMobileMenu()">
+        Coaches
+      </a>
+
+      <a href="index.html#memberships" onclick="closeMobileMenu()">
+        Memberships
+      </a>
+
+      <a href="index.html#about" onclick="closeMobileMenu()">
+        About
+      </a>
+
+      <a
+        href="index.html#contact"
+        onclick="closeMobileMenu()"
+        class="bg-red-600 px-5 py-3 text-center"
+      >
+        Join The Den
+      </a>
+
+    </div>
+  </div>
+
+</nav>
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero min-h-[78vh] flex items-center pt-20 relative overflow-hidden">
+
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/4 left-0 w-72 h-72 bg-red-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-24">
+
+    <div class="max-w-4xl reveal">
+
+      <div class="inline-block bg-red-600 px-4 py-2 mb-7 text-xs font-black uppercase tracking-widest">
+        BOBBY TRAINING SYSTEM
+      </div>
+
+      <h1 class="text-6xl sm:text-7xl md:text-8xl black-italic leading-[.86] mb-8">
+        Train
+        <br>
+        <span class="text-red-600">Hard.</span>
+        <br>
+        Train Smart.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-neutral-300 max-w-2xl leading-relaxed mb-10">
+        A structured Monday–Friday training split designed around
+        strength, hypertrophy, progressive overload and focused muscle development.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+
+        <a
+          href="#monday"
+          class="bg-red-600 px-7 py-4 font-black uppercase tracking-widest hover:bg-white hover:text-black transition"
+        >
+          Start Monday
+        </a>
+
+        <a
+          href="#weekly-split"
+          class="border-2 border-white px-7 py-4 font-black uppercase tracking-widest hover:bg-white hover:text-black transition"
+        >
+          View Split
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- WEEKLY OVERVIEW -->
+<section id="weekly-split" class="py-20 bg-black">
+
+  <div class="max-w-7xl mx-auto px-4">
+
+    <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+
+      <div class="text-red-500 text-sm font-black uppercase tracking-widest mb-4">
+        Weekly Structure
+      </div>
+
+      <h2 class="text-5xl md:text-6xl black-italic">
+        Five Days.
+        <span class="text-neutral-600">One System.</span>
+      </h2>
+
+      <p class="text-neutral-400 mt-5 text-lg">
+        Each training day has a specific purpose. Follow the sequence,
+        train with control and prioritize progressive improvement.
+      </p>
+
+    </div>
+
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+
+      <a href="#monday" class="workout-card p-6 reveal">
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+          Monday
+        </div>
+        <div class="black-italic text-xl mt-3">
+          Back + Triceps
+        </div>
+        <div class="text-neutral-500 text-sm mt-3">
+          Heavy pulling
+        </div>
+      </a>
+
+      <a href="#tuesday" class="workout-card p-6 reveal">
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+          Tuesday
+        </div>
+        <div class="black-italic text-xl mt-3">
+          Chest + Shoulders
+        </div>
+        <div class="text-neutral-500 text-sm mt-3">
+          Pressing + delts
+        </div>
+      </a>
+
+      <a href="#wednesday" class="workout-card p-6 reveal">
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+          Wednesday
+        </div>
+        <div class="black-italic text-xl mt-3">
+          Legs + Calves
+        </div>
+        <div class="text-neutral-500 text-sm mt-3">
+          Lower-body strength
+        </div>
+      </a>
+
+      <a href="#thursday" class="workout-card p-6 reveal">
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+          Thursday
+        </div>
+        <div class="black-italic text-xl mt-3">
+          Back + Biceps
+        </div>
+        <div class="text-neutral-500 text-sm mt-3">
+          Width + thickness
+        </div>
+      </a>
+
+      <a href="#friday" class="workout-card p-6 reveal">
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+          Friday
+        </div>
+        <div class="black-italic text-xl mt-3">
+          Shoulders + Arms
+        </div>
+        <div class="text-neutral-500 text-sm mt-3">
+          Hypertrophy
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MONDAY -->
+<section
+  id="monday"
+  class="relative py-24 overflow-hidden"
+  style="
+    background-image:
+      linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.94)),
+      url('gym-training.jpg');
+    background-size:cover;
+    background-position:center;
+  "
+>
+
+  <div class="max-w-5xl mx-auto px-4 relative z-10">
+
+    <div class="workout-card shadow-2xl reveal">
+
+      <div class="p-8 md:p-12 border-b border-neutral-800">
+
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+
+          <div>
+            <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+              Day 01 • Monday
+            </div>
+
+            <h2 class="text-4xl md:text-6xl black-italic">
+              Back + Triceps
+              <span class="text-red-600">🔥</span>
+            </h2>
+
+            <p class="text-neutral-400 mt-4">
+              Main Goal:
+              <span class="text-white font-bold">
+                Heavy pulling
+              </span>
+            </p>
+          </div>
+
+          <div class="text-left md:text-right">
+            <div class="text-neutral-500 text-xs font-black uppercase tracking-widest">
+              Training Focus
+            </div>
+            <div class="text-xl font-bold mt-2">
+              Strength + Pulling Power
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="p-6 md:p-10">
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div>
+            <div class="font-bold">Weighted Pull-ups</div>
+            <div class="text-xs text-neutral-500 uppercase tracking-widest mt-1">
+              Back • Biceps
+            </div>
+          </div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            4 × 6–8
+          </div>
+        </div>
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div class="font-bold">Barbell Rows</div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            4 × 6–8
+          </div>
+        </div>
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div class="font-bold">Lat Pulldown</div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            3 × 8–12
+          </div>
+        </div>
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div class="font-bold">Straight-Arm Pulldown</div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            3 × 10–15
+          </div>
+        </div>
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div class="font-bold">Close-Grip Bench Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            3 × 6–10
+          </div>
+        </div>
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div class="font-bold">Overhead Cable Triceps Extension</div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            3 × 10–15
+          </div>
+        </div>
+
+        <div class="exercise-row flex items-center justify-between gap-5 py-5">
+          <div class="font-bold">Rope Pushdown</div>
+          <div class="text-red-500 font-black whitespace-nowrap">
+            2–3 × 12–15
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TUESDAY -->
+<section
+  id="tuesday"
+  class="relative py-24 bg-neutral-950"
+>
+
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="workout-card reveal">
+
+      <div class="p-8 md:p-12 border-b border-neutral-800">
+
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+          Day 02 • Tuesday
+        </div>
+
+        <h2 class="text-4xl md:text-6xl black-italic">
+          Chest + Shoulders
+          <span class="text-red-600">💪</span>
+        </h2>
+
+        <p class="text-neutral-400 mt-4">
+          Main Goal:
+          <span class="text-white font-bold">
+            Pressing + delts
+          </span>
+        </p>
+
+      </div>
+
+      <div class="p-6 md:p-10">
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Barbell Bench Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">4 × 5–8</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Incline Dumbbell Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 8–10</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Machine/Chest Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Overhead Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 6–10</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Dumbbell Lateral Raises</div>
+          <div class="text-red-500 font-black whitespace-nowrap">4 × 12–20</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Face Pulls</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 12–20</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WEDNESDAY -->
+<section
+  id="wednesday"
+  class="relative py-24 overflow-hidden"
+  style="
+    background-image:
+      linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.94)),
+      url('gym-training.jpg');
+    background-size:cover;
+    background-position:center;
+  "
+>
+
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="workout-card reveal">
+
+      <div class="p-8 md:p-12 border-b border-neutral-800">
+
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+          Day 03 • Wednesday
+        </div>
+
+        <h2 class="text-4xl md:text-6xl black-italic">
+          Legs + Calves
+          <span class="text-red-600">🦵</span>
+        </h2>
+
+        <p class="text-neutral-400 mt-4">
+          Main Goal:
+          <span class="text-white font-bold">
+            Lower-body strength
+          </span>
+        </p>
+
+      </div>
+
+      <div class="p-6 md:p-10">
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Back Squat</div>
+          <div class="text-red-500 font-black whitespace-nowrap">4 × 5–8</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Romanian Deadlift</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 6–10</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Leg Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Leg Curl</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Leg Extension</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 12–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Standing Calf Raise</div>
+          <div class="text-red-500 font-black whitespace-nowrap">4 × 10–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Seated Calf Raise</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 12–20</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- THURSDAY -->
+<section
+  id="thursday"
+  class="relative py-24 bg-neutral-950"
+>
+
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="workout-card reveal">
+
+      <div class="p-8 md:p-12 border-b border-neutral-800">
+
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+          Day 04 • Thursday
+        </div>
+
+        <h2 class="text-4xl md:text-6xl black-italic">
+          Back + Biceps
+          <span class="text-red-600">🔥</span>
+        </h2>
+
+        <p class="text-neutral-400 mt-4">
+          Main Goal:
+          <span class="text-white font-bold">
+            Back width/thickness + arms
+          </span>
+        </p>
+
+      </div>
+
+      <div class="p-6 md:p-10">
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Neutral-Grip Pulldown</div>
+          <div class="text-red-500 font-black whitespace-nowrap">4 × 8–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Single-Arm Dumbbell Row</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 8–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Seated Cable Row</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 8–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Chest-Supported Row</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">EZ-Bar Curl</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 8–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Incline Dumbbell Curl</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Hammer Curl</div>
+          <div class="text-red-500 font-black whitespace-nowrap">2–3 × 10–15</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FRIDAY -->
+<section
+  id="friday"
+  class="relative py-24 overflow-hidden"
+  style="
+    background-image:
+      linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.94)),
+      url('gym-training.jpg');
+    background-size:cover;
+    background-position:center;
+  "
+>
+
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="workout-card reveal">
+
+      <div class="p-8 md:p-12 border-b border-neutral-800">
+
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+          Day 05 • Friday
+        </div>
+
+        <h2 class="text-4xl md:text-6xl black-italic">
+          Shoulders + Arms
+          <span class="text-red-600">💥</span>
+        </h2>
+
+        <p class="text-neutral-400 mt-4">
+          Main Goal:
+          <span class="text-white font-bold">
+            Hypertrophy/finishing work
+          </span>
+        </p>
+
+      </div>
+
+      <div class="p-6 md:p-10">
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Seated Dumbbell Shoulder Press</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 6–10</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Cable/Dumbbell Lateral Raise</div>
+          <div class="text-red-500 font-black whitespace-nowrap">4 × 12–20</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Rear-Delt Fly</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 12–20</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">EZ-Bar Curl</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 8–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Preacher Curl</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Skull Crushers</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 8–12</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Rope Pushdowns</div>
+          <div class="text-red-500 font-black whitespace-nowrap">3 × 10–15</div>
+        </div>
+
+        <div class="exercise-row flex justify-between gap-5 py-5">
+          <div class="font-bold">Dips</div>
+          <div class="text-red-500 font-black whitespace-nowrap">2 × 8–12</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- RECOVERY -->
+<section class="py-24 bg-black">
+
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="text-center mb-12 reveal">
+
+      <div class="gold text-xs font-black uppercase tracking-widest mb-4">
+        Recovery
+      </div>
+
+      <h2 class="text-5xl md:text-6xl black-italic">
+        Weekend
+        <span class="text-neutral-600">Recovery.</span>
+      </h2>
+
+      <p class="text-neutral-400 mt-5 max-w-2xl mx-auto">
+        Saturday and Sunday are rest days. Recover, eat well, sleep properly
+        and return Monday ready to train.
+      </p>
+
+    </div>
+
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div class="workout-card p-8 md:p-10 reveal">
+
+        <div class="text-red-500 text-xs font-black uppercase tracking-widest">
+          Saturday
+        </div>
+
+        <h3 class="text-4xl black-italic mt-3">
+          Rest
+        </h3>
+
+        <p class="text-neutral-500 mt-4">
+          Recovery
+        </p>
+
+      </div>
+
+
+      <div class="workout-card p-8 md:p-10 reveal">
+
+        <div class="gold text-xs font-black uppercase tracking-widest">
+          Sunday
+        </div>
+
+        <h3 class="text-4xl black-italic mt-3">
+          Rest
+        </h3>
+
+        <p class="text-neutral-500 mt-4">
+          Recovery
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRAINING PHILOSOPHY -->
+<section
+  class="relative py-28"
+  style="
+    background-image:
+      linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.88)),
+      url('gym-training.jpg');
+    background-size:cover;
+    background-position:center;
+  "
+>
+
+  <div class="max-w-4xl mx-auto px-4 text-center">
+
+    <div class="glass border border-white/20 p-10 md:p-16 reveal">
+
+      <div class="text-red-500 font-black uppercase tracking-widest mb-5">
+        Bobby's Iron Den
+      </div>
+
+      <h2 class="text-5xl md:text-7xl black-italic">
+        No Shortcuts.
+        <br>
+        <span class="text-red-500">
+          Just Work.
+        </span>
+      </h2>
+
+      <p class="text-neutral-300 text-lg mt-7 max-w-2xl mx-auto">
+        Train with discipline. Track your progress. Respect recovery.
+        Come back stronger.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="py-14 bg-black border-t border-neutral-800">
+
+  <div class="max-w-7xl mx-auto px-4">
+
+    <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-neutral-800">
+
+      <div>
+
+        <img
+          src="bobby-logo.png"
+          alt="Bobby's Iron Den"
+          class="h-16 w-auto max-w-[190px] object-contain mb-5"
+        >
+
+        <p class="text-sm text-neutral-500 leading-relaxed">
+          Forging stronger humans through training, discipline,
+          expert coaching and community.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="text-red-500 font-black uppercase tracking-widest mb-5">
+          Quick Links
+        </h3>
+
+        <div class="space-y-3 text-sm text-neutral-400">
+
+          <a href="index.html" class="block hover:text-white">
+            Home
+          </a>
+
+          <a href="training.html" class="block hover:text-white">
+            Training
+          </a>
+
+          <a href="index.html#coaches" class="block hover:text-white">
+            Coaches
+          </a>
+
+          <a href="index.html#memberships" class="block hover:text-white">
+            Memberships
+          </a>
+
+          <a href="index.html#about" class="block hover:text-white">
+            About
+          </a>
+
+          <a href="index.html#contact" class="block hover:text-white">
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="text-red-500 font-black uppercase tracking-widest mb-5">
+          Contact
+        </h3>
+
+        <div class="space-y-3 text-sm text-neutral-400">
+
+          <div>
+            Ogbomoso, Nigeria
+          </div>
+
+          <a
+            href="tel:+2347025591999"
+            class="block hover:text-white"
+          >
+            +234 702 559 1999
+          </a>
+
+          <a
+            href="https://wa.me/2347025591999"
+            class="block hover:text-white"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="text-red-500 font-black uppercase tracking-widest mb-5">
+          Follow The Den
+        </h3>
+
+        <div class="flex flex-wrap gap-3">
+
+          <span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">
+            Instagram — Coming Soon
+          </span>
+
+          <span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">
+            TikTok — Coming Soon
+          </span>
+
+          <span class="border border-neutral-800 px-4 py-3 text-xs font-bold uppercase text-neutral-600">
+            Facebook — Coming Soon
+          </span>
+
+        </div>
+
+        <a
+          href="https://wa.me/2347025591999"
+          class="inline-block mt-6 bg-red-600 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition"
+        >
+          Join The Community
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="flex flex-col sm:flex-row justify-between gap-4 pt-8 text-xs text-neutral-600">
+
+      <div>
+        © 2026 Bobby's Iron Den. All Rights Reserved.
+      </div>
+
+      <div>
+        Built For Strength. Built For Progress.
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+<a
+  href="https://wa.me/2347025591999"
+  class="fixed bottom-5 right-5 z-50 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 transition"
+>
+  WhatsApp
+</a>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMobileMenu(){
+
+  const menu = document.getElementById('mobileMenu');
+  const button = document.getElementById('menuButton');
+
+  menu.classList.toggle('open');
+
+  const isOpen = menu.classList.contains('open');
+
+  button.setAttribute(
+    'aria-expanded',
+    isOpen ? 'true' : 'false'
+  );
+
+}
+
+
+function closeMobileMenu(){
+
+  const menu = document.getElementById('mobileMenu');
+  const button = document.getElementById('menuButton');
+
+  menu.classList.remove('open');
+
+  button.setAttribute(
+    'aria-expanded',
+    'false'
+  );
+
+}
+
+
+/* CLOSE MOBILE MENU WITH ESCAPE */
+
+document.addEventListener('keydown', function(e){
+
+  if(e.key === 'Escape'){
+    closeMobileMenu();
+  }
+
+});
+
+
+/* CLOSE MOBILE MENU WHEN RESIZING */
+
+window.addEventListener('resize', function(){
+
+  if(window.innerWidth >= 768){
+    closeMobileMenu();
+  }
+
+});
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(
+  function(entries){
+
+    entries.forEach(function(entry){
+
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+
+    });
+
+  },
+  {
+    threshold:.12
+  }
+);
+
+
+document.querySelectorAll('.reveal').forEach(function(element){
+
+  observer.observe(element);
+
+});
+
+</script>
+
+</body>
+</html>
