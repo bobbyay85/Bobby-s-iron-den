@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="description"
+  content="Bobby's Iron Den — Elite Suburban Fitness in Ogbomoso, Nigeria. Strength training, coaching, memberships and structured fitness sessions."
+>
+
+<meta name="theme-color" content="#050505">
+
+<title>Bobby's Iron Den | Elite Suburban Fitness</title>
+
+<link rel="icon" type="image/png" href="bobby-logo.png">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+:root{
+  --red:#dc2626;
+  --gold:#d4a72c;
+  --black:#050505;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:#050505;
+  color:white;
+  overflow-x:hidden;
+}
+
+.display{
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.black-italic{
+  font-weight:900;
+  font-style:italic;
+  text-transform:uppercase;
+  letter-spacing:-0.055em;
+}
+
+.gold{
+  color:var(--gold);
+}
+
+/* HERO */
+
+.hero{
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.94),
+      rgba(0,0,0,.72) 50%,
+      rgba(0,0,0,.48)
+    ),
+    url('gym-hero.jpg');
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* BACKGROUND SECTIONS */
+
+.section-image{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.about-bg{
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.80),
+      rgba(0,0,0,.94)
+    ),
+    url('gym-about.jpg');
+}
+
+.training-bg{
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.80),
+      rgba(0,0,0,.94)
+    ),
+    url('gym-training.jpg');
+}
+
+.coaches-bg{
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.95)
+    ),
+    url('gym-coaches.jpg');
+}
+
+.membership-bg{
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.80),
+      rgba(0,0,0,.94)
+    ),
+    url('gym-membership.jpg');
+}
+
+.contact-bg{
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.95)
+    ),
+    url('gym-contact.jpg');
+}
+
+.exterior-bg{
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.72),
+      rgba(0,0,0,.92)
+    ),
+    url('gym-exterior.jpg');
+}
+
+/* GLASS */
+
+.glass{
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+/* CARDS */
+
+.card{
+  background:rgba(8,8,8,.90);
+  border:1px solid #292929;
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:var(--red);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+/* SESSION CARDS */
+
+.session-card{
+  background:#090909;
+  border:1px solid #262626;
+  transition:.3s ease;
+}
+
+.session-card:hover{
+  transform:translateY(-4px);
+  border-color:#dc2626;
+}
+
+/* COACH CARDS */
+
+.coach-card{
+  overflow:hidden;
+  background:#090909;
+  border:1px solid #292929;
+  transition:.3s ease;
+}
+
+.coach-card:hover{
+  transform:translateY(-5px);
+  border-color:#dc2626;
+}
+
+.coach-card img{
+  transition:.5s ease;
+}
+
+.coach-card:hover img{
+  transform:scale(1.05);
+}
+
+/* MEMBERSHIP */
+
+.membership-card{
+  background:#090909;
+  border:1px solid #292929;
+  transition:.3s ease;
+}
+
+.membership-card:hover{
+  transform:translateY(-5px);
+  border-color:#dc2626;
+}
+
+.featured-membership{
+  border:2px solid var(--red);
+  position:relative;
+}
+
+/* BUTTON */
+
+.red-button{
+  background:#dc2626;
+  transition:.3s ease;
+}
+
+.red-button:hover{
+  background:white;
+  color:black;
+}
+
+.outline-button{
+  border:2px solid white;
+  transition:.3s ease;
+}
+
+.outline-button:hover{
+  background:white;
+  color:black;
+}
+
+/* FAQ */
+
+.faq-item{
+  border-bottom:1px solid #292929;
+}
+
+.faq-question{
+  cursor:pointer;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+
+.faq-item.open .faq-answer{
+  max-height:300px;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+  display:none;
+}
+
+.mobile-menu.open{
+  display:block;
+}
+
+/* DIVIDER */
+
+.red-line{
+  width:70px;
+  height:4px;
+  background:#dc2626;
+}
+
+/* DESKTOP PARALLAX */
+
+@media(min-width:768px){
+
+  .hero,
+  .about-bg,
+  .training-bg,
+  .coaches-bg,
+  .membership-bg,
+  .contact-bg,
+  .exterior-bg{
+    background-attachment:fixed;
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:767px){
+
+  .hero{
+    background-position:center;
+  }
+
+  .black-italic{
+    letter-spacing:-0.04em;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ========================================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================================= -->
+
+<nav
+  class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-neutral-800"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+  >
+
+    <!-- LOGO -->
+
+    <a
+      href="index.html"
+      aria-label="Bobby's Iron Den home"
+    >
+
+      <img
+        src="bobby-logo.png"
+        alt="Bobby's Iron Den logo"
+        class="h-14 w-auto max-w-[190px] object-contain"
+      >
+
+    </a>
+
+
+    <!-- DESKTOP NAV -->
+
+    <div
+      class="hidden md:flex items-center gap-7 text-xs font-black uppercase tracking-widest"
+    >
+
+      <a
+        href="#sessions"
+        class="hover:text-red-500 transition"
+      >
+        Sessions
+      </a>
+
+      <a
+        href="training.html"
+        class="hover:text-red-500 transition"
+      >
+        Training
+      </a>
+
+      <a
+        href="#coaches"
+        class="hover:text-red-500 transition"
+      >
+        Coaches
+      </a>
+
+      <a
+        href="#memberships"
+        class="hover:text-red-500 transition"
+      >
+        Memberships
+      </a>
+
+      <a
+        href="#about"
+        class="hover:text-red-500 transition"
+      >
+        About
+      </a>
+
+      <a
+        href="#contact"
+        class="red-button px-6 py-3"
+      >
+        Join The Den
+      </a>
+
+    </div>
+
+
+    <!-- MOBILE BUTTON -->
+
+    <button
+      id="menuButton"
+      onclick="toggleMobileMenu()"
+      class="md:hidden p-2"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+
+      <svg
+        class="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+
+        <path
+          stroke-width="2"
+          stroke-linecap="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+
+      </svg>
+
+    </button>
+
+  </div>
+
+
+  <!-- MOBILE MENU -->
+
+  <div
+    id="mobileMenu"
+    class="mobile-menu md:hidden bg-black border-t border-neutral-800 px-5 pb-6"
+  >
+
+    <div
+      class="flex flex-col gap-5 pt-5 text-sm font-black uppercase tracking-widest"
+    >
+
+      <a
+        href="#sessions"
+        onclick="closeMobileMenu()"
+      >
+        Sessions
+      </a>
+
+      <a
+        href="training.html"
+        onclick="closeMobileMenu()"
+      >
+        Training
+      </a>
+
+      <a
+        href="#coaches"
+        onclick="closeMobileMenu()"
+      >
+        Coaches
+      </a>
+
+      <a
+        href="#memberships"
+        onclick="closeMobileMenu()"
+      >
+        Memberships
+      </a>
+
+      <a
+        href="#about"
+        onclick="closeMobileMenu()"
+      >
+        About
+      </a>
+
+      <a
+        href="#contact"
+        onclick="closeMobileMenu()"
+        class="red-button px-5 py-3 text-center"
+      >
+        Join The Den
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<header
+  class="hero min-h-screen flex items-center pt-20 relative overflow-hidden"
+>
+
+  <!-- Decorative glow -->
+
+  <div class="absolute inset-0 pointer-events-none">
+
+    <div
+      class="absolute top-1/4 left-0 w-72 h-72 bg-red-600/10 rounded-full blur-3xl"
+    ></div>
+
+    <div
+      class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"
+    ></div>
+
+  </div>
+
+
+  <div
+    class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-24"
+  >
+
+    <div
+      class="max-w-4xl reveal"
+    >
+
+      <div
+        class="inline-block bg-red-600 px-4 py-2 mb-7 text-xs font-black uppercase tracking-widest"
+      >
+        Elite Suburban Fitness
+      </div>
+
+
+      <h1
+        class="text-6xl sm:text-7xl md:text-8xl black-italic leading-[.86] mb-8"
+      >
+
+        Forging
+
+        <br>
+
+        <span class="text-red-600">
+          Stronger
+        </span>
+
+        <br>
+
+        Humans.
+
+      </h1>
+
+
+      <p
+        class="text-lg sm:text-xl text-neutral-300 max-w-2xl leading-relaxed mb-10"
+      >
+
+        Welcome to Bobby's Iron Den — a serious training environment
+        built for strength, discipline, muscle development and people
+        committed to becoming stronger.
+
+      </p>
+
+
+      <div
+        class="flex flex-wrap gap-4"
+      >
+
+        <a
+          href="#memberships"
+          class="red-button px-7 py-4 font-black uppercase tracking-widest"
+        >
+          Join The Den
+        </a>
+
+        <a
+          href="training.html"
+          class="outline-button px-7 py-4 font-black uppercase tracking-widest"
+        >
+          View Training
+        </a>
+
+      </div>
+
+
+      <!-- Hero stats -->
+
+      <div
+        class="grid grid-cols-3 gap-5 max-w-xl mt-14 pt-8 border-t border-white/20"
+      >
+
+        <div>
+
+          <div class="text-3xl sm:text-4xl font-black">
+            5
+          </div>
+
+          <div
+            class="text-xs text-neutral-400 uppercase tracking-widest mt-1"
+          >
+            Training Days
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="text-3xl sm:text-4xl font-black">
+            2
+          </div>
+
+          <div
+            class="text-xs text-neutral-400 uppercase tracking-widest mt-1"
+          >
+            Rest Days
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="text-3xl sm:text-4xl font-black">
+            100%
+          </div>
+
+          <div
+            class="text-xs text-neutral-400 uppercase tracking-widest mt-1"
+          >
+            Commitment
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- ========================================================= -->
+<!-- SESSIONS -->
+<!-- ========================================================= -->
+
+<section
+  id="sessions"
+  class="py-24 bg-black"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="max-w-3xl mb-14 reveal"
+    >
+
+      <div
+        class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+      >
+        Training Sessions
+      </div>
+
+      <h2
+        class="text-5xl md:text-6xl black-italic"
+      >
+        Train With
+        <span class="text-neutral-600">
+          Purpose.
+        </span>
+      </h2>
+
+      <div class="red-line mt-7"></div>
+
+      <p
+        class="text-neutral-400 text-lg leading-relaxed mt-7"
+      >
+
+        Structured sessions designed to help members train consistently,
+        improve performance and build a stronger body.
+
+      </p>
+
+    </div>
+
+
+    <!-- SESSION GRID -->
+
+    <div
+      class="grid md:grid-cols-2 gap-5"
+    >
+
+
+      <!-- MONDAY -->
+
+      <div class="session-card p-7 reveal">
+
+        <div class="flex items-start justify-between gap-5">
+
+          <div>
+
+            <div
+              class="text-red-500 text-xs font-black uppercase tracking-widest"
+            >
+              Monday
+            </div>
+
+            <h3
+              class="text-2xl font-black uppercase mt-2"
+            >
+              Power Hour
+            </h3>
+
+          </div>
+
+          <div
+            class="text-right text-sm text-neutral-500"
+          >
+            06:00 AM
+          </div>
+
+        </div>
+
+        <p class="text-neutral-400 mt-5">
+          Start the week with focused strength work and high-energy training.
+        </p>
+
+        <div class="mt-6 text-sm">
+          <span class="text-neutral-500">
+            Coach:
+          </span>
+
+          <span class="font-bold">
+            Alex
+          </span>
+
+          <span class="text-red-500 ml-3">
+            Extreme
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- MONDAY SECOND -->
+
+      <div class="session-card p-7 reveal">
+
+        <div class="flex items-start justify-between gap-5">
+
+          <div>
+
+            <div
+              class="text-red-500 text-xs font-black uppercase tracking-widest"
+            >
+              Monday
+            </div>
+
+            <h3
+              class="text-2xl font-black uppercase mt-2"
+            >
+              Iron Strength
+            </h3>
+
+          </div>
+
+          <div
+            class="text-right text-sm text-neutral-500"
+          >
+            09:00 AM
+          </div>
+
+        </div>
+
+        <p class="text-neutral-400 mt-5">
+          Controlled strength training focused on building power and muscle.
+        </p>
+
+        <div class="mt-6 text-sm">
+
+          <span class="text-neutral-500">
+            Coach:
+          </span>
+
+          <span class="font-bold">
+            Mike
+          </span>
+
+          <span class="text-red-500 ml-3">
+            High
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- TUESDAY -->
+
+      <div class="session-card p-7 reveal">
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Tuesday
+        </div>
+
+        <h3
+          class="text-2xl font-black uppercase mt-2"
+        >
+          Strength & Hypertrophy
+        </h3>
+
+        <p class="text-neutral-400 mt-5">
+          Focused resistance training designed around progressive overload
+          and muscle development.
+        </p>
+
+      </div>
+
+
+      <!-- WEDNESDAY -->
+
+      <div class="session-card p-7 reveal">
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Wednesday
+        </div>
+
+        <h3
+          class="text-2xl font-black uppercase mt-2"
+        >
+          Lower Body
+        </h3>
+
+        <p class="text-neutral-400 mt-5">
+          Build stronger legs, better movement and lower-body power.
+        </p>
+
+      </div>
+
+
+      <!-- THURSDAY -->
+
+      <div class="session-card p-7 reveal">
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Thursday
+        </div>
+
+        <h3
+          class="text-2xl font-black uppercase mt-2"
+        >
+          Upper Body
+        </h3>
+
+        <p class="text-neutral-400 mt-5">
+          Develop back, chest, shoulders and arms through structured training.
+        </p>
+
+      </div>
+
+
+      <!-- FRIDAY -->
+
+      <div class="session-card p-7 reveal">
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Friday
+        </div>
+
+        <h3
+          class="text-2xl font-black uppercase mt-2"
+        >
+          Full Finish
+        </h3>
+
+        <p class="text-neutral-400 mt-5">
+          Finish the training week with focused hypertrophy and conditioning.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- TRAINING PAGE LINK -->
+
+    <div class="mt-10 text-center reveal">
+
+      <a
+        href="training.html"
+        class="inline-flex items-center gap-3 red-button px-8 py-4 font-black uppercase tracking-widest"
+      >
+
+        View Full Training Program
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- ABOUT -->
+<!-- ========================================================= -->
+
+<section
+  id="about"
+  class="about-bg section-image py-28"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="grid lg:grid-cols-2 gap-14 items-center"
+    >
+
+      <div class="reveal">
+
+        <div
+          class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+        >
+          About The Den
+        </div>
+
+        <h2
+          class="text-5xl md:text-6xl black-italic"
+        >
+          More Than
+          <span class="text-red-600">
+            A Gym.
+          </span>
+        </h2>
+
+        <div class="red-line mt-7"></div>
+
+      </div>
+
+
+      <div class="reveal">
+
+        <p
+          class="text-neutral-300 text-lg leading-relaxed"
+        >
+
+          Bobby's Iron Den is built around one simple idea:
+          consistent training produces stronger people.
+
+        </p>
+
+        <p
+          class="text-neutral-400 text-lg leading-relaxed mt-6"
+        >
+
+          Whether you're beginning your fitness journey or already
+          experienced in the gym, the Den provides an environment
+          where training, discipline and progression come first.
+
+        </p>
+
+        <p
+          class="text-neutral-400 text-lg leading-relaxed mt-6"
+        >
+
+          Located in Ogbomoso, Nigeria, Bobby's Iron Den is designed
+          to be a focused suburban fitness space for people who are
+          serious about improving themselves.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- TRAINING FEATURE -->
+<!-- ========================================================= -->
+
+<section
+  class="training-bg section-image py-28"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="max-w-4xl reveal"
+    >
+
+      <div
+        class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+      >
+        Bobby Training System
+      </div>
+
+      <h2
+        class="text-5xl md:text-7xl black-italic"
+      >
+
+        Build
+
+        <span class="text-red-600">
+          Strength.
+        </span>
+
+        <br>
+
+        Build Muscle.
+
+      </h2>
+
+      <p
+        class="text-neutral-300 text-lg max-w-2xl leading-relaxed mt-7"
+      >
+
+        Follow a structured Monday–Friday split covering back,
+        chest, shoulders, legs, arms and progressive strength work.
+
+      </p>
+
+      <a
+        href="training.html"
+        class="inline-block red-button px-8 py-4 mt-9 font-black uppercase tracking-widest"
+      >
+        Explore Training
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- COACHES -->
+<!-- ========================================================= -->
+
+<section
+  id="coaches"
+  class="coaches-bg section-image py-28"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="text-center max-w-3xl mx-auto mb-14 reveal"
+    >
+
+      <div
+        class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+      >
+        The Team
+      </div>
+
+      <h2
+        class="text-5xl md:text-6xl black-italic"
+      >
+        Train With
+        <span class="text-neutral-600">
+          Focus.
+        </span>
+      </h2>
+
+      <p
+        class="text-neutral-400 text-lg mt-6"
+      >
+
+        Guidance, structure and accountability to help you stay
+        consistent with your training.
+
+      </p>
+
+    </div>
+
+
+    <div
+      class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+
+
+      <!-- COACH 1 -->
+
+      <div class="coach-card reveal">
+
+        <div class="aspect-[4/3] overflow-hidden">
+
+          <img
+            src="gym-coaches.jpg"
+            alt="Bobby's Iron Den coaching team"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+        <div class="p-7">
+
+          <div
+            class="text-red-500 text-xs font-black uppercase tracking-widest"
+          >
+            Coach
+          </div>
+
+          <h3
+            class="text-2xl font-black uppercase mt-2"
+          >
+            Alex
+          </h3>
+
+          <p class="text-neutral-500 mt-3">
+            Strength & Performance
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- COACH 2 -->
+
+      <div class="coach-card reveal">
+
+        <div class="aspect-[4/3] overflow-hidden">
+
+          <img
+            src="gym-coaches.jpg"
+            alt="Bobby's Iron Den coach"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+        <div class="p-7">
+
+          <div
+            class="text-red-500 text-xs font-black uppercase tracking-widest"
+          >
+            Coach
+          </div>
+
+          <h3
+            class="text-2xl font-black uppercase mt-2"
+          >
+            Mike
+          </h3>
+
+          <p class="text-neutral-500 mt-3">
+            Strength & Hypertrophy
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEAM -->
+
+      <div
+        class="coach-card reveal flex flex-col justify-center p-7"
+      >
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Bobby's Iron Den
+        </div>
+
+        <h3
+          class="text-3xl font-black uppercase mt-3"
+        >
+          Built For
+          <br>
+          Progress.
+        </h3>
+
+        <p class="text-neutral-400 mt-5 leading-relaxed">
+          A focused training environment where members can work
+          toward their individual goals.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- MEMBERSHIPS -->
+<!-- ========================================================= -->
+
+<section
+  id="memberships"
+  class="membership-bg section-image py-28"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="text-center max-w-3xl mx-auto mb-14 reveal"
+    >
+
+      <div
+        class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+      >
+        Memberships
+      </div>
+
+      <h2
+        class="text-5xl md:text-6xl black-italic"
+      >
+        Choose Your
+        <span class="text-red-600">
+          Level.
+        </span>
+      </h2>
+
+      <p
+        class="text-neutral-400 text-lg mt-6"
+      >
+
+        Flexible options for people at different stages of their
+        fitness journey.
+
+      </p>
+
+    </div>
+
+
+    <div
+      class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+    >
+
+
+      <!-- BASIC -->
+
+      <div class="membership-card p-8 reveal">
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Starter
+        </div>
+
+        <h3
+          class="text-3xl font-black uppercase mt-3"
+        >
+          Iron Starter
+        </h3>
+
+        <p
+          class="text-neutral-400 mt-5"
+        >
+          For members who are beginning their training journey.
+        </p>
+
+        <div class="mt-8">
+
+          <div class="flex items-center gap-3">
+            <span class="text-red-500">✓</span>
+            Gym access
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Training environment
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Monday–Friday sessions
+          </div>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="block text-center outline-button px-5 py-4 mt-9 font-black uppercase tracking-widest"
+        >
+          Get Started
+        </a>
+
+      </div>
+
+
+      <!-- STANDARD -->
+
+      <div
+        class="membership-card featured-membership p-8 reveal"
+      >
+
+        <div
+          class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 px-5 py-2 text-xs font-black uppercase tracking-widest"
+        >
+          Popular
+        </div>
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Standard
+        </div>
+
+        <h3
+          class="text-3xl font-black uppercase mt-3"
+        >
+          Iron Member
+        </h3>
+
+        <p
+          class="text-neutral-400 mt-5"
+        >
+          A complete option for consistent strength and muscle training.
+        </p>
+
+        <div class="mt-8">
+
+          <div class="flex items-center gap-3">
+            <span class="text-red-500">✓</span>
+            Full gym access
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Training sessions
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Structured training support
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Monday–Friday access
+          </div>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="block text-center red-button px-5 py-4 mt-9 font-black uppercase tracking-widest"
+        >
+          Join The Den
+        </a>
+
+      </div>
+
+
+      <!-- PREMIUM -->
+
+      <div class="membership-card p-8 reveal">
+
+        <div
+          class="text-red-500 text-xs font-black uppercase tracking-widest"
+        >
+          Advanced
+        </div>
+
+        <h3
+          class="text-3xl font-black uppercase mt-3"
+        >
+          Iron Elite
+        </h3>
+
+        <p
+          class="text-neutral-400 mt-5"
+        >
+          For members who want a more focused and demanding training experience.
+        </p>
+
+        <div class="mt-8">
+
+          <div class="flex items-center gap-3">
+            <span class="text-red-500">✓</span>
+            Full gym access
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Advanced training
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Coaching support
+          </div>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-red-500">✓</span>
+            Performance focused
+          </div>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="block text-center outline-button px-5 py-4 mt-9 font-black uppercase tracking-widest"
+        >
+          Enquire
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- GYM ENVIRONMENT -->
+<!-- ========================================================= -->
+
+<section
+  class="exterior-bg section-image py-28"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="grid lg:grid-cols-2 gap-12 items-center"
+    >
+
+      <div class="reveal">
+
+        <div
+          class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+        >
+          The Environment
+        </div>
+
+        <h2
+          class="text-5xl md:text-6xl black-italic"
+        >
+          Your Training
+          <span class="text-red-600">
+            Ground.
+          </span>
+        </h2>
+
+      </div>
+
+
+      <div class="reveal">
+
+        <p
+          class="text-neutral-300 text-lg leading-relaxed"
+        >
+
+          A serious training environment where you can focus on
+          the work without unnecessary distractions.
+
+        </p>
+
+        <p
+          class="text-neutral-400 mt-6 text-lg leading-relaxed"
+        >
+
+          Come in, train hard, stay consistent and leave stronger.
+
+        </p>
+
+        <a
+          href="#contact"
+          class="inline-block red-button px-7 py-4 mt-8 font-black uppercase tracking-widest"
+        >
+          Visit The Den
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- FAQ -->
+<!-- ========================================================= -->
+
+<section
+  class="py-28 bg-black"
+>
+
+  <div
+    class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="text-center mb-14 reveal"
+    >
+
+      <div
+        class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+      >
+        FAQ
+      </div>
+
+      <h2
+        class="text-5xl md:text-6xl black-italic"
+      >
+        Questions?
+      </h2>
+
+    </div>
+
+
+    <div class="card px-6 md:px-10">
+
+
+      <!-- FAQ 1 -->
+
+      <div class="faq-item py-6">
+
+        <div
+          class="faq-question flex items-center justify-between gap-5"
+          onclick="toggleFAQ(this)"
+        >
+
+          <h3 class="font-bold text-lg">
+            What days is Bobby's Iron Den open for training?
+          </h3>
+
+          <span class="faq-icon text-red-500 text-2xl">
+            +
+          </span>
+
+        </div>
+
+        <div class="faq-answer">
+
+          <p class="text-neutral-400 pt-5 leading-relaxed">
+            Training sessions are structured from Monday to Friday.
+            Saturday and Sunday are designated rest days.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- FAQ 2 -->
+
+      <div class="faq-item py-6">
+
+        <div
+          class="faq-question flex items-center justify-between gap-5"
+          onclick="toggleFAQ(this)"
+        >
+
+          <h3 class="font-bold text-lg">
+            Is the gym suitable for beginners?
+          </h3>
+
+          <span class="faq-icon text-red-500 text-2xl">
+            +
+          </span>
+
+        </div>
+
+        <div class="faq-answer">
+
+          <p class="text-neutral-400 pt-5 leading-relaxed">
+            Yes. The training environment is designed for people
+            at different stages of their fitness journey.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- FAQ 3 -->
+
+      <div class="faq-item py-6">
+
+        <div
+          class="faq-question flex items-center justify-between gap-5"
+          onclick="toggleFAQ(this)"
+        >
+
+          <h3 class="font-bold text-lg">
+            Can I see the full training program?
+          </h3>
+
+          <span class="faq-icon text-red-500 text-2xl">
+            +
+          </span>
+
+        </div>
+
+        <div class="faq-answer">
+
+          <p class="text-neutral-400 pt-5 leading-relaxed">
+
+            Yes. Visit the Training page to view the complete
+            Monday–Friday workout structure.
+
+          </p>
+
+          <a
+            href="training.html"
+            class="inline-block text-red-500 font-bold mt-4"
+          >
+            View Training →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- FAQ 4 -->
+
+      <div class="faq-item py-6">
+
+        <div
+          class="faq-question flex items-center justify-between gap-5"
+          onclick="toggleFAQ(this)"
+        >
+
+          <h3 class="font-bold text-lg">
+            How can I join?
+          </h3>
+
+          <span class="faq-icon text-red-500 text-2xl">
+            +
+          </span>
+
+        </div>
+
+        <div class="faq-answer">
+
+          <p class="text-neutral-400 pt-5 leading-relaxed">
+
+            Use the contact section below to enquire about joining
+            Bobby's Iron Den and available membership options.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- CONTACT / JOIN -->
+<!-- ========================================================= -->
+
+<section
+  id="contact"
+  class="contact-bg section-image py-28"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="grid lg:grid-cols-2 gap-14 items-center"
+    >
+
+      <div class="reveal">
+
+        <div
+          class="text-red-500 text-sm font-black uppercase tracking-widest mb-4"
+        >
+          Join The Den
+        </div>
+
+        <h2
+          class="text-5xl md:text-7xl black-italic"
+        >
+
+          Ready To
+
+          <span class="text-red-600">
+            Train?
+          </span>
+
+        </h2>
+
+        <p
+          class="text-neutral-300 text-lg leading-relaxed mt-7 max-w-xl"
+        >
+
+          Take the next step toward becoming stronger.
+          Contact Bobby's Iron Den to learn more about memberships,
+          training and sessions.
+
+        </p>
+
+
+        <div class="mt-10 space-y-5">
+
+          <div>
+
+            <div
+              class="text-xs text-neutral-500 uppercase tracking-widest font-black"
+            >
+              Location
+            </div>
+
+            <div class="font-bold mt-1">
+              Ogbomoso, Nigeria
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div
+              class="text-xs text-neutral-500 uppercase tracking-widest font-black"
+            >
+              Training
+            </div>
+
+            <div class="font-bold mt-1">
+              Monday – Friday
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div
+              class="text-xs text-neutral-500 uppercase tracking-widest font-black"
+            >
+              Rest
+            </div>
+
+            <div class="font-bold mt-1">
+              Saturday – Sunday
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACT CARD -->
+
+      <div
+        class="card p-8 md:p-10 reveal"
+      >
+
+        <h3
+          class="text-3xl font-black uppercase"
+        >
+          Start Your Journey
+        </h3>
+
+        <p class="text-neutral-400 mt-3">
+          Send an enquiry to get information about joining the Den.
+        </p>
+
+
+        <form
+          class="mt-8 space-y-5"
+          onsubmit="handleContact(event)"
+        >
+
+          <div>
+
+            <label
+              for="name"
+              class="block text-xs uppercase tracking-widest font-black mb-2"
+            >
+              Name
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Your name"
+              class="w-full bg-black border border-neutral-700 px-4 py-4 outline-none focus:border-red-600 transition"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label
+              for="phone"
+              class="block text-xs uppercase tracking-widest font-black mb-2"
+            >
+              Phone
+            </label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              placeholder="Your phone number"
+              class="w-full bg-black border border-neutral-700 px-4 py-4 outline-none focus:border-red-600 transition"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label
+              for="message"
+              class="block text-xs uppercase tracking-widest font-black mb-2"
+            >
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              placeholder="Tell us what you are interested in..."
+              class="w-full bg-black border border-neutral-700 px-4 py-4 outline-none focus:border-red-600 transition resize-none"
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="w-full red-button px-6 py-4 font-black uppercase tracking-widest"
+          >
+            Send Enquiry
+          </button>
+
+        </form>
+
+
+        <p
+          id="formMessage"
+          class="hidden text-green-500 text-sm mt-5"
+        >
+          Thanks. Your enquiry has been prepared.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer
+  class="bg-black border-t border-neutral-800"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+  >
+
+    <div
+      class="grid md:grid-cols-3 gap-10"
+    >
+
+
+      <!-- BRAND -->
+
+      <div>
+
+        <img
+          src="bobby-logo.png"
+          alt="Bobby's Iron Den"
+          class="h-14 w-auto max-w-[190px] object-contain"
+        >
+
+        <p
+          class="text-neutral-500 mt-5 max-w-sm"
+        >
+          Forging stronger humans through disciplined training.
+        </p>
+
+      </div>
+
+
+      <!-- LINKS -->
+
+      <div>
+
+        <div
+          class="text-xs font-black uppercase tracking-widest text-red-500 mb-5"
+        >
+          Quick Links
+        </div>
+
+        <div class="space-y-3 text-neutral-400">
+
+          <a
+            href="#sessions"
+            class="block hover:text-white transition"
+          >
+            Sessions
+          </a>
+
+          <a
+            href="training.html"
+            class="block hover:text-white transition"
+          >
+            Training
+          </a>
+
+          <a
+            href="#coaches"
+            class="block hover:text-white transition"
+          >
+            Coaches
+          </a>
+
+          <a
+            href="#memberships"
+            class="block hover:text-white transition"
+          >
+            Memberships
+          </a>
+
+          <a
+            href="#about"
+            class="block hover:text-white transition"
+          >
+            About
+          </a>
+
+          <a
+            href="#contact"
+            class="block hover:text-white transition"
+          >
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- INFO -->
+
+      <div>
+
+        <div
+          class="text-xs font-black uppercase tracking-widest text-red-500 mb-5"
+        >
+          Bobby's Iron Den
+        </div>
+
+        <p class="text-neutral-400">
+          Ogbomoso, Nigeria
+        </p>
+
+        <p class="text-neutral-500 mt-3">
+          Monday – Friday Training
+        </p>
+
+        <p class="text-neutral-500">
+          Saturday – Sunday Rest
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="border-t border-neutral-800 mt-12 pt-7 flex flex-col sm:flex-row justify-between gap-4 text-sm text-neutral-600"
+    >
+
+      <div>
+        © <span id="year"></span> Bobby's Iron Den. All rights reserved.
+      </div>
+
+      <div>
+        Forging Stronger Humans.
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMobileMenu(){
+
+  const menu = document.getElementById("mobileMenu");
+  const button = document.getElementById("menuButton");
+
+  menu.classList.toggle("open");
+
+  const isOpen = menu.classList.contains("open");
+
+  button.setAttribute(
+    "aria-expanded",
+    isOpen ? "true" : "false"
+  );
+
+}
+
+
+function closeMobileMenu(){
+
+  const menu = document.getElementById("mobileMenu");
+  const button = document.getElementById("menuButton");
+
+  menu.classList.remove("open");
+
+  button.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+}
+
+
+/* FAQ */
+
+function toggleFAQ(element){
+
+  const item = element.parentElement;
+
+  const icon = element.querySelector(".faq-icon");
+
+  item.classList.toggle("open");
+
+  if(item.classList.contains("open")){
+
+    icon.textContent = "−";
+
+  }else{
+
+    icon.textContent = "+";
+
+  }
+
+}
+
+
+/* SCROLL REVEAL */
+
+const revealObserver =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("show");
+
+          revealObserver.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    {
+      threshold:0.12
+    }
+  );
+
+
+document
+  .querySelectorAll(".reveal")
+  .forEach((element) => {
+
+    revealObserver.observe(element);
+
+  });
+
+
+/* CONTACT FORM */
+
+function handleContact(event){
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const message =
+    document.getElementById("message").value.trim();
+
+  const formMessage =
+    document.getElementById("formMessage");
+
+
+  if(!name || !phone || !message){
+
+    return;
+
+  }
+
+
+  formMessage.classList.remove("hidden");
+
+}
+
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* CLOSE MOBILE MENU WHEN CLICKING OUTSIDE */
+
+document.addEventListener("click", function(event){
+
+  const menu =
+    document.getElementById("mobileMenu");
+
+  const button =
+    document.getElementById("menuButton");
+
+  if(
+    menu.classList.contains("open") &&
+    !menu.contains(event.target) &&
+    !button.contains(event.target)
+  ){
+
+    closeMobileMenu();
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
